@@ -4,8 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>nonop31 — Roblox Developer</title>
-    <meta name="description" content="Roblox developer portfolio — systems, mechanics and UI development.">
+    <title>Nonop31 - Roblox Developer</title>
+
+    <meta
+        name="description"
+        content="Nonop31 - Roblox developer working on gameplay systems, mechanics, scripting and UI."
+    >
+
+    <meta property="og:title" content="Nonop31 - Roblox Developer">
+    <meta
+        property="og:description"
+        content="Roblox developer working on gameplay systems, mechanics, scripting and UI."
+    >
+    <meta property="og:image" content="game.png">
+    <meta property="og:url" content="https://nonop31.github.io/">
 
     <style>
         * {
@@ -20,7 +32,7 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #0b0b0b;
+            background: #080808;
             color: #f2f2f2;
             line-height: 1.6;
         }
@@ -32,37 +44,61 @@
 
         button,
         input,
-        select,
-        textarea {
+        textarea,
+        select {
             font: inherit;
         }
 
+        button,
+        select {
+            cursor: pointer;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        iframe {
+            display: block;
+            width: 100%;
+            border: 0;
+        }
+
+        :focus-visible {
+            outline: 2px solid #ffffff;
+            outline-offset: 3px;
+        }
+
         .container {
-            width: min(1080px, calc(100% - 40px));
+            width: min(1180px, calc(100% - 40px));
             margin: 0 auto;
         }
 
-        /* NAVBAR */
+        /* =========================
+           NAVIGATION
+        ========================= */
 
         header {
             position: sticky;
             top: 0;
-            z-index: 100;
-            background: #0b0b0b;
-            border-bottom: 1px solid #242424;
+            z-index: 1000;
+            background: #080808;
+            border-bottom: 1px solid #202020;
         }
 
         .navbar {
-            height: 68px;
+            min-height: 72px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 30px;
         }
 
         .logo {
             font-size: 20px;
             font-weight: 700;
-            letter-spacing: -0.3px;
+            letter-spacing: -0.5px;
         }
 
         .nav-right {
@@ -73,495 +109,724 @@
 
         .nav-links {
             display: flex;
-            gap: 26px;
             align-items: center;
+            gap: 28px;
+            list-style: none;
         }
 
         .nav-links a {
-            color: #a7a7a7;
+            color: #a9a9a9;
             font-size: 14px;
-            transition: color 0.15s ease;
         }
 
         .nav-links a:hover {
             color: #ffffff;
         }
 
-        .language {
-            position: relative;
+        .language-select {
+            appearance: none;
+            background: #101010;
+            color: #eeeeee;
+            border: 1px solid #292929;
+            border-radius: 7px;
+            padding: 9px 32px 9px 12px;
+            font-size: 13px;
         }
 
-        .language-button {
-            background: transparent;
-            color: #ddd;
-            border: 1px solid #303030;
-            border-radius: 5px;
-            padding: 9px 12px;
-            cursor: pointer;
-        }
-
-        .language-menu {
-            position: absolute;
-            top: calc(100% + 8px);
-            right: 0;
-            min-width: 145px;
-            background: #111;
-            border: 1px solid #303030;
-            border-radius: 6px;
-            padding: 5px;
+        .mobile-menu-button {
             display: none;
-        }
-
-        .language-menu.open {
-            display: block;
-        }
-
-        .language-menu button {
-            display: block;
-            width: 100%;
-            text-align: left;
             background: transparent;
-            border: 0;
-            color: #ccc;
-            padding: 9px 10px;
-            border-radius: 4px;
-            cursor: pointer;
+            color: #ffffff;
+            border: 1px solid #292929;
+            border-radius: 7px;
+            padding: 8px 11px;
+            font-size: 20px;
+            line-height: 1;
         }
 
-        .language-menu button:hover {
-            background: #1d1d1d;
-            color: #fff;
+        .mobile-menu {
+            display: none;
+            border-top: 1px solid #202020;
+            padding: 14px 0 18px;
         }
 
-        /* HERO */
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 9px 0;
+            color: #b5b5b5;
+            font-size: 14px;
+        }
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        section {
+            padding: 110px 0;
+            border-bottom: 1px solid #181818;
+        }
+
+        .section-header {
+            margin-bottom: 45px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 13px;
+        }
+
+        .section-header p {
+            color: #969696;
+            max-width: 650px;
+            font-size: 15px;
+        }
+
+        .muted {
+            color: #9b9b9b;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
-            padding: 100px 0 110px;
+            padding: 100px 0 90px;
+            border-bottom: 1px solid #181818;
         }
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.05fr 0.95fr;
             gap: 70px;
             align-items: center;
         }
 
-        .eyebrow {
-            color: #888;
-            font-size: 13px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 22px;
-        }
-
         .hero h1 {
-            font-size: clamp(44px, 6vw, 72px);
-            line-height: 0.98;
-            letter-spacing: -3px;
-            margin-bottom: 30px;
+            max-width: 720px;
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.02;
+            letter-spacing: -2.8px;
+            margin-bottom: 26px;
         }
 
-        .hero p {
-            max-width: 620px;
-            color: #aaa;
-            font-size: 16px;
-            line-height: 1.9;
-            margin-bottom: 25px;
+        .hero-description {
+            max-width: 680px;
+            color: #a9a9a9;
+            font-size: 17px;
+            line-height: 1.8;
         }
 
-        .tags {
+        .hero-buttons {
             display: flex;
+            gap: 12px;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 30px;
-        }
-
-        .tag {
-            border: 1px solid #303030;
-            border-radius: 5px;
-            padding: 6px 10px;
-            color: #bbb;
-            font-size: 13px;
-        }
-
-        .buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            margin-top: 30px;
         }
 
         .button {
-            display: inline-block;
-            padding: 11px 17px;
-            border-radius: 5px;
-            border: 1px solid #333;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .button-primary {
-            background: #f1f1f1;
-            color: #111;
-            border-color: #f1f1f1;
-        }
-
-        .button-secondary {
-            background: transparent;
-            color: #eee;
-        }
-
-        .button-secondary:hover {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 18px;
+            border-radius: 7px;
+            border: 1px solid #303030;
             background: #151515;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .button:hover {
+            background: #202020;
+        }
+
+        .button.primary {
+            background: #ffffff;
+            color: #080808;
+            border-color: #ffffff;
+        }
+
+        .button.primary:hover {
+            background: #dddddd;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 25px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 10px;
+            border: 1px solid #292929;
+            border-radius: 5px;
+            color: #a8a8a8;
+            background: #0d0d0d;
+            font-size: 12px;
         }
 
         .hero-project {
-            border: 1px solid #2b2b2b;
-            border-radius: 6px;
+            background: #101010;
+            border: 1px solid #292929;
+            border-radius: 10px;
             overflow: hidden;
-            background: #111;
         }
 
-        .hero-project img {
+        .hero-project-image {
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: #0d0d0d;
+        }
+
+        .hero-project-image img {
             width: 100%;
-            height: 390px;
+            height: 100%;
             object-fit: cover;
-            display: block;
         }
 
-        .hero-project-info {
-            padding: 15px 16px;
-            border-top: 1px solid #2b2b2b;
+        .hero-project-content {
+            padding: 20px;
         }
 
-        .hero-project-info span {
-            color: #888;
-            font-size: 13px;
+        .hero-project-content h3 {
+            font-size: 20px;
+            margin-bottom: 7px;
         }
 
-        /* SECTIONS */
-
-        section {
-            padding: 90px 0;
-            border-top: 1px solid #1d1d1d;
+        .hero-project-content p {
+            color: #919191;
+            font-size: 14px;
         }
 
-        .section-title {
-            font-size: 32px;
-            letter-spacing: -1px;
-            margin-bottom: 12px;
-        }
-
-        .section-description {
-            color: #888;
-            max-width: 700px;
-            margin-bottom: 40px;
-        }
-
-        /* ABOUT */
-
-        .about-text {
-            max-width: 780px;
-            color: #aaa;
-            font-size: 16px;
-            line-height: 1.9;
-        }
-
-        /* PROJECTS */
+        /* =========================
+           WORK
+        ========================= */
 
         .projects {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 35px;
         }
 
-        .project {
+        .project-card {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
             border: 1px solid #292929;
-            border-radius: 6px;
+            border-radius: 9px;
             overflow: hidden;
             background: #101010;
         }
 
         .project-video {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            border: 0;
-            display: block;
+            min-height: 360px;
+            background: #080808;
+        }
+
+        .project-video iframe {
+            height: 100%;
+            min-height: 360px;
         }
 
         .project-content {
-            padding: 18px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-number {
+            color: #777777;
+            font-size: 12px;
+            margin-bottom: 14px;
         }
 
         .project-content h3 {
-            font-size: 18px;
-            margin-bottom: 7px;
+            font-size: 27px;
+            line-height: 1.2;
+            margin-bottom: 14px;
         }
 
         .project-content p {
-            color: #8f8f8f;
-            font-size: 14px;
-            line-height: 1.7;
+            color: #a0a0a0;
+            font-size: 15px;
+            line-height: 1.75;
         }
 
-        .project-content .note {
-            margin-top: 9px;
-            color: #666;
-            font-size: 12px;
-        }
-
-        /* MORE WORK */
-
-        .more-work {
-            margin-top: 55px;
-        }
-
-        .more-work h3 {
-            font-size: 23px;
-            margin-bottom: 8px;
-        }
-
-        .more-work-description {
-            color: #777;
-            margin-bottom: 25px;
-        }
-
-        /* STATS */
-
-        .stats-card {
-            display: block;
-            border: 1px solid #292929;
-            border-radius: 6px;
-            overflow: hidden;
-            background: #101010;
-            max-width: 850px;
-        }
-
-        .stats-card img {
-            width: 100%;
-            display: block;
-            max-height: 650px;
-            object-fit: contain;
-            background: #111;
-        }
-
-        .stats-info {
-            padding: 14px 16px;
-            border-top: 1px solid #292929;
-            color: #999;
-            font-size: 13px;
-        }
-
-        /* SKILLS */
-
-        .skills {
+        .project-meta {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 7px;
+            margin-top: 22px;
         }
 
-        .skill {
-            border: 1px solid #303030;
-            border-radius: 5px;
-            padding: 9px 13px;
-            color: #ccc;
+        .project-link {
+            margin-top: 24px;
+        }
+
+        .subsection-title {
+            font-size: 23px;
+            margin: 70px 0 25px;
+        }
+
+        .more-work {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .small-project {
+            border: 1px solid #292929;
+            background: #101010;
+            border-radius: 9px;
+            overflow: hidden;
+        }
+
+        .small-project iframe {
+            height: 280px;
+        }
+
+        .small-project-content {
+            padding: 22px;
+        }
+
+        .small-project-content h3 {
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        .small-project-content p {
+            color: #9b9b9b;
             font-size: 14px;
         }
 
-        /* REVIEWS */
+        /* =========================
+           STATS
+        ========================= */
 
-        .reviews-empty {
+        .stats-link {
+            display: block;
             border: 1px solid #292929;
-            border-radius: 6px;
-            padding: 30px;
-            color: #888;
-            max-width: 700px;
-        }
-
-        /* INFO */
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
-        .info-card {
-            border: 1px solid #292929;
-            border-radius: 6px;
-            padding: 20px;
+            border-radius: 9px;
+            overflow: hidden;
             background: #101010;
         }
 
-        .info-card span {
-            display: block;
-            color: #666;
-            font-size: 12px;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .stats-link:hover {
+            border-color: #444444;
         }
 
-        .info-card a,
-        .info-card strong {
-            color: #ddd;
+        .stats-image {
+            width: 100%;
+            max-height: 650px;
+            object-fit: contain;
+            background: #080808;
+        }
+
+        .stats-caption {
+            padding: 20px 22px;
+            color: #a3a3a3;
             font-size: 14px;
-            word-break: break-word;
         }
 
-        .info-card a:hover {
-            color: #fff;
-            text-decoration: underline;
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-list {
+            border-top: 1px solid #292929;
         }
 
-        /* CONTACT */
+        .skill-row {
+            display: grid;
+            grid-template-columns: 190px 1fr;
+            gap: 30px;
+            padding: 24px 0;
+            border-bottom: 1px solid #292929;
+        }
+
+        .skill-category {
+            color: #777777;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            gap: 80px;
+        }
+
+        .about-title {
+            font-size: 14px;
+            color: #777777;
+        }
+
+        .about-text {
+            color: #ababab;
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .about-text p + p {
+            margin-top: 20px;
+        }
+
+        /* =========================
+           REVIEWS
+        ========================= */
+
+        .review-box {
+            border: 1px solid #292929;
+            background: #101010;
+            border-radius: 9px;
+            padding: 35px;
+        }
+
+        .review-box p {
+            color: #a7a7a7;
+            font-size: 16px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 0.8fr 1.2fr;
-            gap: 55px;
-            align-items: start;
+            grid-template-columns: 0.75fr 1.25fr;
+            gap: 70px;
         }
 
-        .contact-text {
-            color: #999;
+        .contact-intro h2 {
+            font-size: clamp(30px, 4vw, 44px);
+            line-height: 1.1;
+            margin-bottom: 18px;
+        }
+
+        .contact-intro > p {
+            color: #9e9e9e;
             line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .contact-details {
+            margin-top: 35px;
+            display: grid;
+            gap: 15px;
+        }
+
+        .contact-detail {
+            color: #a8a8a8;
+            font-size: 14px;
+        }
+
+        .contact-detail strong {
+            display: inline-block;
+            width: 90px;
+            color: #eeeeee;
+        }
+
+        .contact-detail a {
+            color: #d7d7d7;
+        }
+
+        .contact-detail a:hover {
+            text-decoration: underline;
         }
 
         .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
+            display: grid;
+            gap: 18px;
         }
 
         .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 7px;
+            display: grid;
+            gap: 8px;
         }
 
-        .form-group label {
-            color: #bbb;
-            font-size: 13px;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            background: #101010;
-            color: #eee;
-            border: 1px solid #303030;
-            border-radius: 5px;
-            padding: 11px 12px;
-            outline: none;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: #555;
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .hidden {
+        .form-group.hidden {
             display: none;
         }
 
-        .price-row {
-            display: grid;
-            grid-template-columns: 130px 1fr;
-            gap: 10px;
-        }
-
-        .contact-submit {
-            border: 1px solid #eee;
-            background: #eee;
-            color: #111;
-            border-radius: 5px;
-            padding: 12px 16px;
-            cursor: pointer;
-        }
-
-        .contact-submit:hover {
-            background: #fff;
-        }
-
-        /* FOOTER */
-
-        footer {
-            border-top: 1px solid #1d1d1d;
-            padding: 30px 0;
-            color: #666;
+        .form-group label {
+            color: #d6d6d6;
             font-size: 13px;
         }
 
-        /* RTL */
+        .form-control {
+            width: 100%;
+            border: 1px solid #2c2c2c;
+            background: #101010;
+            color: #ffffff;
+            border-radius: 7px;
+            padding: 12px 13px;
+            font-size: 14px;
+        }
 
-        [dir="rtl"] .language-menu {
+        .form-control::placeholder {
+            color: #686868;
+        }
+
+        textarea.form-control {
+            min-height: 145px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .contact-submit {
+            border: 1px solid #ffffff;
+            background: #ffffff;
+            color: #080808;
+            min-height: 46px;
+            border-radius: 7px;
+            padding: 0 20px;
+            font-weight: 600;
+        }
+
+        .contact-submit:hover {
+            background: #dddddd;
+        }
+
+        .contact-submit:disabled {
+            cursor: wait;
+            opacity: 0.6;
+        }
+
+        /* =========================
+           POPUP
+        ========================= */
+
+        .form-popup {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 2000;
+            width: min(390px, calc(100% - 32px));
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 17px;
+            background: #111111;
+            border: 1px solid #303030;
+            border-radius: 9px;
+            transform: translateY(30px);
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+        .form-popup.show {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+            visibility: visible;
+        }
+
+        .form-popup-icon {
+            width: 29px;
+            height: 29px;
+            min-width: 29px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #444444;
+            border-radius: 50%;
+            font-size: 14px;
+        }
+
+        .form-popup-title {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .form-popup-message {
+            color: #9b9b9b;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .form-popup-close {
+            margin-left: auto;
+            background: transparent;
+            border: 0;
+            color: #777777;
+            font-size: 21px;
+            line-height: 1;
+        }
+
+        .form-popup-close:hover {
+            color: #ffffff;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            color: #6f6f6f;
+            font-size: 12px;
+        }
+
+        /* =========================
+           RTL
+        ========================= */
+
+        body.rtl {
+            direction: rtl;
+        }
+
+        body.rtl .form-popup {
             right: auto;
-            left: 0;
+            left: 24px;
         }
 
-        [dir="rtl"] .language-menu button {
-            text-align: right;
+        body.rtl .form-popup-close {
+            margin-left: 0;
+            margin-right: auto;
         }
 
-        /* RESPONSIVE */
+        /* =========================
+           MOBILE
+        ========================= */
 
-        @media (max-width: 850px) {
-            .nav-right {
-                gap: 12px;
-            }
-
+        @media (max-width: 900px) {
             .nav-links {
                 display: none;
             }
 
-            .hero {
-                padding: 70px 0 80px;
+            .mobile-menu-button {
+                display: block;
             }
 
             .hero-grid,
+            .project-card,
+            .about-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
             }
 
+            .hero {
+                padding-top: 75px;
+            }
+
             .hero h1 {
-                letter-spacing: -2px;
+                font-size: clamp(40px, 10vw, 60px);
             }
 
-            .hero-project img {
-                height: auto;
+            .project-video,
+            .project-video iframe {
+                min-height: 320px;
             }
 
-            .projects {
-                grid-template-columns: 1fr;
+            .about-grid {
+                gap: 35px;
             }
 
-            .info-grid {
-                grid-template-columns: 1fr;
+            .contact-grid {
+                gap: 45px;
             }
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: 650px) {
             .container {
-                width: min(100% - 28px, 1080px);
+                width: min(100% - 28px, 1180px);
             }
 
             section {
+                padding: 75px 0;
+            }
+
+            .navbar {
+                min-height: 64px;
+            }
+
+            .nav-right {
+                gap: 10px;
+            }
+
+            .language-select {
+                max-width: 115px;
+            }
+
+            .hero {
                 padding: 65px 0;
             }
 
             .hero h1 {
-                font-size: 43px;
+                letter-spacing: -1.8px;
             }
 
-            .price-row {
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .project-content {
+                padding: 24px;
+            }
+
+            .more-work {
                 grid-template-columns: 1fr;
+            }
+
+            .small-project iframe {
+                height: 240px;
+            }
+
+            .skill-row {
+                grid-template-columns: 1fr;
+                gap: 13px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-popup {
+                right: 16px;
+                bottom: 16px;
+                width: calc(100% - 32px);
+            }
+
+            body.rtl .form-popup {
+                left: 16px;
             }
         }
     </style>
@@ -574,7 +839,7 @@
         <a href="#top" class="logo">nonop31</a>
 
         <div class="nav-right">
-            <nav class="nav-links">
+            <nav class="nav-links" aria-label="Main navigation">
                 <a href="#work" data-i18n="navWork">My Work</a>
                 <a href="#skills" data-i18n="navSkills">Skills</a>
                 <a href="#about" data-i18n="navAbout">About</a>
@@ -582,65 +847,71 @@
                 <a href="#contact" data-i18n="navContact">Contact</a>
             </nav>
 
-            <div class="language">
-                <button
-                    class="language-button"
-                    id="languageButton"
-                    type="button"
-                    aria-expanded="false"
-                >
-                    English
-                </button>
+            <select
+                id="languageSelect"
+                class="language-select"
+                aria-label="Language"
+            >
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="zh">中文</option>
+                <option value="hi">हिन्दी</option>
+                <option value="es">Español</option>
+                <option value="ar">العربية</option>
+            </select>
 
-                <div class="language-menu" id="languageMenu">
-                    <button type="button" data-language="en">English</button>
-                    <button type="button" data-language="fr">Français</button>
-                    <button type="button" data-language="zh">中文</button>
-                    <button type="button" data-language="hi">हिन्दी</button>
-                    <button type="button" data-language="es">Español</button>
-                    <button type="button" data-language="ar">العربية</button>
-                </div>
-            </div>
+            <button
+                type="button"
+                class="mobile-menu-button"
+                id="mobileMenuButton"
+                aria-label="Open menu"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
         </div>
+    </div>
+
+    <div class="container mobile-menu" id="mobileMenu">
+        <a href="#work" data-i18n="navWork">My Work</a>
+        <a href="#skills" data-i18n="navSkills">Skills</a>
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#reviews" data-i18n="navReviews">Reviews</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
     </div>
 </header>
 
 <main id="top">
 
     <!-- HERO -->
-
-    <section class="hero" style="border-top: none;">
+    <section class="hero">
         <div class="container hero-grid">
 
             <div>
-                <div class="eyebrow" data-i18n="eyebrow">
-                    Roblox Developer
-                </div>
-
                 <h1 data-i18n="heroTitle">
                     I develop Roblox systems and mechanics.
                 </h1>
 
-                <p data-i18n="heroDescription">
-                    I am a Roblox developer with more than 2 years of experience creating Roblox games.
+                <p class="hero-description" data-i18n="heroDescription">
+                    I'm a Roblox developer with more than 2 years of experience creating Roblox games.
                     I can create a Roblox game from A to Z, including systems, mechanics and UI.
                 </p>
 
-                <div class="tags">
+                <div class="hero-buttons">
+                    <a href="#work" class="button primary" data-i18n="heroProjects">
+                        View my work
+                    </a>
+
+                    <a href="#contact" class="button" data-i18n="heroContact">
+                        Contact me
+                    </a>
+                </div>
+
+                <div class="hero-tags">
                     <span class="tag">Luau / Lua</span>
                     <span class="tag">Gameplay</span>
                     <span class="tag">Systems</span>
                     <span class="tag">UI</span>
-                </div>
-
-                <div class="buttons">
-                    <a href="#work" class="button button-primary" data-i18n="seeProjects">
-                        See my projects
-                    </a>
-
-                    <a href="#contact" class="button button-secondary" data-i18n="contactMe">
-                        Contact me
-                    </a>
                 </div>
             </div>
 
@@ -650,217 +921,205 @@
                 rel="noopener noreferrer"
                 class="hero-project"
             >
-                <img
-                    src="game.png"
-                    alt="Crush A LuckyBlock"
-                >
+                <div class="hero-project-image">
+                    <img
+                        src="game.png"
+                        alt="Crush A LuckyBlock game icon"
+                    >
+                </div>
 
-                <div class="hero-project-info">
-                    <span data-i18n="heroProject">
-                        Crush A LuckyBlock — personal project
-                    </span>
+                <div class="hero-project-content">
+                    <h3>Crush A LuckyBlock</h3>
+                    <p data-i18n="heroProjectDescription">
+                        My Roblox game, developed independently.
+                    </p>
                 </div>
             </a>
 
         </div>
     </section>
 
-    <!-- ABOUT -->
-
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title" data-i18n="aboutTitle">
-                About me
-            </h2>
-
-            <p class="section-description" data-i18n="aboutIntro">
-                A few things about me.
-            </p>
-
-            <p class="about-text" data-i18n="aboutText">
-                I started creating Roblox games a little over 2 years ago.
-                I have gained experience by creating different projects and systems.
-                Here are some examples of projects and systems I have worked on.
-            </p>
-        </div>
-    </section>
-
     <!-- WORK -->
-
     <section id="work">
         <div class="container">
 
-            <h2 class="section-title" data-i18n="workTitle">
-                My Work
-            </h2>
-
-            <p class="section-description" data-i18n="workDescription">
-                Some Roblox projects and systems I have worked on.
-            </p>
+            <div class="section-header">
+                <h2 data-i18n="workTitle">My Work</h2>
+                <p data-i18n="workDescription">
+                    Some Roblox projects and systems I have worked on.
+                </p>
+            </div>
 
             <div class="projects">
 
                 <!-- CRUSH -->
-
-                <article class="project">
-                    <iframe
-                        class="project-video"
-                        src="https://www.youtube.com/embed/yEmWAWZhFE4"
-                        title="Crush A LuckyBlock"
-                        allowfullscreen
-                    ></iframe>
+                <article class="project-card">
+                    <div class="project-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/yEmWAWZhFE4"
+                            title="Crush A LuckyBlock demonstration"
+                            loading="lazy"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
 
                     <div class="project-content">
-                        <h3 data-i18n="crushTitle">
-                            Crush A LuckyBlock
-                        </h3>
+                        <div class="project-number">01</div>
 
-                        <p data-i18n="crushDescription">
-                            My first game.
-                        </p>
+                        <h3>Crush A LuckyBlock</h3>
 
-                        <p class="note" data-i18n="crushNote">
+                        <p data-i18n="projectCrush">
                             First project developed entirely independently.
                         </p>
+
+                        <div class="project-meta">
+                            <span class="tag">Luau</span>
+                            <span class="tag">Gameplay</span>
+                            <span class="tag">Systems</span>
+                        </div>
+
+                        <div class="project-link">
+                            <a
+                                href="https://www.roblox.com/fr/games/139111148572091/Crush-a-Luckyblock-for-Brainrot"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="button"
+                                data-i18n="playOnRoblox"
+                            >
+                                Play on Roblox
+                            </a>
+                        </div>
                     </div>
                 </article>
 
                 <!-- CANNON -->
-
-                <article class="project">
-                    <iframe
-                        class="project-video"
-                        src="https://www.youtube.com/embed/W14xJzIldMo"
-                        title="Cannon System"
-                        allowfullscreen
-                    ></iframe>
+                <article class="project-card">
+                    <div class="project-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/W14xJzIldMo"
+                            title="Cannon System demonstration"
+                            loading="lazy"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
 
                     <div class="project-content">
-                        <h3 data-i18n="cannonTitle">
-                            Cannon System
-                        </h3>
+                        <div class="project-number">02</div>
 
-                        <p data-i18n="cannonDescription">
-                            A fully functional cannon created for a client.
+                        <h3>Cannon System</h3>
+
+                        <p data-i18n="projectCannon">
+                            A fully functional cannon that I made for a client.
+                            The UI was not made by me, I only coded the system.
                         </p>
 
-                        <p class="note" data-i18n="cannonNote">
-                            The UI was not created by me. I only coded the system.
-                        </p>
+                        <div class="project-meta">
+                            <span class="tag">Luau</span>
+                            <span class="tag">Gameplay</span>
+                            <span class="tag">System</span>
+                        </div>
                     </div>
                 </article>
 
                 <!-- SETTINGS -->
-
-                <article class="project">
-                    <iframe
-                        class="project-video"
-                        src="https://www.youtube.com/embed/tn0EyA1seg4"
-                        title="Settings UI"
-                        allowfullscreen
-                    ></iframe>
+                <article class="project-card">
+                    <div class="project-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/tn0EyA1seg4"
+                            title="Settings UI demonstration"
+                            loading="lazy"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
 
                     <div class="project-content">
-                        <h3 data-i18n="settingsTitle">
-                            Settings
-                        </h3>
+                        <div class="project-number">03</div>
 
-                        <p data-i18n="settingsDescription">
-                            A settings UI I created for my game.
+                        <h3>Settings</h3>
+
+                        <p data-i18n="projectSettings">
+                            A settings UI that I made for my game.
                         </p>
+
+                        <div class="project-meta">
+                            <span class="tag">UI</span>
+                            <span class="tag">Luau</span>
+                        </div>
                     </div>
                 </article>
 
             </div>
 
-            <!-- MORE WORK -->
+            <h3 class="subsection-title" data-i18n="moreWorkTitle">
+                More Work
+            </h3>
 
             <div class="more-work">
 
-                <h3 data-i18n="moreWorkTitle">
-                    More Work
-                </h3>
+                <!-- AFK FOUNTAIN -->
+                <article class="small-project">
+                    <iframe
+                        src="https://www.youtube.com/embed/O5VXBfJoxc8"
+                        title="AFK Fountain System demonstration"
+                        loading="lazy"
+                        allowfullscreen
+                    ></iframe>
 
-                <p class="more-work-description" data-i18n="moreWorkDescription">
-                    Additional Roblox systems I have worked on.
-                </p>
+                    <div class="small-project-content">
+                        <h3>AFK Fountain System</h3>
+                        <p data-i18n="projectAfkFountain">
+                            A simple AFK system.
+                        </p>
+                    </div>
+                </article>
 
-                <div class="projects">
+                <!-- AFK BOX -->
+                <article class="small-project">
+                    <iframe
+                        src="https://www.youtube.com/embed/DyKeB5FjU_Y"
+                        title="AFK Box System demonstration"
+                        loading="lazy"
+                        allowfullscreen
+                    ></iframe>
 
-                    <!-- AFK FOUNTAIN -->
+                    <div class="small-project-content">
+                        <h3>AFK Box System</h3>
+                        <p data-i18n="projectAfkBox">
+                            Another simple AFK system.
+                        </p>
+                    </div>
+                </article>
 
-                    <article class="project">
-                        <iframe
-                            class="project-video"
-                            src="https://www.youtube.com/embed/O5VXBfJoxc8"
-                            title="AFK Fountain System"
-                            allowfullscreen
-                        ></iframe>
-
-                        <div class="project-content">
-                            <h3 data-i18n="afkFountainTitle">
-                                AFK Fountain System
-                            </h3>
-
-                            <p data-i18n="afkFountainDescription">
-                                A simple AFK system.
-                            </p>
-                        </div>
-                    </article>
-
-                    <!-- AFK BOX -->
-
-                    <article class="project">
-                        <iframe
-                            class="project-video"
-                            src="https://www.youtube.com/embed/DyKeB5FjU_Y"
-                            title="AFK Box System"
-                            allowfullscreen
-                        ></iframe>
-
-                        <div class="project-content">
-                            <h3 data-i18n="afkBoxTitle">
-                                AFK Box System
-                            </h3>
-
-                            <p data-i18n="afkBoxDescription">
-                                Another simple AFK system.
-                            </p>
-                        </div>
-                    </article>
-
-                </div>
             </div>
 
         </div>
     </section>
 
     <!-- STATS -->
-
     <section id="stats">
         <div class="container">
 
-            <h2 class="section-title" data-i18n="statsTitle">
-                Game Statistics
-            </h2>
-
-            <p class="section-description" data-i18n="statsDescription">
-                Statistics from my Roblox game, which is rated 16+ without paying for Roblox advertisements.
-            </p>
+            <div class="section-header">
+                <h2 data-i18n="statsTitle">Game Statistics</h2>
+                <p data-i18n="statsDescription">
+                    Statistics from my Roblox game, which has a 16+ maturity rating without paying for Roblox advertisements.
+                </p>
+            </div>
 
             <a
-                class="stats-card"
                 href="https://www.roblox.com/fr/games/139111148572091/Crush-a-Luckyblock-for-Brainrot"
                 target="_blank"
                 rel="noopener noreferrer"
+                class="stats-link"
             >
                 <img
                     src="stats.png"
-                    alt="Crush A LuckyBlock game statistics"
+                    alt="Roblox game statistics for Crush A LuckyBlock"
+                    class="stats-image"
                 >
 
-                <div class="stats-info" data-i18n="statsLink">
-                    Click to open the Roblox game page.
+                <div class="stats-caption" data-i18n="statsCaption">
+                    Click to open the game on Roblox.
                 </div>
             </a>
 
@@ -868,131 +1127,183 @@
     </section>
 
     <!-- SKILLS -->
-
     <section id="skills">
         <div class="container">
 
-            <h2 class="section-title" data-i18n="skillsTitle">
-                Skills
-            </h2>
+            <div class="section-header">
+                <h2 data-i18n="skillsTitle">Skills</h2>
+                <p data-i18n="skillsDescription">
+                    The main tools and areas I work with.
+                </p>
+            </div>
 
-            <p class="section-description" data-i18n="skillsDescription">
-                Technologies and areas I work with.
-            </p>
+            <div class="skills-list">
 
-            <div class="skills">
-                <span class="skill">Luau / Lua</span>
-                <span class="skill">Gameplay</span>
-                <span class="skill">Systems</span>
-                <span class="skill">UI</span>
-                <span class="skill" data-i18n="skillMore">UI and More</span>
+                <div class="skill-row">
+                    <div class="skill-category" data-i18n="skillLanguage">
+                        Language
+                    </div>
+
+                    <div class="skill-items">
+                        <span class="tag">Luau / Lua</span>
+                    </div>
+                </div>
+
+                <div class="skill-row">
+                    <div class="skill-category" data-i18n="skillRoblox">
+                        Roblox
+                    </div>
+
+                    <div class="skill-items">
+                        <span class="tag">Roblox Studio</span>
+                        <span class="tag">RemoteEvents</span>
+                        <span class="tag">RemoteFunctions</span>
+                        <span class="tag">Client / Server</span>
+                    </div>
+                </div>
+
+                <div class="skill-row">
+                    <div class="skill-category" data-i18n="skillGameplay">
+                        Gameplay
+                    </div>
+
+                    <div class="skill-items">
+                        <span class="tag">Gameplay Systems</span>
+                        <span class="tag">Player Systems</span>
+                        <span class="tag">Interactive Mechanics</span>
+                        <span class="tag">AFK Systems</span>
+                    </div>
+                </div>
+
+                <div class="skill-row">
+                    <div class="skill-category" data-i18n="skillUi">
+                        UI
+                    </div>
+
+                    <div class="skill-items">
+                        <span class="tag">Roblox UI</span>
+                        <span class="tag">UI Systems</span>
+                        <span class="tag">Settings Interfaces</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+
+            <div class="about-grid">
+
+                <div>
+                    <div class="about-title" data-i18n="aboutLabel">
+                        About me
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <p data-i18n="aboutText1">
+                        Some information about me. I started creating Roblox games a little over 2 years ago.
+                        I gained experience by creating different projects and systems.
+                    </p>
+
+                    <p data-i18n="aboutText2">
+                        Here are some examples of projects and systems I have worked on.
+                    </p>
+                </div>
+
             </div>
 
         </div>
     </section>
 
     <!-- REVIEWS -->
-
     <section id="reviews">
         <div class="container">
 
-            <h2 class="section-title" data-i18n="reviewsTitle">
-                Reviews
-            </h2>
-
-            <p class="section-description" data-i18n="reviewsDescription">
-                Feedback from people I have worked with.
-            </p>
-
-            <div class="reviews-empty" data-i18n="reviewsEmpty">
-                Reviews from my first clients will be added very soon.
+            <div class="section-header">
+                <h2 data-i18n="reviewsTitle">Reviews</h2>
             </div>
 
-        </div>
-    </section>
-
-    <!-- INFO -->
-
-    <section id="info">
-        <div class="container">
-
-            <h2 class="section-title" data-i18n="infoTitle">
-                Information
-            </h2>
-
-            <div class="info-grid">
-
-                <div class="info-card">
-                    <span data-i18n="robloxLabel">Roblox</span>
-
-                    <a
-                        href="https://www.roblox.com/fr/users/973247650/profile"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        nonop31
-                    </a>
-                </div>
-
-                <div class="info-card">
-                    <span data-i18n="discordLabel">Discord</span>
-
-                    <a
-                        href="https://discord.com/users/1396495532037247088"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Just_me
-                    </a>
-                </div>
-
-                <div class="info-card">
-                    <span data-i18n="timezoneLabel">Timezone</span>
-
-                    <strong>Europe/Paris — UTC+1 / UTC+2</strong>
-                </div>
-
+            <div class="review-box">
+                <p data-i18n="reviewsText">
+                    Reviews from the first clients will be added very soon.
+                </p>
             </div>
+
         </div>
     </section>
 
     <!-- CONTACT -->
-
     <section id="contact">
         <div class="container">
 
             <div class="contact-grid">
 
-                <div>
-                    <h2 class="section-title" data-i18n="contactTitle">
+                <div class="contact-intro">
+                    <h2 data-i18n="contactTitle">
                         Let's work together
                     </h2>
 
-                    <p class="contact-text" data-i18n="contactDescription">
-                        Do you have a project in mind?
-                        Contact me. The price will depend on the duration and complexity of the project.
+                    <p data-i18n="contactDescription">
+                        Do you have a project in mind? Contact me.
+                        The price will depend on the duration and complexity of the project.
                     </p>
 
-                    <div style="margin-top: 25px;">
-                        <a
-                            href="mailto:nonop31.the.real@gmail.com"
-                            class="button button-secondary"
-                        >
-                            nonop31.the.real@gmail.com
-                        </a>
+                    <div class="contact-details">
+
+                        <div class="contact-detail">
+                            <strong data-i18n="emailLabel">Email</strong>
+                            <a href="mailto:nonop31.the.real@gmail.com">
+                                nonop31.the.real@gmail.com
+                            </a>
+                        </div>
+
+                        <div class="contact-detail">
+                            <strong>Discord</strong>
+                            <a
+                                href="https://discord.com/users/1396495532037247088"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Just_me
+                            </a>
+                        </div>
+
+                        <div class="contact-detail">
+                            <strong>Roblox</strong>
+                            <a
+                                href="https://www.roblox.com/fr/users/973247650/profile"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                nonop31
+                            </a>
+                        </div>
+
+                        <div class="contact-detail">
+                            <strong data-i18n="timezoneLabel">Timezone</strong>
+                            <span>Europe/Paris - UTC+1 / UTC+2</span>
+                        </div>
+
                     </div>
                 </div>
 
+                <!-- CONTACT FORM -->
                 <form
+                    id="contactForm"
                     class="contact-form"
-                    action="https://formsubmit.co/nonop31.the.real@gmail.com"
+                    action="https://formsubmit.co/ajax/nonop31.the.real@gmail.com"
                     method="POST"
                 >
 
                     <input
                         type="hidden"
                         name="_subject"
-                        value="New Portfolio Contact - Nonop31"
+                        value="New portfolio contact"
                     >
 
                     <input
@@ -1007,22 +1318,15 @@
                         value="false"
                     >
 
-                    <input
-                        type="hidden"
-                        name="_next"
-                        value="https://nonop31.github.io/#contact"
-                    >
-
-                    <!-- NAME -->
-
                     <div class="form-group">
                         <label for="name" data-i18n="nameLabel">
                             Name
                         </label>
 
                         <input
-                            id="name"
+                            class="form-control"
                             type="text"
+                            id="name"
                             name="name"
                             required
                             data-placeholder="namePlaceholder"
@@ -1030,121 +1334,135 @@
                         >
                     </div>
 
-                    <!-- EMAIL -->
-
                     <div class="form-group">
-                        <label for="email" data-i18n="emailLabel">
+                        <label for="email" data-i18n="formEmailLabel">
                             Email
                         </label>
 
                         <input
-                            id="email"
+                            class="form-control"
                             type="email"
+                            id="email"
                             name="email"
                             required
                             data-placeholder="emailPlaceholder"
-                            placeholder="Your email"
+                            placeholder="your@email.com"
                         >
                     </div>
 
-                    <!-- PROJECT THEME -->
-
                     <div class="form-group">
-                        <label for="projectTheme" data-i18n="themeLabel">
+                        <label for="theme" data-i18n="themeLabel">
                             Project theme
                         </label>
 
                         <select
-                            id="projectTheme"
+                            class="form-control"
+                            id="theme"
                             name="project_theme"
                             required
                         >
-                            <option value="" data-i18n="themeChoose">
-                                Choose a theme
+                            <option value="" data-i18n="themePlaceholder">
+                                Select a theme
                             </option>
 
-                            <option value="game-development" data-i18n="themeGame">
-                                Game development
+                            <option
+                                value="Gameplay system"
+                                data-i18n="themeGameplay"
+                            >
+                                Gameplay system
                             </option>
 
-                            <option value="system" data-i18n="themeSystem">
-                                System
-                            </option>
-
-                            <option value="mechanic" data-i18n="themeMechanic">
-                                Gameplay mechanic
-                            </option>
-
-                            <option value="ui" data-i18n="themeUI">
+                            <option
+                                value="UI"
+                                data-i18n="themeUi"
+                            >
                                 UI
                             </option>
 
-                            <option value="other" data-i18n="themeOther">
+                            <option
+                                value="Full game"
+                                data-i18n="themeFullGame"
+                            >
+                                Full game
+                            </option>
+
+                            <option
+                                value="Bug fixing"
+                                data-i18n="themeBugFixing"
+                            >
+                                Bug fixing
+                            </option>
+
+                            <option
+                                value="Other"
+                                data-i18n="themeOther"
+                            >
                                 Other
                             </option>
                         </select>
                     </div>
 
-                    <!-- OTHER THEME -->
-
-                    <div
-                        class="form-group hidden"
-                        id="otherThemeGroup"
-                    >
+                    <div class="form-group hidden" id="otherThemeGroup">
                         <label for="otherTheme" data-i18n="otherThemeLabel">
-                            Describe your project theme
+                            Your project theme
                         </label>
 
                         <input
-                            id="otherTheme"
+                            class="form-control"
                             type="text"
+                            id="otherTheme"
                             name="other_project_theme"
                             data-placeholder="otherThemePlaceholder"
-                            placeholder="Describe the theme of your project"
+                            placeholder="Describe your project theme"
                         >
                     </div>
 
-                    <!-- PRICE -->
+                    <div class="form-row">
 
-                    <div class="form-group">
-                        <label data-i18n="budgetLabel">
-                            Budget
-                        </label>
-
-                        <div class="price-row">
+                        <div class="form-group">
+                            <label for="currency" data-i18n="currencyLabel">
+                                Currency
+                            </label>
 
                             <select
-                                name="currency"
+                                class="form-control"
                                 id="currency"
+                                name="currency"
                                 required
                             >
-                                <option value="" data-i18n="currencyChoose">
-                                    Currency
+                                <option value="" data-i18n="currencyPlaceholder">
+                                    Select currency
                                 </option>
 
                                 <option value="EUR">
-                                    EUR (€)
+                                    EUR
                                 </option>
 
                                 <option value="Robux">
-                                    Robux (R$)
+                                    Robux
                                 </option>
                             </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="amount" data-i18n="amountLabel">
+                                Amount
+                            </label>
 
                             <input
+                                class="form-control"
                                 type="number"
-                                name="budget"
+                                id="amount"
+                                name="amount"
                                 min="0"
                                 step="1"
                                 required
-                                data-placeholder="budgetPlaceholder"
-                                placeholder="Enter your budget"
+                                data-placeholder="amountPlaceholder"
+                                placeholder="Enter your amount"
                             >
-
                         </div>
-                    </div>
 
-                    <!-- MESSAGE -->
+                    </div>
 
                     <div class="form-group">
                         <label for="message" data-i18n="messageLabel">
@@ -1152,11 +1470,12 @@
                         </label>
 
                         <textarea
+                            class="form-control"
                             id="message"
                             name="message"
                             required
                             data-placeholder="messagePlaceholder"
-                            placeholder="Tell me about your project"
+                            placeholder="Tell me about your project..."
                         ></textarea>
                     </div>
 
@@ -1178,12 +1497,57 @@
 </main>
 
 <footer>
-    <div class="container">
-        © 2026 nonop31 — Roblox Developer
+    <div class="container footer-content">
+        <span>© 2026 nonop31</span>
+
+        <span data-i18n="footerText">
+            Roblox Developer
+        </span>
     </div>
 </footer>
 
+<!-- FORM POPUP -->
+<div
+    class="form-popup"
+    id="formPopup"
+    role="status"
+    aria-live="polite"
+>
+    <div class="form-popup-icon" id="formPopupIcon">
+        ✓
+    </div>
+
+    <div class="form-popup-content">
+        <div
+            class="form-popup-title"
+            id="formPopupTitle"
+        >
+            Message sent
+        </div>
+
+        <div
+            class="form-popup-message"
+            id="formPopupMessage"
+        >
+            Your message has been sent successfully.
+        </div>
+    </div>
+
+    <button
+        type="button"
+        class="form-popup-close"
+        id="formPopupClose"
+        aria-label="Close"
+    >
+        ×
+    </button>
+</div>
+
 <script>
+    /* =========================
+       TRANSLATIONS
+    ========================= */
+
     const translations = {
 
         en: {
@@ -1193,124 +1557,97 @@
             navReviews: "Reviews",
             navContact: "Contact",
 
-            eyebrow: "Roblox Developer",
-
             heroTitle: "I develop Roblox systems and mechanics.",
-
             heroDescription:
-                "I am a Roblox developer with more than 2 years of experience creating Roblox games. I can create a Roblox game from A to Z, including systems, mechanics and UI.",
-
-            seeProjects: "See my projects",
-            contactMe: "Contact me",
-
-            heroProject: "Crush A LuckyBlock — personal project",
-
-            aboutTitle: "About me",
-            aboutIntro: "A few things about me.",
-
-            aboutText:
-                "I started creating Roblox games a little over 2 years ago. I have gained experience by creating different projects and systems. Here are some examples of projects and systems I have worked on.",
+                "I'm a Roblox developer with more than 2 years of experience creating Roblox games. I can create a Roblox game from A to Z, including systems, mechanics and UI.",
+            heroProjects: "View my work",
+            heroContact: "Contact me",
+            heroProjectDescription:
+                "My Roblox game, developed independently.",
 
             workTitle: "My Work",
-
             workDescription:
                 "Some Roblox projects and systems I have worked on.",
 
-            crushTitle: "Crush A LuckyBlock",
-
-            crushDescription:
-                "My first game.",
-
-            crushNote:
+            projectCrush:
                 "First project developed entirely independently.",
-
-            cannonTitle: "Cannon System",
-
-            cannonDescription:
-                "A fully functional cannon created for a client.",
-
-            cannonNote:
-                "The UI was not created by me. I only coded the system.",
-
-            settingsTitle: "Settings",
-
-            settingsDescription:
-                "A settings UI I created for my game.",
-
-            moreWorkTitle: "More Work",
-
-            moreWorkDescription:
-                "Additional Roblox systems I have worked on.",
-
-            afkFountainTitle: "AFK Fountain System",
-
-            afkFountainDescription:
+            projectCannon:
+                "A fully functional cannon that I made for a client. The UI was not made by me, I only coded the system.",
+            projectSettings:
+                "A settings UI that I made for my game.",
+            projectAfkFountain:
                 "A simple AFK system.",
-
-            afkBoxTitle: "AFK Box System",
-
-            afkBoxDescription:
+            projectAfkBox:
                 "Another simple AFK system.",
 
+            moreWorkTitle: "More Work",
+            playOnRoblox: "Play on Roblox",
+
             statsTitle: "Game Statistics",
-
             statsDescription:
-                "Statistics from my Roblox game, which is rated 16+ without paying for Roblox advertisements.",
-
-            statsLink:
-                "Click to open the Roblox game page.",
+                "Statistics from my Roblox game, which has a 16+ maturity rating without paying for Roblox advertisements.",
+            statsCaption:
+                "Click to open the game on Roblox.",
 
             skillsTitle: "Skills",
-
             skillsDescription:
-                "Technologies and areas I work with.",
+                "The main tools and areas I work with.",
+            skillLanguage: "Language",
+            skillRoblox: "Roblox",
+            skillGameplay: "Gameplay",
+            skillUi: "UI",
 
-            skillMore: "UI and More",
+            aboutLabel: "About me",
+            aboutText1:
+                "Some information about me. I started creating Roblox games a little over 2 years ago. I gained experience by creating different projects and systems.",
+            aboutText2:
+                "Here are some examples of projects and systems I have worked on.",
 
             reviewsTitle: "Reviews",
-
-            reviewsDescription:
-                "Feedback from people I have worked with.",
-
-            reviewsEmpty:
-                "Reviews from my first clients will be added very soon.",
-
-            infoTitle: "Information",
-
-            robloxLabel: "Roblox",
-            discordLabel: "Discord",
-            timezoneLabel: "Timezone",
+            reviewsText:
+                "Reviews from the first clients will be added very soon.",
 
             contactTitle: "Let's work together",
-
             contactDescription:
                 "Do you have a project in mind? Contact me. The price will depend on the duration and complexity of the project.",
+            emailLabel: "Email",
+            timezoneLabel: "Timezone",
 
             nameLabel: "Name",
             namePlaceholder: "Your name",
-
-            emailLabel: "Email",
-            emailPlaceholder: "Your email",
+            formEmailLabel: "Email",
+            emailPlaceholder: "your@email.com",
 
             themeLabel: "Project theme",
-            themeChoose: "Choose a theme",
-            themeGame: "Game development",
-            themeSystem: "System",
-            themeMechanic: "Gameplay mechanic",
-            themeUI: "UI",
+            themePlaceholder: "Select a theme",
+            themeGameplay: "Gameplay system",
+            themeUi: "UI",
+            themeFullGame: "Full game",
+            themeBugFixing: "Bug fixing",
             themeOther: "Other",
 
-            otherThemeLabel: "Describe your project theme",
-            otherThemePlaceholder: "Describe the theme of your project",
+            otherThemeLabel: "Your project theme",
+            otherThemePlaceholder: "Describe your project theme",
 
-            budgetLabel: "Budget",
-            currencyChoose: "Currency",
-            budgetPlaceholder: "Enter your budget",
+            currencyLabel: "Currency",
+            currencyPlaceholder: "Select currency",
+            amountLabel: "Amount",
+            amountPlaceholder: "Enter your amount",
 
             messageLabel: "Message",
-            messagePlaceholder: "Tell me about your project",
+            messagePlaceholder: "Tell me about your project...",
 
-            sendButton: "Send message"
+            sendButton: "Send message",
+            sendingButton: "Sending...",
+
+            formSuccessTitle: "Message sent",
+            formSuccessMessage:
+                "Your message has been sent successfully.",
+            formErrorTitle: "Something went wrong",
+            formErrorMessage:
+                "Your message could not be sent. Please try again.",
+
+            footerText: "Roblox Developer"
         },
 
         fr: {
@@ -1320,136 +1657,98 @@
             navReviews: "Avis",
             navContact: "Contact",
 
-            eyebrow: "Développeur Roblox",
-
             heroTitle:
                 "Je développe des systèmes et des mécaniques Roblox.",
-
             heroDescription:
                 "Je suis développeur Roblox avec plus de 2 ans d'expérience dans la création de jeux Roblox. Je peux créer un jeu Roblox de A à Z, que ce soit les systèmes, les mécaniques et les UI.",
-
-            seeProjects: "Voir mes projets",
-            contactMe: "Me contacter",
-
-            heroProject:
-                "Crush A LuckyBlock — projet personnel",
-
-            aboutTitle: "À propos de moi",
-
-            aboutIntro:
-                "Quelques informations sur moi.",
-
-            aboutText:
-                "J'ai commencé à créer des jeux Roblox il y a un peu plus de 2 ans. J'ai engrangé de l'expérience en créant différents projets et systèmes. Voici quelques exemples de projets et de systèmes sur lesquels j'ai travaillé.",
+            heroProjects: "Voir mes projets",
+            heroContact: "Me contacter",
+            heroProjectDescription:
+                "Mon jeu Roblox, développé de manière indépendante.",
 
             workTitle: "Mon travail",
-
             workDescription:
                 "Quelques projets et systèmes Roblox sur lesquels j'ai travaillé.",
 
-            crushTitle: "Crush A LuckyBlock",
-
-            crushDescription:
-                "Mon premier jeu.",
-
-            crushNote:
+            projectCrush:
                 "Premier projet développé entièrement de manière indépendante.",
-
-            cannonTitle: "Système de canon",
-
-            cannonDescription:
-                "Un canon complètement fonctionnel que j'ai réalisé pour un client.",
-
-            cannonNote:
-                "L'UI n'a pas été réalisée par moi, j'ai simplement codé le système.",
-
-            settingsTitle: "Settings",
-
-            settingsDescription:
+            projectCannon:
+                "Un canon complètement fonctionnel que j'ai réalisé pour un client. L'UI n'a pas été réalisée par moi, j'ai simplement codé le système.",
+            projectSettings:
                 "Une UI de settings que j'ai réalisée pour mon jeu.",
-
-            moreWorkTitle: "Autres travaux",
-
-            moreWorkDescription:
-                "D'autres systèmes Roblox sur lesquels j'ai travaillé.",
-
-            afkFountainTitle: "AFK Fountain System",
-
-            afkFountainDescription:
+            projectAfkFountain:
                 "Un simple système d'AFK.",
-
-            afkBoxTitle: "AFK Box System",
-
-            afkBoxDescription:
+            projectAfkBox:
                 "Un autre simple système d'AFK.",
 
-            statsTitle: "Statistiques du jeu",
+            moreWorkTitle: "Plus de projets",
+            playOnRoblox: "Jouer sur Roblox",
 
+            statsTitle: "Statistiques",
             statsDescription:
                 "Statistiques de mon jeu Roblox qui a une maturité 16 ans et + sans avoir payé pour des annonces sur Roblox.",
-
-            statsLink:
-                "Cliquer pour ouvrir la page du jeu Roblox.",
+            statsCaption:
+                "Cliquez pour ouvrir le jeu sur Roblox.",
 
             skillsTitle: "Compétences",
-
             skillsDescription:
-                "Technologies et domaines sur lesquels je travaille.",
+                "Les principaux outils et domaines sur lesquels je travaille.",
+            skillLanguage: "Langage",
+            skillRoblox: "Roblox",
+            skillGameplay: "Gameplay",
+            skillUi: "UI",
 
-            skillMore: "UI et plus",
+            aboutLabel: "À propos de moi",
+            aboutText1:
+                "Quelques informations sur moi. J'ai commencé à créer des jeux Roblox il y a un peu plus de 2 ans. J'ai engrangé de l'expérience en créant différents projets et systèmes.",
+            aboutText2:
+                "Voici quelques exemples de projets et de systèmes sur lesquels j'ai travaillé.",
 
             reviewsTitle: "Avis",
-
-            reviewsDescription:
-                "Avis des personnes avec lesquelles j'ai travaillé.",
-
-            reviewsEmpty:
+            reviewsText:
                 "Les avis des premiers clients seront ajoutés très prochainement.",
 
-            infoTitle: "Informations",
-
-            robloxLabel: "Roblox",
-            discordLabel: "Discord",
-            timezoneLabel: "Fuseau horaire",
-
-            contactTitle:
-                "Travaillons ensemble",
-
+            contactTitle: "Travaillons ensemble",
             contactDescription:
-                "Vous avez un projet en tête ? Contactez-moi. Le prix se fera en fonction de la durée et de la complexité du projet.",
+                "Vous avez un projet en tête ? Contactez-moi, le prix se fera en fonction de la durée et de la complexité du projet.",
+            emailLabel: "Email",
+            timezoneLabel: "Fuseau",
 
             nameLabel: "Nom",
             namePlaceholder: "Votre nom",
-
-            emailLabel: "Email",
-            emailPlaceholder: "Votre email",
+            formEmailLabel: "Email",
+            emailPlaceholder: "votre@email.com",
 
             themeLabel: "Thème du projet",
-            themeChoose: "Choisissez un thème",
-            themeGame: "Création de jeu",
-            themeSystem: "Système",
-            themeMechanic: "Mécanique de gameplay",
-            themeUI: "UI",
+            themePlaceholder: "Sélectionnez un thème",
+            themeGameplay: "Système de gameplay",
+            themeUi: "UI",
+            themeFullGame: "Jeu complet",
+            themeBugFixing: "Correction de bugs",
             themeOther: "Autre",
 
-            otherThemeLabel:
-                "Décrivez le thème de votre projet",
+            otherThemeLabel: "Thème de votre projet",
+            otherThemePlaceholder: "Décrivez le thème de votre projet",
 
-            otherThemePlaceholder:
-                "Décrivez le thème de votre projet",
-
-            budgetLabel: "Budget",
-            currencyChoose: "Devise",
-
-            budgetPlaceholder:
-                "Entrez votre budget",
+            currencyLabel: "Devise",
+            currencyPlaceholder: "Sélectionnez une devise",
+            amountLabel: "Montant",
+            amountPlaceholder: "Entrez votre montant",
 
             messageLabel: "Message",
+            messagePlaceholder: "Parlez-moi de votre projet...",
 
-            messagePlaceholder:
-                "Parlez-moi de votre projet",
+            sendButton: "Envoyer le message",
+            sendingButton: "Envoi...",
 
-            sendButton: "Envoyer le message"
+            formSuccessTitle: "Message envoyé",
+            formSuccessMessage:
+                "Votre message a bien été envoyé.",
+            formErrorTitle: "Une erreur est survenue",
+            formErrorMessage:
+                "Votre message n'a pas pu être envoyé. Veuillez réessayer.",
+
+            footerText: "Développeur Roblox"
         },
 
         zh: {
@@ -1459,128 +1758,97 @@
             navReviews: "评价",
             navContact: "联系",
 
-            eyebrow: "Roblox 开发者",
-
-            heroTitle:
-                "我开发 Roblox 系统和游戏机制。",
-
+            heroTitle: "我开发 Roblox 系统和游戏机制。",
             heroDescription:
-                "我是一名 Roblox 开发者，拥有超过 2 年的 Roblox 游戏开发经验。我可以从零开始制作 Roblox 游戏，包括系统、游戏机制和 UI。",
-
-            seeProjects: "查看我的项目",
-            contactMe: "联系我",
-
-            heroProject:
-                "Crush A LuckyBlock — 个人项目",
-
-            aboutTitle: "关于我",
-
-            aboutIntro:
-                "一些关于我的信息。",
-
-            aboutText:
-                "我在两年多以前开始制作 Roblox 游戏。在制作不同项目和系统的过程中，我积累了经验。以下是我参与过的一些项目和系统。",
+                "我是一名 Roblox 开发者，有超过 2 年的 Roblox 游戏开发经验。我可以从零开始制作 Roblox 游戏，包括系统、游戏机制和 UI。",
+            heroProjects: "查看我的作品",
+            heroContact: "联系我",
+            heroProjectDescription:
+                "我的 Roblox 游戏，独立开发。",
 
             workTitle: "我的作品",
-
             workDescription:
-                "一些我制作过的 Roblox 项目和系统。",
+                "一些我参与开发过的 Roblox 项目和系统。",
 
-            crushTitle: "Crush A LuckyBlock",
-
-            crushDescription:
-                "我的第一个游戏。",
-
-            crushNote:
+            projectCrush:
                 "第一个完全独立开发的项目。",
-
-            cannonTitle: "大炮系统",
-
-            cannonDescription:
-                "为客户制作的完整大炮系统。",
-
-            cannonNote:
-                "UI 不是我制作的，我只负责系统代码。",
-
-            settingsTitle: "Settings",
-
-            settingsDescription:
+            projectCannon:
+                "我为客户制作的一个完全可用的加农炮。UI 不是我制作的，我只负责系统代码。",
+            projectSettings:
                 "我为自己的游戏制作的设置 UI。",
-
-            moreWorkTitle: "其他作品",
-
-            moreWorkDescription:
-                "其他我制作过的 Roblox 系统。",
-
-            afkFountainTitle: "AFK Fountain System",
-
-            afkFountainDescription:
+            projectAfkFountain:
                 "一个简单的 AFK 系统。",
-
-            afkBoxTitle: "AFK Box System",
-
-            afkBoxDescription:
+            projectAfkBox:
                 "另一个简单的 AFK 系统。",
 
+            moreWorkTitle: "更多作品",
+            playOnRoblox: "在 Roblox 上游玩",
+
             statsTitle: "游戏数据",
-
             statsDescription:
-                "我的 Roblox 游戏数据，该游戏为 16+，且没有为 Roblox 广告付费。",
-
-            statsLink:
-                "点击打开 Roblox 游戏页面。",
+                "我的 Roblox 游戏数据，该游戏为 16 岁以上成熟度，且没有付费进行 Roblox 广告推广。",
+            statsCaption:
+                "点击打开 Roblox 游戏。",
 
             skillsTitle: "技能",
-
             skillsDescription:
-                "我使用的技术和开发领域。",
+                "我主要使用的工具和开发领域。",
+            skillLanguage: "语言",
+            skillRoblox: "Roblox",
+            skillGameplay: "游戏机制",
+            skillUi: "UI",
 
-            skillMore: "UI 以及更多",
+            aboutLabel: "关于我",
+            aboutText1:
+                "一些关于我的信息。我在两年多以前开始制作 Roblox 游戏，并通过制作不同的项目和系统积累了经验。",
+            aboutText2:
+                "这里是一些我参与开发过的项目和系统。",
 
             reviewsTitle: "评价",
-
-            reviewsDescription:
-                "与我合作过的人的反馈。",
-
-            reviewsEmpty:
-                "第一批客户的评价很快就会添加。",
-
-            infoTitle: "信息",
-
-            robloxLabel: "Roblox",
-            discordLabel: "Discord",
-            timezoneLabel: "时区",
+            reviewsText:
+                "第一批客户的评价将很快添加。",
 
             contactTitle: "一起合作",
-
             contactDescription:
-                "你有一个项目想法吗？欢迎联系我。价格将根据项目的时间和复杂程度确定。",
+                "你有一个项目想法吗？欢迎联系我。价格会根据项目的时间和复杂程度而定。",
+            emailLabel: "邮箱",
+            timezoneLabel: "时区",
 
             nameLabel: "姓名",
             namePlaceholder: "你的姓名",
+            formEmailLabel: "邮箱",
+            emailPlaceholder: "your@email.com",
 
-            emailLabel: "邮箱",
-            emailPlaceholder: "你的邮箱",
-
-            themeLabel: "项目主题",
-            themeChoose: "选择主题",
-            themeGame: "游戏开发",
-            themeSystem: "系统",
-            themeMechanic: "游戏机制",
-            themeUI: "UI",
+            themeLabel: "项目类型",
+            themePlaceholder: "选择项目类型",
+            themeGameplay: "游戏机制系统",
+            themeUi: "UI",
+            themeFullGame: "完整游戏",
+            themeBugFixing: "修复 Bug",
             themeOther: "其他",
 
-            otherThemeLabel: "描述项目主题",
-            otherThemePlaceholder: "描述你的项目主题",
+            otherThemeLabel: "项目类型",
+            otherThemePlaceholder: "描述你的项目类型",
 
-            budgetLabel: "预算",
-            currencyChoose: "货币",
-            budgetPlaceholder: "输入预算",
+            currencyLabel: "货币",
+            currencyPlaceholder: "选择货币",
+            amountLabel: "金额",
+            amountPlaceholder: "输入金额",
 
             messageLabel: "消息",
-            messagePlaceholder: "告诉我你的项目",
+            messagePlaceholder: "告诉我你的项目...",
 
-            sendButton: "发送消息"
+            sendButton: "发送消息",
+            sendingButton: "发送中...",
+
+            formSuccessTitle: "消息已发送",
+            formSuccessMessage:
+                "您的消息已成功发送。",
+            formErrorTitle: "出现问题",
+            formErrorMessage:
+                "您的消息无法发送，请重试。",
+
+            footerText: "Roblox 开发者"
         },
 
         hi: {
@@ -1590,261 +1858,197 @@
             navReviews: "समीक्षाएँ",
             navContact: "संपर्क",
 
-            eyebrow: "Roblox डेवलपर",
-
-            heroTitle:
-                "मैं Roblox सिस्टम और गेम मैकेनिक्स विकसित करता हूँ।",
-
+            heroTitle: "मैं Roblox सिस्टम और गेम मैकेनिक्स बनाता हूँ।",
             heroDescription:
-                "मैं एक Roblox डेवलपर हूँ और मुझे Roblox गेम बनाने का 2 वर्षों से अधिक का अनुभव है। मैं सिस्टम, मैकेनिक्स और UI सहित पूरा Roblox गेम बना सकता हूँ।",
-
-            seeProjects: "मेरे प्रोजेक्ट देखें",
-            contactMe: "संपर्क करें",
-
-            heroProject:
-                "Crush A LuckyBlock — व्यक्तिगत प्रोजेक्ट",
-
-            aboutTitle: "मेरे बारे में",
-
-            aboutIntro:
-                "मेरे बारे में कुछ जानकारी।",
-
-            aboutText:
-                "मैंने दो साल से थोड़ा अधिक समय पहले Roblox गेम बनाना शुरू किया था। अलग-अलग प्रोजेक्ट और सिस्टम बनाकर मैंने अनुभव प्राप्त किया है। यहाँ कुछ प्रोजेक्ट और सिस्टम हैं जिन पर मैंने काम किया है।",
+                "मैं एक Roblox डेवलपर हूँ और मुझे Roblox गेम बनाने का 2 साल से अधिक का अनुभव है। मैं सिस्टम, गेम मैकेनिक्स और UI सहित पूरा Roblox गेम बना सकता हूँ।",
+            heroProjects: "मेरा काम देखें",
+            heroContact: "मुझसे संपर्क करें",
+            heroProjectDescription:
+                "मेरा Roblox गेम, स्वतंत्र रूप से विकसित किया गया।",
 
             workTitle: "मेरा काम",
-
             workDescription:
                 "कुछ Roblox प्रोजेक्ट और सिस्टम जिन पर मैंने काम किया है।",
 
-            crushTitle: "Crush A LuckyBlock",
-
-            crushDescription:
-                "मेरा पहला गेम।",
-
-            crushNote:
-                "पहला प्रोजेक्ट जिसे पूरी तरह स्वतंत्र रूप से विकसित किया गया।",
-
-            cannonTitle: "Cannon System",
-
-            cannonDescription:
-                "एक क्लाइंट के लिए बनाया गया पूरी तरह कार्यात्मक कैनन सिस्टम।",
-
-            cannonNote:
-                "UI मैंने नहीं बनाया था। मैंने केवल सिस्टम को कोड किया।",
-
-            settingsTitle: "Settings",
-
-            settingsDescription:
-                "मेरे गेम के लिए बनाई गई Settings UI।",
-
-            moreWorkTitle: "अन्य काम",
-
-            moreWorkDescription:
-                "अन्य Roblox सिस्टम जिन पर मैंने काम किया है।",
-
-            afkFountainTitle: "AFK Fountain System",
-
-            afkFountainDescription:
+            projectCrush:
+                "पूरी तरह से स्वतंत्र रूप से विकसित किया गया पहला प्रोजेक्ट।",
+            projectCannon:
+                "एक क्लाइंट के लिए बनाया गया पूरी तरह कार्यात्मक कैनन। UI मैंने नहीं बनाया था, मैंने केवल सिस्टम को कोड किया।",
+            projectSettings:
+                "मेरे गेम के लिए बनाया गया settings UI।",
+            projectAfkFountain:
                 "एक सरल AFK सिस्टम।",
-
-            afkBoxTitle: "AFK Box System",
-
-            afkBoxDescription:
+            projectAfkBox:
                 "एक और सरल AFK सिस्टम।",
 
+            moreWorkTitle: "अन्य काम",
+            playOnRoblox: "Roblox पर खेलें",
+
             statsTitle: "गेम आँकड़े",
-
             statsDescription:
-                "मेरे Roblox गेम के आँकड़े, जो 16+ है और जिसके लिए Roblox विज्ञापनों पर भुगतान नहीं किया गया।",
-
-            statsLink:
-                "Roblox गेम पेज खोलने के लिए क्लिक करें।",
+                "मेरे Roblox गेम के आँकड़े, जिसकी maturity 16+ है और Roblox विज्ञापनों के लिए भुगतान नहीं किया गया है।",
+            statsCaption:
+                "Roblox गेम खोलने के लिए क्लिक करें।",
 
             skillsTitle: "कौशल",
-
             skillsDescription:
-                "तकनीक और क्षेत्र जिन पर मैं काम करता हूँ।",
+                "मुख्य टूल और क्षेत्र जिन पर मैं काम करता हूँ।",
+            skillLanguage: "भाषा",
+            skillRoblox: "Roblox",
+            skillGameplay: "गेमप्ले",
+            skillUi: "UI",
 
-            skillMore: "UI और अधिक",
+            aboutLabel: "मेरे बारे में",
+            aboutText1:
+                "मेरे बारे में कुछ जानकारी। मैंने 2 साल से थोड़ा अधिक समय पहले Roblox गेम बनाना शुरू किया था। अलग-अलग प्रोजेक्ट और सिस्टम बनाकर मैंने अनुभव प्राप्त किया।",
+            aboutText2:
+                "यहाँ कुछ प्रोजेक्ट और सिस्टम हैं जिन पर मैंने काम किया है।",
 
             reviewsTitle: "समीक्षाएँ",
+            reviewsText:
+                "पहले क्लाइंट्स की समीक्षाएँ जल्द ही जोड़ी जाएँगी।",
 
-            reviewsDescription:
-                "जिन लोगों के साथ मैंने काम किया है उनकी प्रतिक्रिया।",
-
-            reviewsEmpty:
-                "पहले ग्राहकों की समीक्षाएँ जल्द ही जोड़ी जाएँगी।",
-
-            infoTitle: "जानकारी",
-
-            robloxLabel: "Roblox",
-            discordLabel: "Discord",
-            timezoneLabel: "समय क्षेत्र",
-
-            contactTitle:
-                "साथ काम करते हैं",
-
+            contactTitle: "आइए साथ काम करें",
             contactDescription:
                 "क्या आपके पास कोई प्रोजेक्ट है? मुझसे संपर्क करें। कीमत प्रोजेक्ट की अवधि और जटिलता के अनुसार होगी।",
+            emailLabel: "ईमेल",
+            timezoneLabel: "समय क्षेत्र",
 
             nameLabel: "नाम",
             namePlaceholder: "आपका नाम",
+            formEmailLabel: "ईमेल",
+            emailPlaceholder: "your@email.com",
 
-            emailLabel: "ईमेल",
-            emailPlaceholder: "आपका ईमेल",
-
-            themeLabel: "प्रोजेक्ट का विषय",
-            themeChoose: "विषय चुनें",
-            themeGame: "गेम डेवलपमेंट",
-            themeSystem: "सिस्टम",
-            themeMechanic: "गेम मैकेनिक",
-            themeUI: "UI",
+            themeLabel: "प्रोजेक्ट का प्रकार",
+            themePlaceholder: "प्रकार चुनें",
+            themeGameplay: "गेमप्ले सिस्टम",
+            themeUi: "UI",
+            themeFullGame: "पूरा गेम",
+            themeBugFixing: "बग फिक्सिंग",
             themeOther: "अन्य",
 
-            otherThemeLabel: "प्रोजेक्ट के विषय का वर्णन करें",
-            otherThemePlaceholder: "अपने प्रोजेक्ट के विषय का वर्णन करें",
+            otherThemeLabel: "आपके प्रोजेक्ट का प्रकार",
+            otherThemePlaceholder: "अपने प्रोजेक्ट के बारे में बताएं",
 
-            budgetLabel: "बजट",
-            currencyChoose: "मुद्रा",
-            budgetPlaceholder: "अपना बजट दर्ज करें",
+            currencyLabel: "मुद्रा",
+            currencyPlaceholder: "मुद्रा चुनें",
+            amountLabel: "राशि",
+            amountPlaceholder: "राशि दर्ज करें",
 
             messageLabel: "संदेश",
-            messagePlaceholder: "अपने प्रोजेक्ट के बारे में बताएं",
+            messagePlaceholder: "अपने प्रोजेक्ट के बारे में बताएं...",
 
-            sendButton: "संदेश भेजें"
+            sendButton: "संदेश भेजें",
+            sendingButton: "भेजा जा रहा है...",
+
+            formSuccessTitle: "संदेश भेज दिया गया",
+            formSuccessMessage:
+                "आपका संदेश सफलतापूर्वक भेज दिया गया है।",
+            formErrorTitle: "कुछ गलत हुआ",
+            formErrorMessage:
+                "आपका संदेश नहीं भेजा जा सका। कृपया फिर से प्रयास करें।",
+
+            footerText: "Roblox डेवलपर"
         },
 
         es: {
             navWork: "Mi trabajo",
             navSkills: "Habilidades",
             navAbout: "Sobre mí",
-            navReviews: "Opiniones",
+            navReviews: "Reseñas",
             navContact: "Contacto",
 
-            eyebrow: "Desarrollador de Roblox",
-
-            heroTitle:
-                "Desarrollo sistemas y mecánicas para Roblox.",
-
+            heroTitle: "Desarrollo sistemas y mecánicas para Roblox.",
             heroDescription:
                 "Soy desarrollador de Roblox con más de 2 años de experiencia creando juegos de Roblox. Puedo crear un juego de Roblox desde cero, incluyendo sistemas, mecánicas y UI.",
-
-            seeProjects: "Ver mis proyectos",
-            contactMe: "Contactarme",
-
-            heroProject:
-                "Crush A LuckyBlock — proyecto personal",
-
-            aboutTitle: "Sobre mí",
-
-            aboutIntro:
-                "Algunas cosas sobre mí.",
-
-            aboutText:
-                "Empecé a crear juegos de Roblox hace algo más de 2 años. He adquirido experiencia creando diferentes proyectos y sistemas. Estos son algunos ejemplos de proyectos y sistemas en los que he trabajado.",
+            heroProjects: "Ver mi trabajo",
+            heroContact: "Contactarme",
+            heroProjectDescription:
+                "Mi juego de Roblox, desarrollado de forma independiente.",
 
             workTitle: "Mi trabajo",
-
             workDescription:
                 "Algunos proyectos y sistemas de Roblox en los que he trabajado.",
 
-            crushTitle: "Crush A LuckyBlock",
-
-            crushDescription:
-                "Mi primer juego.",
-
-            crushNote:
+            projectCrush:
                 "Primer proyecto desarrollado completamente de forma independiente.",
-
-            cannonTitle: "Sistema de cañón",
-
-            cannonDescription:
-                "Un cañón completamente funcional creado para un cliente.",
-
-            cannonNote:
-                "La UI no fue creada por mí. Solo programé el sistema.",
-
-            settingsTitle: "Settings",
-
-            settingsDescription:
-                "Una UI de ajustes que creé para mi juego.",
-
-            moreWorkTitle: "Más trabajos",
-
-            moreWorkDescription:
-                "Otros sistemas de Roblox en los que he trabajado.",
-
-            afkFountainTitle: "AFK Fountain System",
-
-            afkFountainDescription:
+            projectCannon:
+                "Un cañón completamente funcional que hice para un cliente. La UI no fue hecha por mí, solo programé el sistema.",
+            projectSettings:
+                "Una UI de ajustes que hice para mi juego.",
+            projectAfkFountain:
                 "Un sistema AFK sencillo.",
-
-            afkBoxTitle: "AFK Box System",
-
-            afkBoxDescription:
+            projectAfkBox:
                 "Otro sistema AFK sencillo.",
 
+            moreWorkTitle: "Más trabajos",
+            playOnRoblox: "Jugar en Roblox",
+
             statsTitle: "Estadísticas del juego",
-
             statsDescription:
-                "Estadísticas de mi juego de Roblox, que tiene una clasificación de 16+ sin pagar anuncios en Roblox.",
-
-            statsLink:
-                "Haz clic para abrir la página del juego en Roblox.",
+                "Estadísticas de mi juego de Roblox, que tiene una clasificación de madurez de 16+ sin haber pagado por anuncios de Roblox.",
+            statsCaption:
+                "Haz clic para abrir el juego en Roblox.",
 
             skillsTitle: "Habilidades",
-
             skillsDescription:
-                "Tecnologías y áreas en las que trabajo.",
+                "Las principales herramientas y áreas en las que trabajo.",
+            skillLanguage: "Lenguaje",
+            skillRoblox: "Roblox",
+            skillGameplay: "Gameplay",
+            skillUi: "UI",
 
-            skillMore: "UI y más",
+            aboutLabel: "Sobre mí",
+            aboutText1:
+                "Algunos datos sobre mí. Empecé a crear juegos de Roblox hace algo más de 2 años. He adquirido experiencia creando diferentes proyectos y sistemas.",
+            aboutText2:
+                "Estos son algunos ejemplos de proyectos y sistemas en los que he trabajado.",
 
-            reviewsTitle: "Opiniones",
+            reviewsTitle: "Reseñas",
+            reviewsText:
+                "Las reseñas de los primeros clientes se añadirán muy pronto.",
 
-            reviewsDescription:
-                "Comentarios de personas con las que he trabajado.",
-
-            reviewsEmpty:
-                "Las opiniones de mis primeros clientes se añadirán muy pronto.",
-
-            infoTitle: "Información",
-
-            robloxLabel: "Roblox",
-            discordLabel: "Discord",
-            timezoneLabel: "Zona horaria",
-
-            contactTitle:
-                "Trabajemos juntos",
-
+            contactTitle: "Trabajemos juntos",
             contactDescription:
-                "¿Tienes un proyecto en mente? Contáctame. El precio dependerá de la duración y complejidad del proyecto.",
+                "¿Tienes un proyecto en mente? Contáctame. El precio dependerá de la duración y la complejidad del proyecto.",
+            emailLabel: "Email",
+            timezoneLabel: "Zona horaria",
 
             nameLabel: "Nombre",
             namePlaceholder: "Tu nombre",
-
-            emailLabel: "Correo",
-            emailPlaceholder: "Tu correo",
+            formEmailLabel: "Email",
+            emailPlaceholder: "tu@email.com",
 
             themeLabel: "Tema del proyecto",
-            themeChoose: "Elige un tema",
-            themeGame: "Desarrollo de juegos",
-            themeSystem: "Sistema",
-            themeMechanic: "Mecánica de juego",
-            themeUI: "UI",
+            themePlaceholder: "Selecciona un tema",
+            themeGameplay: "Sistema de gameplay",
+            themeUi: "UI",
+            themeFullGame: "Juego completo",
+            themeBugFixing: "Corrección de bugs",
             themeOther: "Otro",
 
-            otherThemeLabel: "Describe el tema de tu proyecto",
+            otherThemeLabel: "Tema de tu proyecto",
             otherThemePlaceholder: "Describe el tema de tu proyecto",
 
-            budgetLabel: "Presupuesto",
-            currencyChoose: "Moneda",
-            budgetPlaceholder: "Introduce tu presupuesto",
+            currencyLabel: "Moneda",
+            currencyPlaceholder: "Selecciona una moneda",
+            amountLabel: "Cantidad",
+            amountPlaceholder: "Introduce la cantidad",
 
             messageLabel: "Mensaje",
-            messagePlaceholder: "Cuéntame sobre tu proyecto",
+            messagePlaceholder: "Cuéntame sobre tu proyecto...",
 
-            sendButton: "Enviar mensaje"
+            sendButton: "Enviar mensaje",
+            sendingButton: "Enviando...",
+
+            formSuccessTitle: "Mensaje enviado",
+            formSuccessMessage:
+                "Tu mensaje se ha enviado correctamente.",
+            formErrorTitle: "Algo salió mal",
+            formErrorMessage:
+                "No se pudo enviar tu mensaje. Inténtalo de nuevo.",
+
+            footerText: "Desarrollador Roblox"
         },
 
         ar: {
@@ -1854,219 +2058,214 @@
             navReviews: "التقييمات",
             navContact: "تواصل",
 
-            eyebrow: "مطور Roblox",
-
-            heroTitle:
-                "أطور أنظمة وميكانيكيات ألعاب Roblox.",
-
+            heroTitle: "أطور أنظمة وميكانيكيات لألعاب Roblox.",
             heroDescription:
-                "أنا مطور Roblox لدي أكثر من سنتين من الخبرة في إنشاء ألعاب Roblox. يمكنني إنشاء لعبة Roblox كاملة من البداية إلى النهاية، بما في ذلك الأنظمة والميكانيكيات وواجهة المستخدم.",
-
-            seeProjects: "شاهد مشاريعي",
-            contactMe: "تواصل معي",
-
-            heroProject:
-                "Crush A LuckyBlock — مشروع شخصي",
-
-            aboutTitle: "عني",
-
-            aboutIntro:
-                "بعض المعلومات عني.",
-
-            aboutText:
-                "بدأت في إنشاء ألعاب Roblox منذ أكثر بقليل من سنتين. اكتسبت الخبرة من خلال إنشاء مشاريع وأنظمة مختلفة. إليك بعض المشاريع والأنظمة التي عملت عليها.",
+                "أنا مطور Roblox لدي أكثر من سنتين من الخبرة في إنشاء ألعاب Roblox. يمكنني إنشاء لعبة Roblox من البداية إلى النهاية، بما في ذلك الأنظمة والميكانيكيات وواجهات المستخدم.",
+            heroProjects: "مشاهدة أعمالي",
+            heroContact: "تواصل معي",
+            heroProjectDescription:
+                "لعبتي على Roblox، تم تطويرها بشكل مستقل.",
 
             workTitle: "أعمالي",
-
             workDescription:
                 "بعض مشاريع وأنظمة Roblox التي عملت عليها.",
 
-            crushTitle: "Crush A LuckyBlock",
-
-            crushDescription:
-                "أول لعبة لي.",
-
-            crushNote:
-                "أول مشروع تم تطويره بشكل مستقل بالكامل.",
-
-            cannonTitle: "نظام المدفع",
-
-            cannonDescription:
-                "مدفع يعمل بالكامل قمت بإنشائه لأحد العملاء.",
-
-            cannonNote:
-                "واجهة المستخدم لم أصنعها. قمت فقط ببرمجة النظام.",
-
-            settingsTitle: "Settings",
-
-            settingsDescription:
+            projectCrush:
+                "أول مشروع تم تطويره بالكامل بشكل مستقل.",
+            projectCannon:
+                "مدفع يعمل بالكامل قمت بإنشائه لعميل. واجهة المستخدم لم أصنعها، بل قمت فقط ببرمجة النظام.",
+            projectSettings:
                 "واجهة إعدادات قمت بإنشائها للعبتي.",
-
-            moreWorkTitle: "أعمال أخرى",
-
-            moreWorkDescription:
-                "أنظمة Roblox إضافية عملت عليها.",
-
-            afkFountainTitle: "AFK Fountain System",
-
-            afkFountainDescription:
+            projectAfkFountain:
                 "نظام AFK بسيط.",
-
-            afkBoxTitle: "AFK Box System",
-
-            afkBoxDescription:
+            projectAfkBox:
                 "نظام AFK بسيط آخر.",
 
+            moreWorkTitle: "أعمال أخرى",
+            playOnRoblox: "اللعب على Roblox",
+
             statsTitle: "إحصائيات اللعبة",
-
             statsDescription:
-                "إحصائيات لعبتي على Roblox، وهي مصنفة 16+ دون دفع مقابل إعلانات Roblox.",
-
-            statsLink:
-                "اضغط لفتح صفحة اللعبة على Roblox.",
+                "إحصائيات لعبتي على Roblox، والتي تحمل تصنيف نضج 16+ دون دفع أموال للإعلانات على Roblox.",
+            statsCaption:
+                "اضغط لفتح اللعبة على Roblox.",
 
             skillsTitle: "المهارات",
-
             skillsDescription:
-                "التقنيات والمجالات التي أعمل عليها.",
+                "الأدوات والمجالات الرئيسية التي أعمل بها.",
+            skillLanguage: "اللغة",
+            skillRoblox: "Roblox",
+            skillGameplay: "أسلوب اللعب",
+            skillUi: "واجهة المستخدم",
 
-            skillMore: "واجهة المستخدم والمزيد",
+            aboutLabel: "عني",
+            aboutText1:
+                "بعض المعلومات عني. بدأت في إنشاء ألعاب Roblox منذ أكثر بقليل من سنتين. اكتسبت الخبرة من خلال إنشاء مشاريع وأنظمة مختلفة.",
+            aboutText2:
+                "إليك بعض الأمثلة على المشاريع والأنظمة التي عملت عليها.",
 
             reviewsTitle: "التقييمات",
-
-            reviewsDescription:
-                "آراء الأشخاص الذين عملت معهم.",
-
-            reviewsEmpty:
+            reviewsText:
                 "ستتم إضافة تقييمات العملاء الأوائل قريبًا جدًا.",
 
-            infoTitle: "المعلومات",
-
-            robloxLabel: "Roblox",
-            discordLabel: "Discord",
-            timezoneLabel: "المنطقة الزمنية",
-
-            contactTitle:
-                "لنعمل معًا",
-
+            contactTitle: "لنعمل معًا",
             contactDescription:
                 "هل لديك مشروع في ذهنك؟ تواصل معي. سيعتمد السعر على مدة المشروع ومدى تعقيده.",
+            emailLabel: "البريد",
+            timezoneLabel: "المنطقة الزمنية",
 
             nameLabel: "الاسم",
             namePlaceholder: "اسمك",
-
-            emailLabel: "البريد الإلكتروني",
-            emailPlaceholder: "بريدك الإلكتروني",
+            formEmailLabel: "البريد الإلكتروني",
+            emailPlaceholder: "your@email.com",
 
             themeLabel: "موضوع المشروع",
-            themeChoose: "اختر موضوعًا",
-            themeGame: "تطوير لعبة",
-            themeSystem: "نظام",
-            themeMechanic: "ميكانيكية لعب",
-            themeUI: "واجهة المستخدم",
+            themePlaceholder: "اختر موضوعًا",
+            themeGameplay: "نظام أسلوب اللعب",
+            themeUi: "واجهة المستخدم",
+            themeFullGame: "لعبة كاملة",
+            themeBugFixing: "إصلاح الأخطاء",
             themeOther: "أخرى",
 
-            otherThemeLabel: "صف موضوع مشروعك",
+            otherThemeLabel: "موضوع مشروعك",
             otherThemePlaceholder: "صف موضوع مشروعك",
 
-            budgetLabel: "الميزانية",
-            currencyChoose: "العملة",
-            budgetPlaceholder: "أدخل ميزانيتك",
+            currencyLabel: "العملة",
+            currencyPlaceholder: "اختر العملة",
+            amountLabel: "المبلغ",
+            amountPlaceholder: "أدخل المبلغ",
 
             messageLabel: "الرسالة",
-            messagePlaceholder: "أخبرني عن مشروعك",
+            messagePlaceholder: "أخبرني عن مشروعك...",
 
-            sendButton: "إرسال الرسالة"
+            sendButton: "إرسال الرسالة",
+            sendingButton: "جارٍ الإرسال...",
+
+            formSuccessTitle: "تم إرسال الرسالة",
+            formSuccessMessage:
+                "تم إرسال رسالتك بنجاح.",
+            formErrorTitle: "حدث خطأ",
+            formErrorMessage:
+                "تعذر إرسال رسالتك. يرجى المحاولة مرة أخرى.",
+
+            footerText: "مطور Roblox"
         }
     };
 
-    const languageNames = {
-        en: "English",
-        fr: "Français",
-        zh: "中文",
-        hi: "हिन्दी",
-        es: "Español",
-        ar: "العربية"
-    };
+
+    /* =========================
+       LANGUAGE
+    ========================= */
 
     let currentLanguage = "en";
 
     function changeLanguage(language) {
+        if (!translations[language]) {
+            language = "en";
+        }
+
         currentLanguage = language;
 
         const dictionary = translations[language];
 
         document.documentElement.lang = language;
-        document.body.dir = language === "ar" ? "rtl" : "ltr";
+
+        if (language === "ar") {
+            document.body.classList.add("rtl");
+            document.body.dir = "rtl";
+        } else {
+            document.body.classList.remove("rtl");
+            document.body.dir = "ltr";
+        }
 
         document.querySelectorAll("[data-i18n]").forEach(element => {
-            const key = element.dataset.i18n;
+            const key = element.getAttribute("data-i18n");
 
-            if (dictionary[key]) {
+            if (dictionary[key] !== undefined) {
                 element.textContent = dictionary[key];
             }
         });
 
         document.querySelectorAll("[data-placeholder]").forEach(element => {
-            const key = element.dataset.placeholder;
+            const key = element.getAttribute("data-placeholder");
 
-            if (dictionary[key]) {
+            if (dictionary[key] !== undefined) {
                 element.placeholder = dictionary[key];
             }
         });
 
-        document.getElementById("languageButton").textContent =
-            languageNames[language];
+        document.title =
+            language === "fr"
+                ? "Nonop31 - Développeur Roblox"
+                : language === "zh"
+                    ? "Nonop31 - Roblox 开发者"
+                    : language === "hi"
+                        ? "Nonop31 - Roblox डेवलपर"
+                        : language === "es"
+                            ? "Nonop31 - Desarrollador Roblox"
+                            : language === "ar"
+                                ? "Nonop31 - مطور Roblox"
+                                : "Nonop31 - Roblox Developer";
 
-        document.getElementById("languageMenu").classList.remove("open");
+        const languageSelect =
+            document.getElementById("languageSelect");
 
-        document
-            .getElementById("languageButton")
-            .setAttribute("aria-expanded", "false");
+        languageSelect.value = language;
+
+        updatePopupLanguage();
+
+        localStorage.setItem("portfolioLanguage", language);
     }
 
-    /* LANGUAGE MENU */
 
-    const languageButton =
-        document.getElementById("languageButton");
+    /* =========================
+       LANGUAGE SELECT
+    ========================= */
 
-    const languageMenu =
-        document.getElementById("languageMenu");
+    document
+        .getElementById("languageSelect")
+        .addEventListener("change", function () {
+            changeLanguage(this.value);
+        });
 
-    languageButton.addEventListener("click", function () {
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const mobileMenuButton =
+        document.getElementById("mobileMenuButton");
+
+    const mobileMenu =
+        document.getElementById("mobileMenu");
+
+    mobileMenuButton.addEventListener("click", () => {
         const isOpen =
-            languageMenu.classList.toggle("open");
+            mobileMenu.classList.toggle("open");
 
-        languageButton.setAttribute(
+        mobileMenuButton.setAttribute(
             "aria-expanded",
             String(isOpen)
         );
     });
 
-    document.querySelectorAll("[data-language]").forEach(button => {
-        button.addEventListener("click", function () {
-            changeLanguage(this.dataset.language);
-        });
-    });
-
-    document.addEventListener("click", function (event) {
-        const languageContainer =
-            document.querySelector(".language");
-
-        if (!languageContainer.contains(event.target)) {
-            languageMenu.classList.remove("open");
-
-            languageButton.setAttribute(
+    mobileMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            mobileMenu.classList.remove("open");
+            mobileMenuButton.setAttribute(
                 "aria-expanded",
                 "false"
             );
-        }
+        });
     });
 
-    /* PROJECT THEME */
 
-    const projectTheme =
-        document.getElementById("projectTheme");
+    /* =========================
+       OTHER PROJECT THEME
+    ========================= */
+
+    const themeSelect =
+        document.getElementById("theme");
 
     const otherThemeGroup =
         document.getElementById("otherThemeGroup");
@@ -2074,9 +2273,8 @@
     const otherTheme =
         document.getElementById("otherTheme");
 
-    projectTheme.addEventListener("change", function () {
-
-        if (this.value === "other") {
+    function updateOtherThemeField() {
+        if (themeSelect.value === "Other") {
             otherThemeGroup.classList.remove("hidden");
             otherTheme.required = true;
         } else {
@@ -2084,11 +2282,226 @@
             otherTheme.required = false;
             otherTheme.value = "";
         }
-    });
+    }
 
-    /* DEFAULT LANGUAGE = ENGLISH */
+    themeSelect.addEventListener(
+        "change",
+        updateOtherThemeField
+    );
 
-    changeLanguage("en");
+
+    /* =========================
+       FORM POPUP
+    ========================= */
+
+    const contactForm =
+        document.getElementById("contactForm");
+
+    const formPopup =
+        document.getElementById("formPopup");
+
+    const formPopupIcon =
+        document.getElementById("formPopupIcon");
+
+    const formPopupTitle =
+        document.getElementById("formPopupTitle");
+
+    const formPopupMessage =
+        document.getElementById("formPopupMessage");
+
+    const formPopupClose =
+        document.getElementById("formPopupClose");
+
+    let popupTimeout;
+
+    function updatePopupLanguage() {
+        if (!formPopup.classList.contains("show")) {
+            return;
+        }
+
+        const dictionary =
+            translations[currentLanguage];
+
+        if (
+            formPopup.dataset.status === "success"
+        ) {
+            formPopupTitle.textContent =
+                dictionary.formSuccessTitle;
+
+            formPopupMessage.textContent =
+                dictionary.formSuccessMessage;
+        } else {
+            formPopupTitle.textContent =
+                dictionary.formErrorTitle;
+
+            formPopupMessage.textContent =
+                dictionary.formErrorMessage;
+        }
+    }
+
+    function showFormPopup(success) {
+        const dictionary =
+            translations[currentLanguage];
+
+        formPopup.dataset.status =
+            success ? "success" : "error";
+
+        if (success) {
+            formPopupIcon.textContent = "✓";
+
+            formPopupTitle.textContent =
+                dictionary.formSuccessTitle;
+
+            formPopupMessage.textContent =
+                dictionary.formSuccessMessage;
+        } else {
+            formPopupIcon.textContent = "!";
+
+            formPopupTitle.textContent =
+                dictionary.formErrorTitle;
+
+            formPopupMessage.textContent =
+                dictionary.formErrorMessage;
+        }
+
+        formPopup.classList.add("show");
+
+        clearTimeout(popupTimeout);
+
+        popupTimeout = setTimeout(() => {
+            formPopup.classList.remove("show");
+        }, 6000);
+    }
+
+    formPopupClose.addEventListener(
+        "click",
+        () => {
+            formPopup.classList.remove("show");
+        }
+    );
+
+
+    /* =========================
+       FORM SUBMISSION
+    ========================= */
+
+    contactForm.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+            const submitButton =
+                contactForm.querySelector(
+                    ".contact-submit"
+                );
+
+            const dictionary =
+                translations[currentLanguage];
+
+            const originalText =
+                submitButton.textContent;
+
+            submitButton.disabled = true;
+            submitButton.textContent =
+                dictionary.sendingButton;
+
+            try {
+
+                const formData =
+                    new FormData(contactForm);
+
+                const response =
+                    await fetch(
+                        "https://formsubmit.co/ajax/nonop31.the.real@gmail.com",
+                        {
+                            method: "POST",
+                            headers: {
+                                "Accept": "application/json"
+                            },
+                            body: formData
+                        }
+                    );
+
+                let data = null;
+
+                try {
+                    data = await response.json();
+                } catch {
+                    data = null;
+                }
+
+                /*
+                 * FormSubmit normally returns JSON.
+                 * We accept any successful HTTP response
+                 * unless the returned JSON explicitly says
+                 * success is false.
+                 */
+
+                const successful =
+                    response.ok &&
+                    (!data ||
+                        data.success !== false);
+
+                if (successful) {
+
+                    showFormPopup(true);
+
+                    contactForm.reset();
+
+                    otherThemeGroup
+                        .classList
+                        .add("hidden");
+
+                    otherTheme.required = false;
+
+                } else {
+
+                    showFormPopup(false);
+
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Form submission error:",
+                    error
+                );
+
+                showFormPopup(false);
+
+            } finally {
+
+                submitButton.disabled = false;
+                submitButton.textContent =
+                    originalText;
+            }
+        }
+    );
+
+
+    /* =========================
+       INITIAL LANGUAGE
+    ========================= */
+
+    const savedLanguage =
+        localStorage.getItem("portfolioLanguage");
+
+    /*
+     * English is the default language.
+     * If the visitor already selected a language,
+     * that language is restored.
+     */
+
+    changeLanguage(
+        savedLanguage &&
+        translations[savedLanguage]
+            ? savedLanguage
+            : "en"
+    );
+
+    updateOtherThemeField();
+
 </script>
 
 </body>
