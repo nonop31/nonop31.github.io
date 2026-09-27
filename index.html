@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nonop31 | Roblox Developer</title>
+    <title>Nonop31 - Roblox Developer</title>
 
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         html {
@@ -18,9 +18,9 @@
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #111111;
-            color: #eeeeee;
+            background: #050a0f;
+            color: #f2f5f7;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
         }
 
@@ -29,75 +29,49 @@
             text-decoration: none;
         }
 
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
         /* NAVBAR */
 
         nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: #111111;
-            border-bottom: 1px solid #292929;
-        }
-
-        .nav-container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 18px 20px;
-
+            height: 80px;
+            border-bottom: 1px solid #172027;
             display: flex;
             align-items: center;
+        }
+
+        .nav-content {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
             justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: bold;
+            color: #00c9b7;
         }
 
         .nav-links {
             display: flex;
-            align-items: center;
-            gap: 25px;
+            gap: 32px;
         }
 
         .nav-links a {
-            color: #aaaaaa;
+            color: #89949d;
             font-size: 14px;
+            transition: 0.2s;
         }
 
         .nav-links a:hover {
-            color: white;
-        }
-
-        .language-button {
-            border: 1px solid #444444;
-            background: transparent;
-            color: #eeeeee;
-            padding: 6px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .language-button:hover {
-            background: #222222;
-        }
-
-        /* GENERAL */
-
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 80px 0;
-            border-bottom: 1px solid #222222;
-        }
-
-        h2 {
-            font-size: 28px;
-            margin-bottom: 35px;
+            color: #00c9b7;
         }
 
         /* HERO */
@@ -106,44 +80,71 @@
             padding: 120px 0 100px;
         }
 
-        .hero h1 {
-            font-size: 48px;
+        .hero-small {
+            color: #00c9b7;
+            font-size: 15px;
             margin-bottom: 15px;
         }
 
-        .hero h1 span {
-            color: #888888;
+        .hero h1 {
+            font-size: 60px;
+            line-height: 1.1;
+            margin-bottom: 25px;
         }
 
         .hero p {
             max-width: 650px;
-            color: #aaaaaa;
+            color: #89949d;
             font-size: 18px;
+            margin-bottom: 35px;
         }
 
-        .hero-buttons {
-            margin-top: 30px;
+        .buttons {
             display: flex;
-            gap: 12px;
+            gap: 15px;
         }
 
         .button {
-            display: inline-block;
-            padding: 10px 18px;
-            border: 1px solid #444444;
-            border-radius: 5px;
-            font-size: 14px;
+            padding: 13px 22px;
+            border-radius: 6px;
+            border: 1px solid #00c9b7;
+            color: #00c9b7;
+            transition: 0.2s;
         }
 
         .button:hover {
-            background: #222222;
+            background: #00c9b7;
+            color: #050a0f;
+        }
+
+        .button.primary {
+            background: #00c9b7;
+            color: #050a0f;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            color: #89949d;
+            max-width: 650px;
+            margin-bottom: 40px;
         }
 
         /* ABOUT */
 
         .about-text {
-            max-width: 700px;
-            color: #aaaaaa;
+            max-width: 750px;
+            color: #aab4bc;
+            font-size: 17px;
         }
 
         .about-text p {
@@ -153,64 +154,75 @@
         /* PROJECTS */
 
         .project {
-            margin-bottom: 60px;
+            border: 1px solid #172027;
+            background: #080e13;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 35px;
         }
 
-        .project:last-child {
-            margin-bottom: 0;
-        }
-
-        .project h3 {
-            font-size: 22px;
-            margin-bottom: 5px;
-        }
-
-        .project-type {
-            color: #777777;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .project-description {
-            color: #aaaaaa;
-            max-width: 700px;
-            margin-bottom: 20px;
-        }
-
-        .video {
-            position: relative;
+        .project-video {
             width: 100%;
-            max-width: 850px;
             aspect-ratio: 16 / 9;
-            background: #1b1b1b;
-        }
-
-        .video iframe {
-            width: 100%;
-            height: 100%;
             border: none;
         }
 
-        /* SMALL PROJECTS */
-
-        .small-projects {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+        .project-info {
+            padding: 25px;
         }
 
-        .small-project {
-            border: 1px solid #292929;
-            padding: 22px;
-            border-radius: 6px;
-        }
-
-        .small-project h3 {
+        .project-info h3 {
+            font-size: 23px;
             margin-bottom: 8px;
         }
 
-        .small-project p {
-            color: #999999;
+        .project-type {
+            color: #00c9b7;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .project-info p {
+            color: #89949d;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        /* STATS */
+
+        .stats-card {
+            display: block;
+            border: 1px solid #172027;
+            background: #080e13;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.2s;
+        }
+
+        .stats-card:hover {
+            border-color: #00c9b7;
+            transform: translateY(-3px);
+        }
+
+        .stats-card img {
+            width: 100%;
+            display: block;
+        }
+
+        .stats-info {
+            padding: 20px;
+        }
+
+        .stats-info h3 {
+            margin-bottom: 5px;
+        }
+
+        .stats-info p {
+            color: #89949d;
             font-size: 14px;
         }
 
@@ -223,53 +235,172 @@
         }
 
         .skill {
-            border: 1px solid #333333;
-            padding: 8px 13px;
+            border: 1px solid #172027;
+            padding: 10px 15px;
             border-radius: 5px;
-            color: #bbbbbb;
+            color: #aab4bc;
+            background: #080e13;
+        }
+
+        /* INFO */
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .info-card {
+            border: 1px solid #172027;
+            background: #080e13;
+            border-radius: 8px;
+            padding: 22px;
+        }
+
+        .info-card h3 {
             font-size: 14px;
+            color: #89949d;
+            margin-bottom: 8px;
+        }
+
+        .info-card a,
+        .info-card p {
+            color: #00c9b7;
         }
 
         /* CONTACT */
 
-        .contact p {
-            color: #aaaaaa;
-            margin-bottom: 10px;
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
         }
 
-        .contact strong {
-            color: #eeeeee;
+        .contact-left h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .contact-left > p {
+            color: #89949d;
+            max-width: 500px;
+            margin-bottom: 35px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #aab4bc;
+        }
+
+        .contact-link:hover {
+            color: #00c9b7;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            border: 1px solid #17313a;
+            background: #071c20;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00c9b7;
+        }
+
+        .contact-form {
+            border: 1px solid #172027;
+            background: #080e13;
+            border-radius: 12px;
+            padding: 35px;
+        }
+
+        .contact-form h3 {
+            font-size: 25px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #89949d;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: #050a0f;
+            border: 1px solid #172027;
+            border-radius: 8px;
+            padding: 15px;
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #00c9b7;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .send-button {
+            width: 100%;
+            border: none;
+            background: #00c9b7;
+            color: #050a0f;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .send-button:hover {
+            opacity: 0.9;
         }
 
         /* FOOTER */
 
         footer {
-            padding: 30px 20px;
+            border-top: 1px solid #172027;
+            padding: 30px 0;
             text-align: center;
-            color: #666666;
-            font-size: 13px;
+            color: #66727b;
+            font-size: 14px;
         }
 
-        /* MOBILE */
-
-        @media (max-width: 700px) {
+        @media (max-width: 800px) {
             .nav-links {
-                gap: 12px;
-            }
-
-            .nav-links a {
                 display: none;
             }
 
             .hero h1 {
-                font-size: 36px;
+                font-size: 42px;
             }
 
-            .hero p {
-                font-size: 16px;
-            }
-
-            .small-projects {
+            .project-grid,
+            .contact-section,
+            .info-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -281,21 +412,15 @@
     <!-- NAVBAR -->
 
     <nav>
-        <div class="nav-container">
-
-            <div class="logo">Nonop31</div>
+        <div class="nav-content">
+            <a href="#" class="logo">nonop31</a>
 
             <div class="nav-links">
-                <a href="#about" data-en="About" data-fr="À propos">About</a>
-                <a href="#work" data-en="My Work" data-fr="Mon travail">My Work</a>
-                <a href="#skills" data-en="Skills" data-fr="Compétences">Skills</a>
-                <a href="#contact" data-en="Contact" data-fr="Contact">Contact</a>
-
-                <button class="language-button" onclick="changeLanguage()">
-                    FR
-                </button>
+                <a href="#about">ABOUT</a>
+                <a href="#work">MY WORK</a>
+                <a href="#skills">SKILLS</a>
+                <a href="#contact">CONTACT</a>
             </div>
-
         </div>
     </nav>
 
@@ -305,33 +430,26 @@
     <section class="hero">
         <div class="container">
 
+            <div class="hero-small">
+                ROBLOX DEVELOPER
+            </div>
+
             <h1>
-                Hi, I'm <span>Nonop31</span>.
+                Hi, I'm Nonop31.
             </h1>
 
-            <p
-                data-en="I'm a Roblox developer focused on building the systems that make games work. I create gameplay mechanics, player systems and other functional systems for Roblox games."
-                data-fr="Je suis développeur Roblox et je me concentre sur la création des systèmes qui font fonctionner les jeux. Je développe des mécaniques de gameplay, des systèmes pour les joueurs et d'autres systèmes fonctionnels."
-            >
-                I'm a Roblox developer focused on building the systems that make games work. I create gameplay mechanics, player systems and other functional systems for Roblox games.
+            <p>
+                I'm a Roblox developer focused on building the systems
+                that make games work. I create gameplay mechanics,
+                player systems and functional systems for Roblox games.
             </p>
 
-            <div class="hero-buttons">
-                <a
-                    href="#work"
-                    class="button"
-                    data-en="See my work"
-                    data-fr="Voir mon travail"
-                >
+            <div class="buttons">
+                <a href="#work" class="button primary">
                     See my work
                 </a>
 
-                <a
-                    href="#contact"
-                    class="button"
-                    data-en="Contact me"
-                    data-fr="Me contacter"
-                >
+                <a href="#contact" class="button">
                     Contact me
                 </a>
             </div>
@@ -345,33 +463,27 @@
     <section id="about">
         <div class="container">
 
-            <h2
-                data-en="About Me"
-                data-fr="À propos de moi"
-            >
+            <h2 class="section-title">
                 About Me
             </h2>
 
+            <p class="section-description">
+                A few things about me and the way I work.
+            </p>
+
             <div class="about-text">
 
-                <p
-                    data-en="I started developing Roblox games to learn how game systems work and how to turn ideas into playable mechanics."
-                    data-fr="J'ai commencé à développer des jeux Roblox pour apprendre comment fonctionnent les systèmes d'un jeu et comment transformer des idées en mécaniques jouables."
-                >
-                    I started developing Roblox games to learn how game systems work and how to turn ideas into playable mechanics.
+                <p>
+                    I started developing Roblox games to learn how game
+                    systems work and how to turn ideas into playable mechanics.
                 </p>
 
-                <p
-                    data-en="I mainly work with Luau and focus on gameplay systems, player systems and server-side logic."
-                    data-fr="Je travaille principalement avec Luau et je me concentre sur les systèmes de gameplay, les systèmes joueurs et la logique côté serveur."
-                >
-                    I mainly work with Luau and focus on gameplay systems, player systems and server-side logic.
+                <p>
+                    I mainly work with Luau and focus on gameplay systems,
+                    player systems and server-side logic.
                 </p>
 
-                <p
-                    data-en="Here are some examples of systems and projects I have worked on."
-                    data-fr="Voici quelques exemples de systèmes et de projets sur lesquels j'ai travaillé."
-                >
+                <p>
                     Here are some examples of systems and projects I have worked on.
                 </p>
 
@@ -381,113 +493,135 @@
     </section>
 
 
-    <!-- MY WORK -->
+    <!-- WORK -->
 
     <section id="work">
         <div class="container">
 
-            <h2
-                data-en="My Work"
-                data-fr="Mon travail"
-            >
+            <h2 class="section-title">
                 My Work
             </h2>
 
+            <p class="section-description">
+                Some of the Roblox projects and systems I have worked on.
+            </p>
 
-            <!-- PROJECT 1 -->
+
+            <!-- CRUSH A LUCKYBLOCK -->
 
             <div class="project">
 
-                <h3>Crush a Luckyblock</h3>
+                <iframe
+                    class="project-video"
+                    src="https://www.youtube.com/embed/yEmWAWZhFE4"
+                    allowfullscreen>
+                </iframe>
 
-                <div
-                    class="project-type"
-                    data-en="Full Roblox Game — My First Game"
-                    data-fr="Jeu Roblox complet — Mon premier jeu"
-                >
-                    Full Roblox Game — My First Game
-                </div>
+                <div class="project-info">
 
-                <p
-                    class="project-description"
-                    data-en="My first Roblox game. I worked on the game's gameplay systems and mechanics."
-                    data-fr="Mon premier jeu Roblox. J'ai travaillé sur les systèmes de gameplay et les mécaniques du jeu."
-                >
-                    My first Roblox game. I worked on the game's gameplay systems and mechanics.
-                </p>
+                    <div class="project-type">
+                        FULL ROBLOX GAME
+                    </div>
 
-                <div class="video">
-                    <iframe
-                        src="https://www.youtube.com/embed/yEmWAWZhFE4"
-                        title="Crush a Luckyblock"
-                        allowfullscreen>
-                    </iframe>
+                    <h3>
+                        Crush a Luckyblock
+                    </h3>
+
+                    <p>
+                        My first Roblox game. I worked on the game's
+                        systems and gameplay mechanics.
+                    </p>
+
                 </div>
 
             </div>
 
 
-            <!-- PROJECT 2 -->
+            <!-- CANNON -->
 
             <div class="project">
 
-                <h3>Cannon System</h3>
+                <iframe
+                    class="project-video"
+                    src="https://www.youtube.com/embed/W14xJzIldMo"
+                    allowfullscreen>
+                </iframe>
 
-                <div
-                    class="project-type"
-                    data-en="Gameplay System"
-                    data-fr="Système de gameplay"
-                >
-                    Gameplay System
-                </div>
+                <div class="project-info">
 
-                <p
-                    class="project-description"
-                    data-en="A fully functional cannon system that I developed. The UI was created by another developer."
-                    data-fr="Un système de canon entièrement fonctionnel que j'ai développé. L'UI a été créée par un autre développeur."
-                >
-                    A fully functional cannon system that I developed. The UI was created by another developer.
-                </p>
+                    <div class="project-type">
+                        GAMEPLAY SYSTEM
+                    </div>
 
-                <div class="video">
-                    <iframe
-                        src="https://www.youtube.com/embed/W14xJzIldMo"
-                        title="Cannon System"
-                        allowfullscreen>
-                    </iframe>
+                    <h3>
+                        Cannon System
+                    </h3>
+
+                    <p>
+                        A fully functional cannon system.
+                        The UI was created by another developer.
+                    </p>
+
                 </div>
 
             </div>
 
 
-            <!-- PROJECT 3 -->
+            <!-- SETTINGS -->
 
             <div class="project">
 
-                <h3>AFK Fountain System</h3>
+                <iframe
+                    class="project-video"
+                    src="https://www.youtube.com/embed/tn0EyA1seg4"
+                    allowfullscreen>
+                </iframe>
 
-                <div
-                    class="project-type"
-                    data-en="Player System"
-                    data-fr="Système joueur"
-                >
-                    Player System
+                <div class="project-info">
+
+                    <div class="project-type">
+                        PLAYER SYSTEM
+                    </div>
+
+                    <h3>
+                        Settings System
+                    </h3>
+
+                    <p>
+                        A settings system created for a Roblox game,
+                        allowing players to manage their preferences.
+                    </p>
+
                 </div>
 
-                <p
-                    class="project-description"
-                    data-en="A simple AFK system with a fountain that manages players while they are AFK."
-                    data-fr="Un système AFK avec une fontaine qui gère les joueurs lorsqu'ils sont AFK."
-                >
-                    A simple AFK system with a fountain that manages players while they are AFK.
-                </p>
+            </div>
 
-                <div class="video">
-                    <iframe
-                        src="https://www.youtube.com/embed/O5VXBfJoxc8"
-                        title="AFK Fountain System"
-                        allowfullscreen>
-                    </iframe>
+
+            <!-- AFK FOUNTAIN -->
+
+            <div class="project">
+
+                <iframe
+                    class="project-video"
+                    src="https://www.youtube.com/embed/O5VXBfJoxc8"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="project-info">
+
+                    <div class="project-type">
+                        PLAYER SYSTEM
+                    </div>
+
+                    <h3>
+                        AFK Fountain System
+                    </h3>
+
+                    <p>
+                        An AFK system built around a fountain,
+                        allowing players to remain AFK in-game.
+                    </p>
+
                 </div>
 
             </div>
@@ -495,60 +629,88 @@
 
             <!-- MORE WORK -->
 
-            <h2
-                style="margin-top: 90px;"
-                data-en="More Work"
-                data-fr="Autres systèmes"
-            >
+            <h2 style="font-size: 24px; margin: 60px 0 25px;">
                 More Work
             </h2>
 
-            <div class="small-projects">
+            <div class="project-grid">
 
-                <div class="small-project">
+                <div class="project">
 
-                    <h3>Settings System</h3>
+                    <iframe
+                        class="project-video"
+                        src="https://www.youtube.com/embed/DyKeB5FjU_Y"
+                        allowfullscreen>
+                    </iframe>
 
-                    <p
-                        data-en="A settings system I developed for my Roblox game."
-                        data-fr="Un système de paramètres que j'ai développé pour mon jeu Roblox."
-                    >
-                        A settings system I developed for my Roblox game.
-                    </p>
+                    <div class="project-info">
 
-                    <div class="video" style="margin-top: 18px;">
-                        <iframe
-                            src="https://www.youtube.com/embed/tn0EyA1seg4"
-                            title="Settings System"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
+                        <div class="project-type">
+                            PLAYER SYSTEM
+                        </div>
 
-                </div>
+                        <h3>
+                            AFK Box System
+                        </h3>
 
+                        <p>
+                            Another AFK system implementation.
+                        </p>
 
-                <div class="small-project">
-
-                    <h3>AFK Box System</h3>
-
-                    <p
-                        data-en="Another AFK system I developed using an AFK box."
-                        data-fr="Un autre système AFK que j'ai développé avec une box AFK."
-                    >
-                        Another AFK system I developed using an AFK box.
-                    </p>
-
-                    <div class="video" style="margin-top: 18px;">
-                        <iframe
-                            src="https://www.youtube.com/embed/DyKeB5FjU_Y"
-                            title="AFK Box System"
-                            allowfullscreen>
-                        </iframe>
                     </div>
 
                 </div>
 
             </div>
+
+        </div>
+    </section>
+
+
+    <!-- GAME STATS -->
+
+    <section>
+        <div class="container">
+
+            <h2 class="section-title">
+                Game Stats
+            </h2>
+
+            <p class="section-description">
+                Statistics for my Roblox game.
+                Click the image to visit the game.
+            </p>
+
+            <a
+                class="stats-card"
+                href="https://www.roblox.com/fr/games/139111148572091/Crush-a-Luckyblock-for-Brainrot"
+                target="_blank"
+            >
+
+                <!--
+                    IMPORTANT:
+                    Put your screenshot in your GitHub repository
+                    and name it: stats.png
+                -->
+
+                <img
+                    src="stats.png"
+                    alt="Crush a Luckyblock Roblox game statistics"
+                >
+
+                <div class="stats-info">
+
+                    <h3>
+                        Crush a Luckyblock
+                    </h3>
+
+                    <p>
+                        Click to visit the Roblox game.
+                    </p>
+
+                </div>
+
+            </a>
 
         </div>
     </section>
@@ -559,12 +721,13 @@
     <section id="skills">
         <div class="container">
 
-            <h2
-                data-en="Skills"
-                data-fr="Compétences"
-            >
+            <h2 class="section-title">
                 Skills
             </h2>
+
+            <p class="section-description">
+                Technologies and systems I work with.
+            </p>
 
             <div class="skills">
 
@@ -575,6 +738,69 @@
                 <div class="skill">DataStore</div>
                 <div class="skill">Game Mechanics</div>
                 <div class="skill">Roblox Studio</div>
+                <div class="skill">ModuleScripts</div>
+                <div class="skill">Client / Server</div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- INFO -->
+
+    <section>
+        <div class="container">
+
+            <h2 class="section-title">
+                Information
+            </h2>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+
+                    <h3>
+                        Roblox
+                    </h3>
+
+                    <a
+                        href="https://www.roblox.com/fr/users/973247650/profile"
+                        target="_blank"
+                    >
+                        nonop31
+                    </a>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Discord
+                    </h3>
+
+                    <a
+                        href="https://discord.com/users/1396495532037247088"
+                        target="_blank"
+                    >
+                        nonop31
+                    </a>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Timezone
+                    </h3>
+
+                    <p>
+                        Europe/Paris — UTC+1 / UTC+2
+                    </p>
+
+                </div>
 
             </div>
 
@@ -585,74 +811,180 @@
     <!-- CONTACT -->
 
     <section id="contact">
+
         <div class="container">
 
-            <h2
-                data-en="Contact"
-                data-fr="Contact"
-            >
-                Contact
-            </h2>
+            <div class="contact-section">
 
-            <div class="contact">
+                <!-- LEFT -->
 
-                <p
-                    data-en="Interested in working together?"
-                    data-fr="Intéressé pour travailler avec moi ?"
-                >
-                    Interested in working together?
-                </p>
+                <div class="contact-left">
 
-                <p>
-                    <strong>Discord:</strong>
-                    YOUR_DISCORD
-                </p>
+                    <div class="hero-small">
+                        CONTACT
+                    </div>
 
-                <p>
-                    <strong>Roblox:</strong>
-                    <a href="#" data-en="My Roblox Profile" data-fr="Mon profil Roblox">
-                        My Roblox Profile
-                    </a>
-                </p>
+                    <h2>
+                        Let's Work Together
+                    </h2>
+
+                    <p>
+                        Have a project in mind?
+                        I'm open to discussing new Roblox projects,
+                        systems and development opportunities.
+                    </p>
+
+
+                    <div class="contact-links">
+
+                        <a
+                            class="contact-link"
+                            href="https://discord.com/users/1396495532037247088"
+                            target="_blank"
+                        >
+
+                            <div class="contact-icon">
+                                💬
+                            </div>
+
+                            <div>
+                                <small>Discord</small>
+                                <br>
+                                <strong>nonop31</strong>
+                            </div>
+
+                        </a>
+
+
+                        <a
+                            class="contact-link"
+                            href="https://www.roblox.com/fr/users/973247650/profile"
+                            target="_blank"
+                        >
+
+                            <div class="contact-icon">
+                                🎮
+                            </div>
+
+                            <div>
+                                <small>Roblox</small>
+                                <br>
+                                <strong>nonop31</strong>
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FORM -->
+
+                <div class="contact-form">
+
+                    <h3>
+                        Send a Message
+                    </h3>
+
+                    <!--
+                        Replace YOUR_EMAIL_HERE with your real email.
+                    -->
+
+                    <form
+                        action="https://formsubmit.co/YOUR_EMAIL_HERE"
+                        method="POST"
+                    >
+
+                        <input
+                            type="hidden"
+                            name="_subject"
+                            value="New Portfolio Contact - Nonop31"
+                        >
+
+                        <input
+                            type="hidden"
+                            name="_captcha"
+                            value="false"
+                        >
+
+                        <input
+                            type="hidden"
+                            name="_template"
+                            value="table"
+                        >
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Name
+                            </label>
+
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="your@email.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Message
+                            </label>
+
+                            <textarea
+                                name="message"
+                                placeholder="Tell me about your project..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <button
+                            class="send-button"
+                            type="submit"
+                        >
+                            Send Message
+                        </button>
+
+                    </form>
+
+                </div>
 
             </div>
 
         </div>
+
     </section>
 
 
     <!-- FOOTER -->
 
     <footer>
-        © 2026 Nonop31
+        © 2026 Nonop31. All rights reserved.
     </footer>
-
-
-    <!-- LANGUAGE SCRIPT -->
-
-    <script>
-
-        let currentLanguage = "en";
-
-        function changeLanguage() {
-
-            currentLanguage = currentLanguage === "en" ? "fr" : "en";
-
-            document.querySelectorAll("[data-en]").forEach(element => {
-
-                element.textContent = element.getAttribute(
-                    "data-" + currentLanguage
-                );
-
-            });
-
-            document.querySelector(".language-button").textContent =
-                currentLanguage === "en" ? "FR" : "EN";
-
-            document.documentElement.lang = currentLanguage;
-        }
-
-    </script>
 
 </body>
 </html>
