@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>nonop31 — Roblox Developer</title>
+
   <meta
     name="description"
     content="Portfolio de nonop31, développeur Roblox avec plus de 2 ans d'expérience."
@@ -40,7 +41,8 @@
 
     button,
     input,
-    textarea {
+    textarea,
+    select {
       font: inherit;
     }
 
@@ -70,7 +72,6 @@
     .logo {
       font-size: 20px;
       font-weight: 700;
-      letter-spacing: -0.3px;
     }
 
     .nav-right {
@@ -92,7 +93,7 @@
     }
 
     .nav-links a:hover {
-      color: #ffffff;
+      color: #fff;
     }
 
     .language {
@@ -263,7 +264,7 @@
       font-size: 13px;
     }
 
-    /* GENERAL SECTIONS */
+    /* SECTIONS */
 
     section {
       padding: 90px 0;
@@ -307,7 +308,7 @@
       line-height: 1.9;
     }
 
-    /* WORK */
+    /* PROJECTS */
 
     .projects {
       display: grid;
@@ -342,13 +343,6 @@
       color: #929292;
       font-size: 14px;
       line-height: 1.7;
-    }
-
-    .project-note {
-      display: inline-block;
-      margin-top: 11px;
-      color: #6f6f6f;
-      font-size: 12px;
     }
 
     .more-work {
@@ -520,8 +514,20 @@
       gap: 13px;
     }
 
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .form-label {
+      color: #cfcfcf;
+      font-size: 13px;
+    }
+
     .contact-form input,
-    .contact-form textarea {
+    .contact-form textarea,
+    .contact-form select {
       width: 100%;
       background: #101010;
       color: #fff;
@@ -532,8 +538,18 @@
     }
 
     .contact-form input:focus,
-    .contact-form textarea:focus {
+    .contact-form textarea:focus,
+    .contact-form select:focus {
       border-color: #555;
+    }
+
+    .contact-form select {
+      cursor: pointer;
+    }
+
+    .contact-form select option {
+      background: #101010;
+      color: #fff;
     }
 
     .contact-form textarea {
@@ -541,8 +557,17 @@
       resize: vertical;
     }
 
+    .conditional-field {
+      display: none;
+    }
+
+    .conditional-field.visible {
+      display: flex;
+    }
+
     .contact-form button {
       align-self: flex-start;
+      margin-top: 3px;
     }
 
     /* FOOTER */
@@ -647,6 +672,7 @@
         </nav>
 
         <div class="language" id="languageSelector">
+
           <button
             class="language-button"
             id="languageButton"
@@ -664,20 +690,24 @@
             <button type="button" data-lang="es">Español</button>
             <button type="button" data-lang="ar">العربية</button>
           </div>
+
         </div>
 
       </div>
     </div>
   </header>
 
+
   <main id="top">
 
     <!-- HERO -->
 
     <section class="hero">
+
       <div class="container hero-grid">
 
         <div>
+
           <div class="eyebrow" data-i18n="heroEyebrow">
             Roblox Developer
           </div>
@@ -699,17 +729,29 @@
           </div>
 
           <div class="hero-buttons">
-            <a href="#work" class="button primary" data-i18n="heroProjects">
+
+            <a
+              href="#work"
+              class="button primary"
+              data-i18n="heroProjects"
+            >
               Voir mes projets
             </a>
 
-            <a href="#contact" class="button" data-i18n="heroContact">
+            <a
+              href="#contact"
+              class="button"
+              data-i18n="heroContact"
+            >
               Me contacter
             </a>
+
           </div>
+
         </div>
 
-        <!-- ICON OF THE GAME -->
+
+        <!-- GAME ICON -->
 
         <a
           class="hero-project"
@@ -717,28 +759,39 @@
           target="_blank"
           rel="noopener noreferrer"
         >
+
           <img
-            src="game.png"
+            src="game.png?v=2"
             alt="Crush A LuckyBlock"
           >
 
           <div class="hero-project-info">
-            <strong>Crush A LuckyBlock</strong>
+
+            <strong>
+              Crush A LuckyBlock
+            </strong>
+
             <span data-i18n="heroProjectLabel">
               Projet personnel
             </span>
+
           </div>
+
         </a>
 
       </div>
+
     </section>
+
 
     <!-- ABOUT -->
 
     <section id="about">
+
       <div class="container">
 
         <div class="section-heading">
+
           <div class="section-label" data-i18n="aboutLabel">
             À propos
           </div>
@@ -746,25 +799,32 @@
           <h2 data-i18n="aboutTitle">
             Quelques informations sur moi.
           </h2>
+
         </div>
 
         <div class="about-content">
+
           <p data-i18n="aboutText">
             J'ai commencé à créer des jeux Roblox il y a un peu plus de 2 ans.
             J'ai engrangé de l'expérience en créant différents projets et systèmes.
             Voici quelques exemples de projets et de systèmes sur lesquels j'ai travaillé.
           </p>
+
         </div>
 
       </div>
+
     </section>
+
 
     <!-- WORK -->
 
     <section id="work">
+
       <div class="container">
 
         <div class="section-heading">
+
           <div class="section-label" data-i18n="workLabel">
             Mon travail
           </div>
@@ -772,13 +832,16 @@
           <h2 data-i18n="workTitle">
             Quelques projets et systèmes Roblox sur lesquels j'ai travaillé.
           </h2>
+
         </div>
+
 
         <div class="projects">
 
-          <!-- CRUSH -->
+          <!-- CRUSH A LUCKYBLOCK -->
 
           <article class="project">
+
             <iframe
               class="project-video"
               src="https://www.youtube.com/embed/yEmWAWZhFE4"
@@ -788,17 +851,24 @@
             ></iframe>
 
             <div class="project-content">
-              <h3>Crush A LuckyBlock</h3>
+
+              <h3>
+                Crush A LuckyBlock
+              </h3>
 
               <p data-i18n="crushDescription">
                 Premier projet développé entièrement de manière indépendante.
               </p>
+
             </div>
+
           </article>
+
 
           <!-- CANNON -->
 
           <article class="project">
+
             <iframe
               class="project-video"
               src="https://www.youtube.com/embed/W14xJzIldMo"
@@ -808,6 +878,7 @@
             ></iframe>
 
             <div class="project-content">
+
               <h3 data-i18n="cannonTitle">
                 Système de canon
               </h3>
@@ -816,12 +887,16 @@
                 Un canon complètement fonctionnel que j'ai réalisé pour un client.
                 L'UI n'a pas été réalisée par moi, j'ai simplement codé le système.
               </p>
+
             </div>
+
           </article>
+
 
           <!-- SETTINGS -->
 
           <article class="project">
+
             <iframe
               class="project-video"
               src="https://www.youtube.com/embed/tn0EyA1seg4"
@@ -831,21 +906,28 @@
             ></iframe>
 
             <div class="project-content">
-              <h3>Settings</h3>
+
+              <h3>
+                Settings
+              </h3>
 
               <p data-i18n="settingsDescription">
                 Une UI de settings que j'ai réalisée pour mon jeu.
               </p>
+
             </div>
+
           </article>
 
         </div>
+
 
         <!-- MORE WORK -->
 
         <div class="more-work">
 
           <div class="more-work-title">
+
             <h3 data-i18n="moreWorkTitle">
               More Work
             </h3>
@@ -853,13 +935,16 @@
             <p data-i18n="moreWorkDescription">
               Quelques autres systèmes sur lesquels j'ai travaillé.
             </p>
+
           </div>
+
 
           <div class="projects">
 
             <!-- AFK FOUNTAIN -->
 
             <article class="project">
+
               <iframe
                 class="project-video"
                 src="https://www.youtube.com/embed/O5VXBfJoxc8"
@@ -869,17 +954,24 @@
               ></iframe>
 
               <div class="project-content">
-                <h3>AFK Fountain System</h3>
+
+                <h3>
+                  AFK Fountain System
+                </h3>
 
                 <p data-i18n="afkFountainDescription">
                   Un simple système d'AFK.
                 </p>
+
               </div>
+
             </article>
+
 
             <!-- AFK BOX -->
 
             <article class="project">
+
               <iframe
                 class="project-video"
                 src="https://www.youtube.com/embed/DyKeB5FjU_Y"
@@ -889,12 +981,17 @@
               ></iframe>
 
               <div class="project-content">
-                <h3>AFK Box System</h3>
+
+                <h3>
+                  AFK Box System
+                </h3>
 
                 <p data-i18n="afkBoxDescription">
                   Un autre simple système d'AFK.
                 </p>
+
               </div>
+
             </article>
 
           </div>
@@ -902,14 +999,18 @@
         </div>
 
       </div>
+
     </section>
+
 
     <!-- STATS -->
 
     <section id="stats">
+
       <div class="container">
 
         <div class="section-heading">
+
           <div class="section-label" data-i18n="statsLabel">
             Statistiques
           </div>
@@ -921,9 +1022,11 @@
           <p data-i18n="statsDescription">
             Statistiques de mon jeu Roblox qui a une maturité 16 ans et + sans avoir payé pour des annonces sur Roblox.
           </p>
+
         </div>
 
-        <!-- ONLY STATS IMAGE HERE -->
+
+        <!-- STATS IMAGE ONLY -->
 
         <a
           class="stats-card"
@@ -931,28 +1034,39 @@
           target="_blank"
           rel="noopener noreferrer"
         >
+
           <img
-            src="stats.png"
+            src="stats.png?v=2"
             alt="Statistiques de Crush A LuckyBlock"
           >
 
           <div class="stats-info">
-            <strong>Crush A LuckyBlock</strong>
+
+            <strong>
+              Crush A LuckyBlock
+            </strong>
+
             <span data-i18n="statsClick">
               Cliquez pour ouvrir le jeu Roblox.
             </span>
+
           </div>
+
         </a>
 
       </div>
+
     </section>
+
 
     <!-- SKILLS -->
 
     <section id="skills">
+
       <div class="container">
 
         <div class="section-heading">
+
           <div class="section-label" data-i18n="skillsLabel">
             Compétences
           </div>
@@ -960,28 +1074,52 @@
           <h2 data-i18n="skillsTitle">
             Ce que je peux faire.
           </h2>
+
         </div>
 
+
         <div class="skills-list">
-          <span class="skill">Luau / Lua</span>
-          <span class="skill">UI</span>
-          <span class="skill">Gameplay</span>
-          <span class="skill">Systems</span>
-          <span class="skill" data-i18n="skillMore">Et plus</span>
+
+          <span class="skill">
+            Luau / Lua
+          </span>
+
+          <span class="skill">
+            UI
+          </span>
+
+          <span class="skill">
+            Gameplay
+          </span>
+
+          <span class="skill">
+            Systems
+          </span>
+
+          <span class="skill" data-i18n="skillMore">
+            Et plus
+          </span>
+
         </div>
 
       </div>
+
     </section>
+
 
     <!-- INFO -->
 
     <section>
+
       <div class="container">
 
         <div class="info-grid">
 
           <div class="info-item">
-            <small data-i18n="robloxLabel">Roblox</small>
+
+            <small data-i18n="robloxLabel">
+              Roblox
+            </small>
 
             <a
               href="https://www.roblox.com/fr/users/973247650/profile"
@@ -990,10 +1128,15 @@
             >
               nonop31
             </a>
+
           </div>
 
+
           <div class="info-item">
-            <small data-i18n="discordLabel">Discord</small>
+
+            <small data-i18n="discordLabel">
+              Discord
+            </small>
 
             <a
               href="https://discord.com/users/1396495532037247088"
@@ -1002,25 +1145,37 @@
             >
               Just_me
             </a>
+
           </div>
 
-          <div class="info-item">
-            <small data-i18n="timezoneLabel">Fuseau horaire</small>
 
-            <span>Europe/Paris — UTC+1 / UTC+2</span>
+          <div class="info-item">
+
+            <small data-i18n="timezoneLabel">
+              Fuseau horaire
+            </small>
+
+            <span>
+              Europe/Paris — UTC+1 / UTC+2
+            </span>
+
           </div>
 
         </div>
 
       </div>
+
     </section>
+
 
     <!-- REVIEWS -->
 
     <section id="reviews">
+
       <div class="container">
 
         <div class="section-heading">
+
           <div class="section-label" data-i18n="reviewsLabel">
             Avis
           </div>
@@ -1028,9 +1183,12 @@
           <h2 data-i18n="reviewsTitle">
             Avis de clients.
           </h2>
+
         </div>
 
+
         <div class="reviews-empty">
+
           <h3 data-i18n="reviewsEmptyTitle">
             Les avis de premiers clients seront ajoutés très prochainement.
           </h3>
@@ -1038,15 +1196,22 @@
           <p data-i18n="reviewsEmptyText">
             Cette section sera mise à jour au fur et à mesure de mes prochains projets clients.
           </p>
+
         </div>
 
       </div>
+
     </section>
+
 
     <!-- CONTACT -->
 
     <section id="contact">
+
       <div class="container contact-grid">
+
+
+        <!-- LEFT -->
 
         <div class="contact-text">
 
@@ -1061,6 +1226,7 @@
           <p data-i18n="contactDescription">
             Vous avez un projet en tête ? Contactez-moi, le prix se fera en fonction de la durée et de la complexité du projet.
           </p>
+
 
           <div class="contact-links">
 
@@ -1087,6 +1253,9 @@
           </div>
 
         </div>
+
+
+        <!-- FORM -->
 
         <form
           class="contact-form"
@@ -1118,28 +1287,268 @@
             value="https://nonop31.github.io/#contact"
           >
 
-          <input
-            type="text"
-            name="name"
-            placeholder="Votre nom"
-            data-placeholder="namePlaceholder"
-            required
+
+          <!-- NAME -->
+
+          <div class="form-group">
+
+            <label
+              class="form-label"
+              for="name"
+              data-i18n="nameLabel"
+            >
+              Votre nom
+            </label>
+
+            <input
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Votre nom"
+              data-placeholder="namePlaceholder"
+              required
+            >
+
+          </div>
+
+
+          <!-- EMAIL -->
+
+          <div class="form-group">
+
+            <label
+              class="form-label"
+              for="email"
+              data-i18n="emailLabel"
+            >
+              Votre adresse email
+            </label>
+
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Votre adresse email"
+              data-placeholder="emailPlaceholder"
+              required
+            >
+
+          </div>
+
+
+          <!-- PROJECT THEME -->
+
+          <div class="form-group">
+
+            <label
+              class="form-label"
+              for="projectTheme"
+              data-i18n="themeLabel"
+            >
+              Thème du projet
+            </label>
+
+            <select
+              id="projectTheme"
+              name="project_theme"
+              required
+            >
+
+              <option
+                value=""
+                disabled
+                selected
+                data-i18n="themePlaceholder"
+              >
+                Choisissez un thème
+              </option>
+
+              <option
+                value="Systems"
+                data-i18n="themeSystems"
+              >
+                Système
+              </option>
+
+              <option
+                value="Gameplay"
+                data-i18n="themeGameplay"
+              >
+                Gameplay
+              </option>
+
+              <option
+                value="UI"
+                data-i18n="themeUI"
+              >
+                UI
+              </option>
+
+              <option
+                value="Full Game"
+                data-i18n="themeFullGame"
+              >
+                Jeu complet
+              </option>
+
+              <option
+                value="Other"
+                data-i18n="themeOther"
+              >
+                Autre
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- CUSTOM THEME -->
+
+          <div
+            class="form-group conditional-field"
+            id="customThemeGroup"
           >
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Votre adresse email"
-            data-placeholder="emailPlaceholder"
-            required
+            <label
+              class="form-label"
+              for="customTheme"
+              data-i18n="customThemeLabel"
+            >
+              Précisez le thème
+            </label>
+
+            <input
+              id="customTheme"
+              type="text"
+              name="custom_project_theme"
+              placeholder="Écrivez le thème de votre projet"
+              data-placeholder="customThemePlaceholder"
+            >
+
+          </div>
+
+
+          <!-- BUDGET CURRENCY -->
+
+          <div class="form-group">
+
+            <label
+              class="form-label"
+              for="currency"
+              data-i18n="currencyLabel"
+            >
+              Devise du budget
+            </label>
+
+            <select
+              id="currency"
+              name="currency"
+              required
+            >
+
+              <option
+                value=""
+                disabled
+                selected
+                data-i18n="currencyPlaceholder"
+              >
+                Choisissez une devise
+              </option>
+
+              <option value="EUR">
+                EUR (€)
+              </option>
+
+              <option value="Robux">
+                Robux (R$)
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- BUDGET -->
+
+          <div class="form-group">
+
+            <label
+              class="form-label"
+              for="budget"
+              data-i18n="budgetLabel"
+            >
+              Budget
+            </label>
+
+            <select
+              id="budget"
+              name="budget"
+              required
+            >
+
+              <option
+                value=""
+                disabled
+                selected
+                data-i18n="budgetPlaceholder"
+              >
+                Choisissez votre budget
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- CUSTOM BUDGET -->
+
+          <div
+            class="form-group conditional-field"
+            id="customBudgetGroup"
           >
 
-          <textarea
-            name="message"
-            placeholder="Parlez-moi de votre projet"
-            data-placeholder="messagePlaceholder"
-            required
-          ></textarea>
+            <label
+              class="form-label"
+              for="customBudget"
+              data-i18n="customBudgetLabel"
+            >
+              Votre budget
+            </label>
+
+            <input
+              id="customBudget"
+              type="text"
+              name="custom_budget"
+              placeholder="Entrez votre budget"
+              data-placeholder="customBudgetPlaceholder"
+            >
+
+          </div>
+
+
+          <!-- MESSAGE -->
+
+          <div class="form-group">
+
+            <label
+              class="form-label"
+              for="message"
+              data-i18n="messageLabel"
+            >
+              Votre message
+            </label>
+
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Parlez-moi de votre projet"
+              data-placeholder="messagePlaceholder"
+              required
+            ></textarea>
+
+          </div>
+
 
           <button
             class="button primary"
@@ -1152,13 +1561,16 @@
         </form>
 
       </div>
+
     </section>
 
   </main>
 
+
   <!-- FOOTER -->
 
   <footer>
+
     <div class="container footer-content">
 
       <span>
@@ -1170,13 +1582,16 @@
       </span>
 
     </div>
+
   </footer>
 
 
   <script>
+
     const translations = {
 
       fr: {
+
         navWork: "Mon travail",
         navSkills: "Compétences",
         navAbout: "À propos",
@@ -1184,63 +1599,202 @@
         navContact: "Contact",
 
         heroEyebrow: "Roblox Developer",
-        heroTitle: "Je développe des systèmes et des mécaniques Roblox.",
-        heroDescription: "Je suis développeur Roblox avec plus de 2 ans d'expérience dans la création de jeux Roblox. Je peux créer un jeu Roblox de A à Z, que ce soit les systèmes, les mécaniques et les UI.",
-        heroProjects: "Voir mes projets",
-        heroContact: "Me contacter",
-        heroProjectLabel: "Projet personnel",
 
-        aboutLabel: "À propos",
-        aboutTitle: "Quelques informations sur moi.",
-        aboutText: "J'ai commencé à créer des jeux Roblox il y a un peu plus de 2 ans. J'ai engrangé de l'expérience en créant différents projets et systèmes. Voici quelques exemples de projets et de systèmes sur lesquels j'ai travaillé.",
+        heroTitle:
+          "Je développe des systèmes et des mécaniques Roblox.",
 
-        workLabel: "Mon travail",
-        workTitle: "Quelques projets et systèmes Roblox sur lesquels j'ai travaillé.",
+        heroDescription:
+          "Je suis développeur Roblox avec plus de 2 ans d'expérience dans la création de jeux Roblox. Je peux créer un jeu Roblox de A à Z, que ce soit les systèmes, les mécaniques et les UI.",
 
-        crushDescription: "Premier projet développé entièrement de manière indépendante.",
+        heroProjects:
+          "Voir mes projets",
 
-        cannonTitle: "Système de canon",
-        cannonDescription: "Un canon complètement fonctionnel que j'ai réalisé pour un client. L'UI n'a pas été réalisée par moi, j'ai simplement codé le système.",
+        heroContact:
+          "Me contacter",
 
-        settingsDescription: "Une UI de settings que j'ai réalisée pour mon jeu.",
+        heroProjectLabel:
+          "Projet personnel",
 
-        moreWorkTitle: "More Work",
-        moreWorkDescription: "Quelques autres systèmes sur lesquels j'ai travaillé.",
 
-        afkFountainDescription: "Un simple système d'AFK.",
-        afkBoxDescription: "Un autre simple système d'AFK.",
+        aboutLabel:
+          "À propos",
 
-        statsLabel: "Statistiques",
-        statsTitle: "Statistiques de mon jeu.",
-        statsDescription: "Statistiques de mon jeu Roblox qui a une maturité 16 ans et + sans avoir payé pour des annonces sur Roblox.",
-        statsClick: "Cliquez pour ouvrir le jeu Roblox.",
+        aboutTitle:
+          "Quelques informations sur moi.",
 
-        skillsLabel: "Compétences",
-        skillsTitle: "Ce que je peux faire.",
-        skillMore: "Et plus",
+        aboutText:
+          "J'ai commencé à créer des jeux Roblox il y a un peu plus de 2 ans. J'ai engrangé de l'expérience en créant différents projets et systèmes. Voici quelques exemples de projets et de systèmes sur lesquels j'ai travaillé.",
 
-        robloxLabel: "Roblox",
-        discordLabel: "Discord",
-        timezoneLabel: "Fuseau horaire",
 
-        reviewsLabel: "Avis",
-        reviewsTitle: "Avis de clients.",
-        reviewsEmptyTitle: "Les avis de premiers clients seront ajoutés très prochainement.",
-        reviewsEmptyText: "Cette section sera mise à jour au fur et à mesure de mes prochains projets clients.",
+        workLabel:
+          "Mon travail",
 
-        contactLabel: "Contact",
-        contactTitle: "Travaillons ensemble.",
-        contactDescription: "Vous avez un projet en tête ? Contactez-moi, le prix se fera en fonction de la durée et de la complexité du projet.",
+        workTitle:
+          "Quelques projets et systèmes Roblox sur lesquels j'ai travaillé.",
 
-        namePlaceholder: "Votre nom",
-        emailPlaceholder: "Votre adresse email",
-        messagePlaceholder: "Parlez-moi de votre projet",
-        sendButton: "Envoyer",
 
-        footerText: "Roblox Developer"
+        crushDescription:
+          "Premier projet développé entièrement de manière indépendante.",
+
+
+        cannonTitle:
+          "Système de canon",
+
+        cannonDescription:
+          "Un canon complètement fonctionnel que j'ai réalisé pour un client. L'UI n'a pas été réalisée par moi, j'ai simplement codé le système.",
+
+
+        settingsDescription:
+          "Une UI de settings que j'ai réalisée pour mon jeu.",
+
+
+        moreWorkTitle:
+          "More Work",
+
+        moreWorkDescription:
+          "Quelques autres systèmes sur lesquels j'ai travaillé.",
+
+
+        afkFountainDescription:
+          "Un simple système d'AFK.",
+
+        afkBoxDescription:
+          "Un autre simple système d'AFK.",
+
+
+        statsLabel:
+          "Statistiques",
+
+        statsTitle:
+          "Statistiques de mon jeu.",
+
+        statsDescription:
+          "Statistiques de mon jeu Roblox qui a une maturité 16 ans et + sans avoir payé pour des annonces sur Roblox.",
+
+        statsClick:
+          "Cliquez pour ouvrir le jeu Roblox.",
+
+
+        skillsLabel:
+          "Compétences",
+
+        skillsTitle:
+          "Ce que je peux faire.",
+
+        skillMore:
+          "Et plus",
+
+
+        robloxLabel:
+          "Roblox",
+
+        discordLabel:
+          "Discord",
+
+        timezoneLabel:
+          "Fuseau horaire",
+
+
+        reviewsLabel:
+          "Avis",
+
+        reviewsTitle:
+          "Avis de clients.",
+
+        reviewsEmptyTitle:
+          "Les avis de premiers clients seront ajoutés très prochainement.",
+
+        reviewsEmptyText:
+          "Cette section sera mise à jour au fur et à mesure de mes prochains projets clients.",
+
+
+        contactLabel:
+          "Contact",
+
+        contactTitle:
+          "Travaillons ensemble.",
+
+        contactDescription:
+          "Vous avez un projet en tête ? Contactez-moi, le prix se fera en fonction de la durée et de la complexité du projet.",
+
+
+        nameLabel:
+          "Votre nom",
+
+        emailLabel:
+          "Votre adresse email",
+
+        namePlaceholder:
+          "Votre nom",
+
+        emailPlaceholder:
+          "Votre adresse email",
+
+
+        themeLabel:
+          "Thème du projet",
+
+        themePlaceholder:
+          "Choisissez un thème",
+
+        themeSystems:
+          "Système",
+
+        themeGameplay:
+          "Gameplay",
+
+        themeUI:
+          "UI",
+
+        themeFullGame:
+          "Jeu complet",
+
+        themeOther:
+          "Autre",
+
+        customThemeLabel:
+          "Précisez le thème",
+
+        customThemePlaceholder:
+          "Écrivez le thème de votre projet",
+
+
+        currencyLabel:
+          "Devise du budget",
+
+        currencyPlaceholder:
+          "Choisissez une devise",
+
+
+        budgetLabel:
+          "Budget",
+
+        budgetPlaceholder:
+          "Choisissez votre budget",
+
+        customBudgetLabel:
+          "Votre budget",
+
+        customBudgetPlaceholder:
+          "Entrez votre budget",
+
+
+        messageLabel:
+          "Votre message",
+
+        messagePlaceholder:
+          "Parlez-moi de votre projet",
+
+        sendButton:
+          "Envoyer",
+
+        footerText:
+          "Roblox Developer"
       },
 
+
       en: {
+
         navWork: "My Work",
         navSkills: "Skills",
         navAbout: "About",
@@ -1248,63 +1802,202 @@
         navContact: "Contact",
 
         heroEyebrow: "Roblox Developer",
-        heroTitle: "I develop Roblox systems and mechanics.",
-        heroDescription: "I am a Roblox developer with more than 2 years of experience creating Roblox games. I can create a Roblox game from A to Z, including systems, mechanics and UI.",
-        heroProjects: "View my projects",
-        heroContact: "Contact me",
-        heroProjectLabel: "Personal project",
 
-        aboutLabel: "About",
-        aboutTitle: "A few things about me.",
-        aboutText: "I started creating Roblox games a little over 2 years ago. I have gained experience by creating different projects and systems. Here are some examples of projects and systems I have worked on.",
+        heroTitle:
+          "I develop Roblox systems and mechanics.",
 
-        workLabel: "My Work",
-        workTitle: "Some Roblox projects and systems I have worked on.",
+        heroDescription:
+          "I am a Roblox developer with more than 2 years of experience creating Roblox games. I can create a Roblox game from A to Z, including systems, mechanics and UI.",
 
-        crushDescription: "First project developed entirely independently.",
+        heroProjects:
+          "View my projects",
 
-        cannonTitle: "Cannon System",
-        cannonDescription: "A fully functional cannon I created for a client. The UI was not created by me, I only coded the system.",
+        heroContact:
+          "Contact me",
 
-        settingsDescription: "A settings UI I created for my game.",
+        heroProjectLabel:
+          "Personal project",
 
-        moreWorkTitle: "More Work",
-        moreWorkDescription: "Some other systems I have worked on.",
 
-        afkFountainDescription: "A simple AFK system.",
-        afkBoxDescription: "Another simple AFK system.",
+        aboutLabel:
+          "About",
 
-        statsLabel: "Statistics",
-        statsTitle: "My game statistics.",
-        statsDescription: "Statistics from my Roblox game rated 16+ without paying for Roblox advertisements.",
-        statsClick: "Click to open the Roblox game.",
+        aboutTitle:
+          "A few things about me.",
 
-        skillsLabel: "Skills",
-        skillsTitle: "What I can do.",
-        skillMore: "And more",
+        aboutText:
+          "I started creating Roblox games a little over 2 years ago. I have gained experience by creating different projects and systems. Here are some examples of projects and systems I have worked on.",
 
-        robloxLabel: "Roblox",
-        discordLabel: "Discord",
-        timezoneLabel: "Time zone",
 
-        reviewsLabel: "Reviews",
-        reviewsTitle: "Client reviews.",
-        reviewsEmptyTitle: "Reviews from my first clients will be added very soon.",
-        reviewsEmptyText: "This section will be updated as I complete future client projects.",
+        workLabel:
+          "My Work",
 
-        contactLabel: "Contact",
-        contactTitle: "Let's work together.",
-        contactDescription: "Have a project in mind? Contact me. The price will depend on the duration and complexity of the project.",
+        workTitle:
+          "Some Roblox projects and systems I have worked on.",
 
-        namePlaceholder: "Your name",
-        emailPlaceholder: "Your email address",
-        messagePlaceholder: "Tell me about your project",
-        sendButton: "Send",
 
-        footerText: "Roblox Developer"
+        crushDescription:
+          "First project developed entirely independently.",
+
+
+        cannonTitle:
+          "Cannon System",
+
+        cannonDescription:
+          "A fully functional cannon I created for a client. The UI was not created by me, I only coded the system.",
+
+
+        settingsDescription:
+          "A settings UI I created for my game.",
+
+
+        moreWorkTitle:
+          "More Work",
+
+        moreWorkDescription:
+          "Some other systems I have worked on.",
+
+
+        afkFountainDescription:
+          "A simple AFK system.",
+
+        afkBoxDescription:
+          "Another simple AFK system.",
+
+
+        statsLabel:
+          "Statistics",
+
+        statsTitle:
+          "My game statistics.",
+
+        statsDescription:
+          "Statistics from my Roblox game rated 16+ without paying for Roblox advertisements.",
+
+        statsClick:
+          "Click to open the Roblox game.",
+
+
+        skillsLabel:
+          "Skills",
+
+        skillsTitle:
+          "What I can do.",
+
+        skillMore:
+          "And more",
+
+
+        robloxLabel:
+          "Roblox",
+
+        discordLabel:
+          "Discord",
+
+        timezoneLabel:
+          "Time zone",
+
+
+        reviewsLabel:
+          "Reviews",
+
+        reviewsTitle:
+          "Client reviews.",
+
+        reviewsEmptyTitle:
+          "Reviews from my first clients will be added very soon.",
+
+        reviewsEmptyText:
+          "This section will be updated as I complete future client projects.",
+
+
+        contactLabel:
+          "Contact",
+
+        contactTitle:
+          "Let's work together.",
+
+        contactDescription:
+          "Have a project in mind? Contact me. The price will depend on the duration and complexity of the project.",
+
+
+        nameLabel:
+          "Your name",
+
+        emailLabel:
+          "Your email address",
+
+        namePlaceholder:
+          "Your name",
+
+        emailPlaceholder:
+          "Your email address",
+
+
+        themeLabel:
+          "Project type",
+
+        themePlaceholder:
+          "Choose a project type",
+
+        themeSystems:
+          "System",
+
+        themeGameplay:
+          "Gameplay",
+
+        themeUI:
+          "UI",
+
+        themeFullGame:
+          "Full game",
+
+        themeOther:
+          "Other",
+
+        customThemeLabel:
+          "Specify the project type",
+
+        customThemePlaceholder:
+          "Write your project type",
+
+
+        currencyLabel:
+          "Budget currency",
+
+        currencyPlaceholder:
+          "Choose a currency",
+
+
+        budgetLabel:
+          "Budget",
+
+        budgetPlaceholder:
+          "Choose your budget",
+
+        customBudgetLabel:
+          "Your budget",
+
+        customBudgetPlaceholder:
+          "Enter your budget",
+
+
+        messageLabel:
+          "Your message",
+
+        messagePlaceholder:
+          "Tell me about your project",
+
+        sendButton:
+          "Send",
+
+        footerText:
+          "Roblox Developer"
       },
 
+
       zh: {
+
         navWork: "我的作品",
         navSkills: "技能",
         navAbout: "关于我",
@@ -1312,63 +2005,201 @@
         navContact: "联系",
 
         heroEyebrow: "Roblox 开发者",
-        heroTitle: "我开发 Roblox 系统和游戏机制。",
-        heroDescription: "我是一名 Roblox 开发者，拥有超过 2 年的 Roblox 游戏开发经验。我可以从零开始制作 Roblox 游戏，包括系统、游戏机制和 UI。",
-        heroProjects: "查看我的项目",
-        heroContact: "联系我",
-        heroProjectLabel: "个人项目",
 
-        aboutLabel: "关于我",
-        aboutTitle: "关于我的一些信息。",
-        aboutText: "我在两年多以前开始制作 Roblox 游戏。通过制作不同的项目和系统，我积累了开发经验。以下是一些我参与制作过的项目和系统。",
+        heroTitle:
+          "我开发 Roblox 系统和游戏机制。",
 
-        workLabel: "我的作品",
-        workTitle: "一些我制作过的 Roblox 项目和系统。",
+        heroDescription:
+          "我是一名 Roblox 开发者，拥有超过 2 年的 Roblox 游戏开发经验。我可以从零开始制作 Roblox 游戏，包括系统、游戏机制和 UI。",
 
-        crushDescription: "第一个完全独立开发的项目。",
+        heroProjects:
+          "查看我的项目",
 
-        cannonTitle: "大炮系统",
-        cannonDescription: "我为一位客户制作的完整大炮系统。UI 并非由我制作，我负责的是系统代码。",
+        heroContact:
+          "联系我",
 
-        settingsDescription: "我为自己的游戏制作的设置 UI。",
+        heroProjectLabel:
+          "个人项目",
 
-        moreWorkTitle: "更多作品",
-        moreWorkDescription: "一些我制作过的其他系统。",
 
-        afkFountainDescription: "一个简单的 AFK 系统。",
-        afkBoxDescription: "另一个简单的 AFK 系统。",
+        aboutLabel:
+          "关于我",
 
-        statsLabel: "统计数据",
-        statsTitle: "我的游戏数据。",
-        statsDescription: "我的 Roblox 游戏数据，该游戏评级为 16+，并且没有支付 Roblox 广告费用。",
-        statsClick: "点击打开 Roblox 游戏。",
+        aboutTitle:
+          "关于我的一些信息。",
 
-        skillsLabel: "技能",
-        skillsTitle: "我可以做什么。",
-        skillMore: "以及更多",
+        aboutText:
+          "我在两年多以前开始制作 Roblox 游戏。通过制作不同的项目和系统，我积累了开发经验。以下是一些我参与制作过的项目和系统。",
 
-        robloxLabel: "Roblox",
-        discordLabel: "Discord",
-        timezoneLabel: "时区",
 
-        reviewsLabel: "评价",
-        reviewsTitle: "客户评价。",
-        reviewsEmptyTitle: "第一批客户的评价将在近期添加。",
-        reviewsEmptyText: "随着之后完成更多客户项目，这个区域会持续更新。",
+        workLabel:
+          "我的作品",
 
-        contactLabel: "联系",
-        contactTitle: "一起合作。",
-        contactDescription: "有项目想法吗？欢迎联系我。价格将根据项目的时长和复杂程度确定。",
+        workTitle:
+          "一些我制作过的 Roblox 项目和系统。",
 
-        namePlaceholder: "你的名字",
-        emailPlaceholder: "你的邮箱地址",
-        messagePlaceholder: "告诉我你的项目",
-        sendButton: "发送",
 
-        footerText: "Roblox 开发者"
+        crushDescription:
+          "第一个完全独立开发的项目。",
+
+
+        cannonTitle:
+          "大炮系统",
+
+        cannonDescription:
+          "我为一位客户制作的完整大炮系统。UI 并非由我制作，我负责的是系统代码。",
+
+
+        settingsDescription:
+          "我为自己的游戏制作的设置 UI。",
+
+
+        moreWorkTitle:
+          "更多作品",
+
+        moreWorkDescription:
+          "一些我制作过的其他系统。",
+
+
+        afkFountainDescription:
+          "一个简单的 AFK 系统。",
+
+        afkBoxDescription:
+          "另一个简单的 AFK 系统。",
+
+
+        statsLabel:
+          "统计数据",
+
+        statsTitle:
+          "我的游戏数据。",
+
+        statsDescription:
+          "我的 Roblox 游戏数据，该游戏评级为 16+，并且没有支付 Roblox 广告费用。",
+
+        statsClick:
+          "点击打开 Roblox 游戏。",
+
+
+        skillsLabel:
+          "技能",
+
+        skillsTitle:
+          "我可以做什么。",
+
+        skillMore:
+          "以及更多",
+
+
+        robloxLabel:
+          "Roblox",
+
+        discordLabel:
+          "Discord",
+
+        timezoneLabel:
+          "时区",
+
+
+        reviewsLabel:
+          "评价",
+
+        reviewsTitle:
+          "客户评价。",
+
+        reviewsEmptyTitle:
+          "第一批客户的评价将在近期添加。",
+
+        reviewsEmptyText:
+          "随着之后完成更多客户项目，这个区域会持续更新。",
+
+
+        contactLabel:
+          "联系",
+
+        contactTitle:
+          "一起合作。",
+
+        contactDescription:
+          "有项目想法吗？欢迎联系我。价格将根据项目的时长和复杂程度确定。",
+
+
+        nameLabel:
+          "你的名字",
+
+        emailLabel:
+          "你的邮箱地址",
+
+        namePlaceholder:
+          "你的名字",
+
+        emailPlaceholder:
+          "你的邮箱地址",
+
+
+        themeLabel:
+          "项目类型",
+
+        themePlaceholder:
+          "选择项目类型",
+
+        themeSystems:
+          "系统",
+
+        themeGameplay:
+          "Gameplay",
+
+        themeUI:
+          "UI",
+
+        themeFullGame:
+          "完整游戏",
+
+        themeOther:
+          "其他",
+
+        customThemeLabel:
+          "指定项目类型",
+
+        customThemePlaceholder:
+          "输入项目类型",
+
+
+        currencyLabel:
+          "预算货币",
+
+        currencyPlaceholder:
+          "选择货币",
+
+        budgetLabel:
+          "预算",
+
+        budgetPlaceholder:
+          "选择预算",
+
+        customBudgetLabel:
+          "你的预算",
+
+        customBudgetPlaceholder:
+          "输入预算",
+
+
+        messageLabel:
+          "你的消息",
+
+        messagePlaceholder:
+          "告诉我你的项目",
+
+        sendButton:
+          "发送",
+
+        footerText:
+          "Roblox 开发者"
       },
 
+
       hi: {
+
         navWork: "मेरा काम",
         navSkills: "कौशल",
         navAbout: "मेरे बारे में",
@@ -1376,63 +2207,201 @@
         navContact: "संपर्क",
 
         heroEyebrow: "Roblox डेवलपर",
-        heroTitle: "मैं Roblox सिस्टम और गेम मैकेनिक्स विकसित करता हूँ।",
-        heroDescription: "मैं एक Roblox डेवलपर हूँ और मुझे Roblox गेम बनाने का 2 साल से अधिक का अनुभव है। मैं सिस्टम, मैकेनिक्स और UI सहित A से Z तक Roblox गेम बना सकता हूँ।",
-        heroProjects: "मेरे प्रोजेक्ट देखें",
-        heroContact: "मुझसे संपर्क करें",
-        heroProjectLabel: "व्यक्तिगत प्रोजेक्ट",
 
-        aboutLabel: "मेरे बारे में",
-        aboutTitle: "मेरे बारे में कुछ जानकारी।",
-        aboutText: "मैंने 2 साल से कुछ अधिक समय पहले Roblox गेम बनाना शुरू किया था। अलग-अलग प्रोजेक्ट और सिस्टम बनाकर मैंने अनुभव प्राप्त किया है। यहाँ कुछ प्रोजेक्ट और सिस्टम हैं जिन पर मैंने काम किया है।",
+        heroTitle:
+          "मैं Roblox सिस्टम और गेम मैकेनिक्स विकसित करता हूँ।",
 
-        workLabel: "मेरा काम",
-        workTitle: "कुछ Roblox प्रोजेक्ट और सिस्टम जिन पर मैंने काम किया है।",
+        heroDescription:
+          "मैं एक Roblox डेवलपर हूँ और मुझे Roblox गेम बनाने का 2 साल से अधिक का अनुभव है। मैं सिस्टम, मैकेनिक्स और UI सहित A से Z तक Roblox गेम बना सकता हूँ।",
 
-        crushDescription: "पूरी तरह स्वतंत्र रूप से विकसित किया गया पहला प्रोजेक्ट।",
+        heroProjects:
+          "मेरे प्रोजेक्ट देखें",
 
-        cannonTitle: "Cannon System",
-        cannonDescription: "एक पूरी तरह कार्यात्मक cannon जिसे मैंने एक क्लाइंट के लिए बनाया था। UI मैंने नहीं बनाया था, मैंने केवल सिस्टम को कोड किया था।",
+        heroContact:
+          "मुझसे संपर्क करें",
 
-        settingsDescription: "मेरे गेम के लिए बनाई गई settings UI।",
+        heroProjectLabel:
+          "व्यक्तिगत प्रोजेक्ट",
 
-        moreWorkTitle: "More Work",
-        moreWorkDescription: "कुछ अन्य सिस्टम जिन पर मैंने काम किया है।",
 
-        afkFountainDescription: "एक सरल AFK सिस्टम।",
-        afkBoxDescription: "एक और सरल AFK सिस्टम।",
+        aboutLabel:
+          "मेरे बारे में",
 
-        statsLabel: "आंकड़े",
-        statsTitle: "मेरे गेम के आंकड़े।",
-        statsDescription: "मेरे Roblox गेम के आंकड़े, जिसकी उम्र रेटिंग 16+ है और Roblox विज्ञापनों के लिए भुगतान नहीं किया गया।",
-        statsClick: "Roblox गेम खोलने के लिए क्लिक करें।",
+        aboutTitle:
+          "मेरे बारे में कुछ जानकारी।",
 
-        skillsLabel: "कौशल",
-        skillsTitle: "मैं क्या कर सकता हूँ।",
-        skillMore: "और भी",
+        aboutText:
+          "मैंने 2 साल से कुछ अधिक समय पहले Roblox गेम बनाना शुरू किया था। अलग-अलग प्रोजेक्ट और सिस्टम बनाकर मैंने अनुभव प्राप्त किया है। यहाँ कुछ प्रोजेक्ट और सिस्टम हैं जिन पर मैंने काम किया है।",
 
-        robloxLabel: "Roblox",
-        discordLabel: "Discord",
-        timezoneLabel: "समय क्षेत्र",
 
-        reviewsLabel: "समीक्षाएँ",
-        reviewsTitle: "क्लाइंट समीक्षाएँ।",
-        reviewsEmptyTitle: "पहले क्लाइंट्स की समीक्षाएँ जल्द ही जोड़ी जाएँगी।",
-        reviewsEmptyText: "आने वाले क्लाइंट प्रोजेक्ट्स के साथ यह सेक्शन अपडेट किया जाएगा।",
+        workLabel:
+          "मेरा काम",
 
-        contactLabel: "संपर्क",
-        contactTitle: "साथ काम करते हैं।",
-        contactDescription: "क्या आपके पास कोई प्रोजेक्ट है? मुझसे संपर्क करें। कीमत प्रोजेक्ट की अवधि और जटिलता के अनुसार तय होगी।",
+        workTitle:
+          "कुछ Roblox प्रोजेक्ट और सिस्टम जिन पर मैंने काम किया है।",
 
-        namePlaceholder: "आपका नाम",
-        emailPlaceholder: "आपका ईमेल",
-        messagePlaceholder: "अपने प्रोजेक्ट के बारे में बताएं",
-        sendButton: "भेजें",
 
-        footerText: "Roblox डेवलपर"
+        crushDescription:
+          "पूरी तरह स्वतंत्र रूप से विकसित किया गया पहला प्रोजेक्ट।",
+
+
+        cannonTitle:
+          "Cannon System",
+
+        cannonDescription:
+          "एक पूरी तरह कार्यात्मक cannon जिसे मैंने एक क्लाइंट के लिए बनाया था। UI मैंने नहीं बनाया था, मैंने केवल सिस्टम को कोड किया था।",
+
+
+        settingsDescription:
+          "मेरे गेम के लिए बनाई गई settings UI।",
+
+
+        moreWorkTitle:
+          "More Work",
+
+        moreWorkDescription:
+          "कुछ अन्य सिस्टम जिन पर मैंने काम किया है।",
+
+
+        afkFountainDescription:
+          "एक सरल AFK सिस्टम।",
+
+        afkBoxDescription:
+          "एक और सरल AFK सिस्टम।",
+
+
+        statsLabel:
+          "आंकड़े",
+
+        statsTitle:
+          "मेरे गेम के आंकड़े।",
+
+        statsDescription:
+          "मेरे Roblox गेम के आंकड़े, जिसकी उम्र रेटिंग 16+ है और Roblox विज्ञापनों के लिए भुगतान नहीं किया गया।",
+
+        statsClick:
+          "Roblox गेम खोलने के लिए क्लिक करें।",
+
+
+        skillsLabel:
+          "कौशल",
+
+        skillsTitle:
+          "मैं क्या कर सकता हूँ।",
+
+        skillMore:
+          "और भी",
+
+
+        robloxLabel:
+          "Roblox",
+
+        discordLabel:
+          "Discord",
+
+        timezoneLabel:
+          "समय क्षेत्र",
+
+
+        reviewsLabel:
+          "समीक्षाएँ",
+
+        reviewsTitle:
+          "क्लाइंट समीक्षाएँ।",
+
+        reviewsEmptyTitle:
+          "पहले क्लाइंट्स की समीक्षाएँ जल्द ही जोड़ी जाएँगी।",
+
+        reviewsEmptyText:
+          "आने वाले क्लाइंट प्रोजेक्ट्स के साथ यह सेक्शन अपडेट किया जाएगा।",
+
+
+        contactLabel:
+          "संपर्क",
+
+        contactTitle:
+          "साथ काम करते हैं।",
+
+        contactDescription:
+          "क्या आपके पास कोई प्रोजेक्ट है? मुझसे संपर्क करें। कीमत प्रोजेक्ट की अवधि और जटिलता के अनुसार तय होगी।",
+
+
+        nameLabel:
+          "आपका नाम",
+
+        emailLabel:
+          "आपका ईमेल",
+
+        namePlaceholder:
+          "आपका नाम",
+
+        emailPlaceholder:
+          "आपका ईमेल",
+
+
+        themeLabel:
+          "प्रोजेक्ट प्रकार",
+
+        themePlaceholder:
+          "प्रोजेक्ट प्रकार चुनें",
+
+        themeSystems:
+          "सिस्टम",
+
+        themeGameplay:
+          "Gameplay",
+
+        themeUI:
+          "UI",
+
+        themeFullGame:
+          "पूरा गेम",
+
+        themeOther:
+          "अन्य",
+
+        customThemeLabel:
+          "प्रोजेक्ट प्रकार बताएं",
+
+        customThemePlaceholder:
+          "अपने प्रोजेक्ट का प्रकार लिखें",
+
+
+        currencyLabel:
+          "बजट मुद्रा",
+
+        currencyPlaceholder:
+          "मुद्रा चुनें",
+
+        budgetLabel:
+          "बजट",
+
+        budgetPlaceholder:
+          "अपना बजट चुनें",
+
+        customBudgetLabel:
+          "आपका बजट",
+
+        customBudgetPlaceholder:
+          "अपना बजट लिखें",
+
+
+        messageLabel:
+          "आपका संदेश",
+
+        messagePlaceholder:
+          "अपने प्रोजेक्ट के बारे में बताएं",
+
+        sendButton:
+          "भेजें",
+
+        footerText:
+          "Roblox डेवलपर"
       },
 
+
       es: {
+
         navWork: "Mi trabajo",
         navSkills: "Habilidades",
         navAbout: "Sobre mí",
@@ -1440,63 +2409,201 @@
         navContact: "Contacto",
 
         heroEyebrow: "Desarrollador Roblox",
-        heroTitle: "Desarrollo sistemas y mecánicas de Roblox.",
-        heroDescription: "Soy desarrollador de Roblox con más de 2 años de experiencia creando juegos de Roblox. Puedo crear un juego de Roblox de principio a fin, incluyendo sistemas, mecánicas y UI.",
-        heroProjects: "Ver mis proyectos",
-        heroContact: "Contactarme",
-        heroProjectLabel: "Proyecto personal",
 
-        aboutLabel: "Sobre mí",
-        aboutTitle: "Algunos datos sobre mí.",
-        aboutText: "Empecé a crear juegos de Roblox hace algo más de 2 años. He adquirido experiencia creando diferentes proyectos y sistemas. Estos son algunos ejemplos de proyectos y sistemas en los que he trabajado.",
+        heroTitle:
+          "Desarrollo sistemas y mecánicas de Roblox.",
 
-        workLabel: "Mi trabajo",
-        workTitle: "Algunos proyectos y sistemas de Roblox en los que he trabajado.",
+        heroDescription:
+          "Soy desarrollador de Roblox con más de 2 años de experiencia creando juegos de Roblox. Puedo crear un juego de Roblox de principio a fin, incluyendo sistemas, mecánicas y UI.",
 
-        crushDescription: "Primer proyecto desarrollado completamente de forma independiente.",
+        heroProjects:
+          "Ver mis proyectos",
 
-        cannonTitle: "Sistema de cañón",
-        cannonDescription: "Un cañón completamente funcional que desarrollé para un cliente. La UI no fue creada por mí, solo programé el sistema.",
+        heroContact:
+          "Contactarme",
 
-        settingsDescription: "Una UI de ajustes que creé para mi juego.",
+        heroProjectLabel:
+          "Proyecto personal",
 
-        moreWorkTitle: "More Work",
-        moreWorkDescription: "Algunos otros sistemas en los que he trabajado.",
 
-        afkFountainDescription: "Un sistema AFK sencillo.",
-        afkBoxDescription: "Otro sistema AFK sencillo.",
+        aboutLabel:
+          "Sobre mí",
 
-        statsLabel: "Estadísticas",
-        statsTitle: "Estadísticas de mi juego.",
-        statsDescription: "Estadísticas de mi juego de Roblox con clasificación 16+, sin haber pagado por anuncios en Roblox.",
-        statsClick: "Haz clic para abrir el juego de Roblox.",
+        aboutTitle:
+          "Algunos datos sobre mí.",
 
-        skillsLabel: "Habilidades",
-        skillsTitle: "Lo que puedo hacer.",
-        skillMore: "Y más",
+        aboutText:
+          "Empecé a crear juegos de Roblox hace algo más de 2 años. He adquirido experiencia creando diferentes proyectos y sistemas. Estos son algunos ejemplos de proyectos y sistemas en los que he trabajado.",
 
-        robloxLabel: "Roblox",
-        discordLabel: "Discord",
-        timezoneLabel: "Zona horaria",
 
-        reviewsLabel: "Opiniones",
-        reviewsTitle: "Opiniones de clientes.",
-        reviewsEmptyTitle: "Las opiniones de mis primeros clientes se añadirán próximamente.",
-        reviewsEmptyText: "Esta sección se actualizará a medida que complete futuros proyectos para clientes.",
+        workLabel:
+          "Mi trabajo",
 
-        contactLabel: "Contacto",
-        contactTitle: "Trabajemos juntos.",
-        contactDescription: "¿Tienes un proyecto en mente? Contáctame. El precio dependerá de la duración y complejidad del proyecto.",
+        workTitle:
+          "Algunos proyectos y sistemas de Roblox en los que he trabajado.",
 
-        namePlaceholder: "Tu nombre",
-        emailPlaceholder: "Tu dirección de email",
-        messagePlaceholder: "Háblame de tu proyecto",
-        sendButton: "Enviar",
 
-        footerText: "Desarrollador Roblox"
+        crushDescription:
+          "Primer proyecto desarrollado completamente de forma independiente.",
+
+
+        cannonTitle:
+          "Sistema de cañón",
+
+        cannonDescription:
+          "Un cañón completamente funcional que desarrollé para un cliente. La UI no fue creada por mí, solo programé el sistema.",
+
+
+        settingsDescription:
+          "Una UI de ajustes que creé para mi juego.",
+
+
+        moreWorkTitle:
+          "More Work",
+
+        moreWorkDescription:
+          "Algunos otros sistemas en los que he trabajado.",
+
+
+        afkFountainDescription:
+          "Un sistema AFK sencillo.",
+
+        afkBoxDescription:
+          "Otro sistema AFK sencillo.",
+
+
+        statsLabel:
+          "Estadísticas",
+
+        statsTitle:
+          "Estadísticas de mi juego.",
+
+        statsDescription:
+          "Estadísticas de mi juego de Roblox con clasificación 16+, sin haber pagado por anuncios en Roblox.",
+
+        statsClick:
+          "Haz clic para abrir el juego de Roblox.",
+
+
+        skillsLabel:
+          "Habilidades",
+
+        skillsTitle:
+          "Lo que puedo hacer.",
+
+        skillMore:
+          "Y más",
+
+
+        robloxLabel:
+          "Roblox",
+
+        discordLabel:
+          "Discord",
+
+        timezoneLabel:
+          "Zona horaria",
+
+
+        reviewsLabel:
+          "Opiniones",
+
+        reviewsTitle:
+          "Opiniones de clientes.",
+
+        reviewsEmptyTitle:
+          "Las opiniones de mis primeros clientes se añadirán próximamente.",
+
+        reviewsEmptyText:
+          "Esta sección se actualizará a medida que complete futuros proyectos para clientes.",
+
+
+        contactLabel:
+          "Contacto",
+
+        contactTitle:
+          "Trabajemos juntos.",
+
+        contactDescription:
+          "¿Tienes un proyecto en mente? Contáctame. El precio dependerá de la duración y complejidad del proyecto.",
+
+
+        nameLabel:
+          "Tu nombre",
+
+        emailLabel:
+          "Tu dirección de email",
+
+        namePlaceholder:
+          "Tu nombre",
+
+        emailPlaceholder:
+          "Tu dirección de email",
+
+
+        themeLabel:
+          "Tipo de proyecto",
+
+        themePlaceholder:
+          "Elige un tipo de proyecto",
+
+        themeSystems:
+          "Sistema",
+
+        themeGameplay:
+          "Gameplay",
+
+        themeUI:
+          "UI",
+
+        themeFullGame:
+          "Juego completo",
+
+        themeOther:
+          "Otro",
+
+        customThemeLabel:
+          "Especifica el tipo de proyecto",
+
+        customThemePlaceholder:
+          "Escribe el tipo de proyecto",
+
+
+        currencyLabel:
+          "Moneda del presupuesto",
+
+        currencyPlaceholder:
+          "Elige una moneda",
+
+        budgetLabel:
+          "Presupuesto",
+
+        budgetPlaceholder:
+          "Elige tu presupuesto",
+
+        customBudgetLabel:
+          "Tu presupuesto",
+
+        customBudgetPlaceholder:
+          "Introduce tu presupuesto",
+
+
+        messageLabel:
+          "Tu mensaje",
+
+        messagePlaceholder:
+          "Háblame de tu proyecto",
+
+        sendButton:
+          "Enviar",
+
+        footerText:
+          "Desarrollador Roblox"
       },
 
+
       ar: {
+
         navWork: "أعمالي",
         navSkills: "المهارات",
         navAbout: "نبذة عني",
@@ -1504,63 +2611,202 @@
         navContact: "تواصل",
 
         heroEyebrow: "مطور Roblox",
-        heroTitle: "أطور أنظمة وميكانيكيات Roblox.",
-        heroDescription: "أنا مطور Roblox لدي أكثر من سنتين من الخبرة في إنشاء ألعاب Roblox. يمكنني إنشاء لعبة Roblox من البداية إلى النهاية، بما في ذلك الأنظمة والميكانيكيات وواجهات المستخدم.",
-        heroProjects: "مشاهدة مشاريعي",
-        heroContact: "تواصل معي",
-        heroProjectLabel: "مشروع شخصي",
 
-        aboutLabel: "نبذة عني",
-        aboutTitle: "بعض المعلومات عني.",
-        aboutText: "بدأت في إنشاء ألعاب Roblox منذ أكثر بقليل من سنتين. اكتسبت خبرة من خلال إنشاء مشاريع وأنظمة مختلفة. إليك بعض المشاريع والأنظمة التي عملت عليها.",
+        heroTitle:
+          "أطور أنظمة وميكانيكيات Roblox.",
 
-        workLabel: "أعمالي",
-        workTitle: "بعض مشاريع وأنظمة Roblox التي عملت عليها.",
+        heroDescription:
+          "أنا مطور Roblox لدي أكثر من سنتين من الخبرة في إنشاء ألعاب Roblox. يمكنني إنشاء لعبة Roblox من البداية إلى النهاية، بما في ذلك الأنظمة والميكانيكيات وواجهات المستخدم.",
 
-        crushDescription: "أول مشروع تم تطويره بالكامل بشكل مستقل.",
+        heroProjects:
+          "مشاهدة مشاريعي",
 
-        cannonTitle: "نظام المدفع",
-        cannonDescription: "مدفع يعمل بشكل كامل قمت بإنشائه لأحد العملاء. لم أقم بإنشاء واجهة المستخدم، بل قمت فقط ببرمجة النظام.",
+        heroContact:
+          "تواصل معي",
 
-        settingsDescription: "واجهة إعدادات قمت بإنشائها للعبتي.",
+        heroProjectLabel:
+          "مشروع شخصي",
 
-        moreWorkTitle: "أعمال إضافية",
-        moreWorkDescription: "بعض الأنظمة الأخرى التي عملت عليها.",
 
-        afkFountainDescription: "نظام AFK بسيط.",
-        afkBoxDescription: "نظام AFK بسيط آخر.",
+        aboutLabel:
+          "نبذة عني",
 
-        statsLabel: "الإحصائيات",
-        statsTitle: "إحصائيات لعبتي.",
-        statsDescription: "إحصائيات لعبة Roblox الخاصة بي، بتصنيف عمري 16+، دون دفع تكاليف إعلانات Roblox.",
-        statsClick: "اضغط لفتح لعبة Roblox.",
+        aboutTitle:
+          "بعض المعلومات عني.",
 
-        skillsLabel: "المهارات",
-        skillsTitle: "ما يمكنني القيام به.",
-        skillMore: "والمزيد",
+        aboutText:
+          "بدأت في إنشاء ألعاب Roblox منذ أكثر بقليل من سنتين. اكتسبت خبرة من خلال إنشاء مشاريع وأنظمة مختلفة. إليك بعض المشاريع والأنظمة التي عملت عليها.",
 
-        robloxLabel: "Roblox",
-        discordLabel: "Discord",
-        timezoneLabel: "المنطقة الزمنية",
 
-        reviewsLabel: "التقييمات",
-        reviewsTitle: "تقييمات العملاء.",
-        reviewsEmptyTitle: "ستتم إضافة تقييمات العملاء الأوائل قريبًا.",
-        reviewsEmptyText: "سيتم تحديث هذا القسم مع إنجاز المزيد من مشاريع العملاء.",
+        workLabel:
+          "أعمالي",
 
-        contactLabel: "تواصل",
-        contactTitle: "لنعمل معًا.",
-        contactDescription: "لديك مشروع في ذهنك؟ تواصل معي. سيعتمد السعر على مدة المشروع ومدى تعقيده.",
+        workTitle:
+          "بعض مشاريع وأنظمة Roblox التي عملت عليها.",
 
-        namePlaceholder: "اسمك",
-        emailPlaceholder: "بريدك الإلكتروني",
-        messagePlaceholder: "أخبرني عن مشروعك",
-        sendButton: "إرسال",
 
-        footerText: "مطور Roblox"
+        crushDescription:
+          "أول مشروع تم تطويره بالكامل بشكل مستقل.",
+
+
+        cannonTitle:
+          "نظام المدفع",
+
+        cannonDescription:
+          "مدفع يعمل بشكل كامل قمت بإنشائه لأحد العملاء. لم أقم بإنشاء واجهة المستخدم، بل قمت فقط ببرمجة النظام.",
+
+
+        settingsDescription:
+          "واجهة إعدادات قمت بإنشائها للعبتي.",
+
+
+        moreWorkTitle:
+          "أعمال إضافية",
+
+        moreWorkDescription:
+          "بعض الأنظمة الأخرى التي عملت عليها.",
+
+
+        afkFountainDescription:
+          "نظام AFK بسيط.",
+
+        afkBoxDescription:
+          "نظام AFK بسيط آخر.",
+
+
+        statsLabel:
+          "الإحصائيات",
+
+        statsTitle:
+          "إحصائيات لعبتي.",
+
+        statsDescription:
+          "إحصائيات لعبة Roblox الخاصة بي، بتصنيف عمري 16+، دون دفع تكاليف إعلانات Roblox.",
+
+        statsClick:
+          "اضغط لفتح لعبة Roblox.",
+
+
+        skillsLabel:
+          "المهارات",
+
+        skillsTitle:
+          "ما يمكنني القيام به.",
+
+        skillMore:
+          "والمزيد",
+
+
+        robloxLabel:
+          "Roblox",
+
+        discordLabel:
+          "Discord",
+
+        timezoneLabel:
+          "المنطقة الزمنية",
+
+
+        reviewsLabel:
+          "التقييمات",
+
+        reviewsTitle:
+          "تقييمات العملاء.",
+
+        reviewsEmptyTitle:
+          "ستتم إضافة تقييمات العملاء الأوائل قريبًا.",
+
+        reviewsEmptyText:
+          "سيتم تحديث هذا القسم مع إنجاز المزيد من مشاريع العملاء.",
+
+
+        contactLabel:
+          "تواصل",
+
+        contactTitle:
+          "لنعمل معًا.",
+
+        contactDescription:
+          "لديك مشروع في ذهنك؟ تواصل معي. سيعتمد السعر على مدة المشروع ومدى تعقيده.",
+
+
+        nameLabel:
+          "اسمك",
+
+        emailLabel:
+          "بريدك الإلكتروني",
+
+        namePlaceholder:
+          "اسمك",
+
+        emailPlaceholder:
+          "بريدك الإلكتروني",
+
+
+        themeLabel:
+          "نوع المشروع",
+
+        themePlaceholder:
+          "اختر نوع المشروع",
+
+        themeSystems:
+          "نظام",
+
+        themeGameplay:
+          "Gameplay",
+
+        themeUI:
+          "واجهة المستخدم",
+
+        themeFullGame:
+          "لعبة كاملة",
+
+        themeOther:
+          "أخرى",
+
+        customThemeLabel:
+          "حدد نوع المشروع",
+
+        customThemePlaceholder:
+          "اكتب نوع مشروعك",
+
+
+        currencyLabel:
+          "عملة الميزانية",
+
+        currencyPlaceholder:
+          "اختر العملة",
+
+        budgetLabel:
+          "الميزانية",
+
+        budgetPlaceholder:
+          "اختر ميزانيتك",
+
+        customBudgetLabel:
+          "ميزانيتك",
+
+        customBudgetPlaceholder:
+          "أدخل ميزانيتك",
+
+
+        messageLabel:
+          "رسالتك",
+
+        messagePlaceholder:
+          "أخبرني عن مشروعك",
+
+        sendButton:
+          "إرسال",
+
+        footerText:
+          "مطور Roblox"
       }
+
     };
 
+
+    /* LANGUAGE */
 
     const languageNames = {
       fr: "Français",
@@ -1573,6 +2819,7 @@
 
 
     function changeLanguage(language) {
+
       const translation = translations[language];
 
       if (!translation) {
@@ -1580,68 +2827,413 @@
       }
 
       document.documentElement.lang = language;
-      document.body.dir = language === "ar" ? "rtl" : "ltr";
 
-      document.querySelectorAll("[data-i18n]").forEach((element) => {
-        const key = element.dataset.i18n;
+      document.body.dir =
+        language === "ar"
+          ? "rtl"
+          : "ltr";
 
-        if (translation[key]) {
-          element.textContent = translation[key];
-        }
-      });
 
-      document.querySelectorAll("[data-placeholder]").forEach((element) => {
-        const key = element.dataset.placeholder;
+      document
+        .querySelectorAll("[data-i18n]")
+        .forEach((element) => {
 
-        if (translation[key]) {
-          element.placeholder = translation[key];
-        }
-      });
+          const key = element.dataset.i18n;
 
-      document.getElementById("languageButton").textContent =
+          if (translation[key]) {
+            element.textContent =
+              translation[key];
+          }
+
+        });
+
+
+      document
+        .querySelectorAll("[data-placeholder]")
+        .forEach((element) => {
+
+          const key =
+            element.dataset.placeholder;
+
+          if (translation[key]) {
+            element.placeholder =
+              translation[key];
+          }
+
+        });
+
+
+      document.getElementById(
+        "languageButton"
+      ).textContent =
         languageNames[language];
 
-      document.getElementById("languageSelector").classList.remove("open");
+
+      document
+        .getElementById("languageSelector")
+        .classList.remove("open");
+
 
       document
         .getElementById("languageButton")
-        .setAttribute("aria-expanded", "false");
-    }
-
-
-    const languageSelector = document.getElementById("languageSelector");
-    const languageButton = document.getElementById("languageButton");
-
-    languageButton.addEventListener("click", () => {
-      const isOpen = languageSelector.classList.toggle("open");
-
-      languageButton.setAttribute(
-        "aria-expanded",
-        isOpen ? "true" : "false"
-      );
-    });
-
-
-    document.querySelectorAll("[data-lang]").forEach((button) => {
-      button.addEventListener("click", () => {
-        changeLanguage(button.dataset.lang);
-      });
-    });
-
-
-    document.addEventListener("click", (event) => {
-      if (!languageSelector.contains(event.target)) {
-        languageSelector.classList.remove("open");
-
-        languageButton.setAttribute(
+        .setAttribute(
           "aria-expanded",
           "false"
         );
-      }
-    });
 
+
+      updateBudgetOptions(language);
+    }
+
+
+    const languageSelector =
+      document.getElementById(
+        "languageSelector"
+      );
+
+    const languageButton =
+      document.getElementById(
+        "languageButton"
+      );
+
+
+    languageButton.addEventListener(
+      "click",
+      () => {
+
+        const isOpen =
+          languageSelector
+            .classList
+            .toggle("open");
+
+        languageButton.setAttribute(
+          "aria-expanded",
+          isOpen
+            ? "true"
+            : "false"
+        );
+
+      }
+    );
+
+
+    document
+      .querySelectorAll("[data-lang]")
+      .forEach((button) => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            changeLanguage(
+              button.dataset.lang
+            );
+
+          }
+        );
+
+      });
+
+
+    document.addEventListener(
+      "click",
+      (event) => {
+
+        if (
+          !languageSelector.contains(
+            event.target
+          )
+        ) {
+
+          languageSelector
+            .classList
+            .remove("open");
+
+          languageButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        }
+
+      }
+    );
+
+
+    /* PROJECT THEME */
+
+    const projectTheme =
+      document.getElementById(
+        "projectTheme"
+      );
+
+    const customThemeGroup =
+      document.getElementById(
+        "customThemeGroup"
+      );
+
+    const customTheme =
+      document.getElementById(
+        "customTheme"
+      );
+
+
+    projectTheme.addEventListener(
+      "change",
+      () => {
+
+        if (
+          projectTheme.value ===
+          "Other"
+        ) {
+
+          customThemeGroup
+            .classList
+            .add("visible");
+
+          customTheme.required =
+            true;
+
+        } else {
+
+          customThemeGroup
+            .classList
+            .remove("visible");
+
+          customTheme.required =
+            false;
+
+          customTheme.value =
+            "";
+
+        }
+
+      }
+    );
+
+
+    /* BUDGET */
+
+    const currency =
+      document.getElementById(
+        "currency"
+      );
+
+    const budget =
+      document.getElementById(
+        "budget"
+      );
+
+    const customBudgetGroup =
+      document.getElementById(
+        "customBudgetGroup"
+      );
+
+    const customBudget =
+      document.getElementById(
+        "customBudget"
+      );
+
+
+    function updateBudgetOptions(
+      language = "fr"
+    ) {
+
+      const currentValue =
+        budget.value;
+
+      budget.innerHTML = "";
+
+
+      const placeholder =
+        document.createElement(
+          "option"
+        );
+
+      placeholder.value = "";
+
+      placeholder.disabled = true;
+
+      placeholder.selected = true;
+
+      placeholder.textContent =
+        translations[language]
+          .budgetPlaceholder;
+
+      budget.appendChild(
+        placeholder
+      );
+
+
+      if (
+        currency.value ===
+        "EUR"
+      ) {
+
+        const euroOptions = [
+          ["100 €", "100 €"],
+          ["250 €", "250 €"],
+          ["500 €", "500 €"],
+          ["750 €", "750 €"],
+          ["1 000 €", "1 000 €"],
+          ["1 500 €", "1 500 €"],
+          ["2 000 €+", "2 000 €+"],
+          [
+            translations[language].themeOther,
+            "Other"
+          ]
+        ];
+
+
+        euroOptions.forEach(
+          ([text, value]) => {
+
+            const option =
+              document.createElement(
+                "option"
+              );
+
+            option.value =
+              value;
+
+            option.textContent =
+              text;
+
+            budget.appendChild(
+              option
+            );
+
+          }
+        );
+
+      } else if (
+        currency.value ===
+        "Robux"
+      ) {
+
+        const robuxOptions = [
+          ["5 000 R$", "5 000 R$"],
+          ["10 000 R$", "10 000 R$"],
+          ["25 000 R$", "25 000 R$"],
+          ["50 000 R$", "50 000 R$"],
+          ["75 000 R$", "75 000 R$"],
+          ["100 000 R$", "100 000 R$"],
+          ["100 000 R$+", "100 000 R$+"],
+          [
+            translations[language].themeOther,
+            "Other"
+          ]
+        ];
+
+
+        robuxOptions.forEach(
+          ([text, value]) => {
+
+            const option =
+              document.createElement(
+                "option"
+              );
+
+            option.value =
+              value;
+
+            option.textContent =
+              text;
+
+            budget.appendChild(
+              option
+            );
+
+          }
+        );
+
+      }
+
+
+      if (
+        currentValue
+      ) {
+
+        const optionExists =
+          Array.from(
+            budget.options
+          ).some(
+            (option) =>
+              option.value ===
+              currentValue
+          );
+
+        if (optionExists) {
+          budget.value =
+            currentValue;
+        }
+
+      }
+
+    }
+
+
+    currency.addEventListener(
+      "change",
+      () => {
+
+        updateBudgetOptions(
+          document.documentElement.lang ||
+          "fr"
+        );
+
+        customBudgetGroup
+          .classList
+          .remove("visible");
+
+        customBudget.required =
+          false;
+
+        customBudget.value =
+          "";
+
+      }
+    );
+
+
+    budget.addEventListener(
+      "change",
+      () => {
+
+        if (
+          budget.value ===
+          "Other"
+        ) {
+
+          customBudgetGroup
+            .classList
+            .add("visible");
+
+          customBudget.required =
+            true;
+
+        } else {
+
+          customBudgetGroup
+            .classList
+            .remove("visible");
+
+          customBudget.required =
+            false;
+
+          customBudget.value =
+            "";
+
+        }
+
+      }
+    );
+
+
+    /* INITIAL LANGUAGE */
 
     changeLanguage("fr");
+
   </script>
 
 </body>
