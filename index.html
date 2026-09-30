@@ -1,692 +1,2814 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Nonop31 - Développeur Roblox spécialisé dans les systèmes de gameplay, mécaniques, scripting et UI.">
-<meta property="og:title" content="Nonop31 - Développeur Roblox">
-<meta property="og:description" content="Développeur Roblox spécialisé dans les systèmes, mécaniques, scripting et UI.">
-<meta property="og:image" content="game.png">
-<meta property="og:url" content="https://nonop31.github.io/">
-<title>Nonop31 - Développeur Roblox</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;background:#080808;color:#f2f2f2;line-height:1.6}
-a{color:inherit;text-decoration:none}
-button,input,textarea,select{font:inherit}
-button,select{cursor:pointer}
-img{max-width:100%;display:block}
-iframe{display:block;width:100%;border:0}
-:focus-visible{outline:2px solid #fff;outline-offset:3px}
-.container{width:min(1180px,calc(100% - 40px));margin:0 auto}
-header{position:sticky;top:0;z-index:1000;background:#080808;border-bottom:1px solid #202020}
-.navbar{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:30px}
-.logo{font-size:20px;font-weight:700;letter-spacing:-.5px}
-.nav-right{display:flex;align-items:center;gap:28px}
-.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
-.nav-links a{color:#a9a9a9;font-size:14px}
-.nav-links a:hover{color:#fff}
-.language-select{appearance:none;background:#101010;color:#eee;border:1px solid #292929;border-radius:7px;padding:9px 32px 9px 12px;font-size:13px}
-.mobile-menu-button{display:none;background:transparent;color:#fff;border:1px solid #292929;border-radius:7px;padding:8px 11px;font-size:20px;line-height:1}
-.mobile-menu{display:none;border-top:1px solid #202020;padding:14px 0 18px}
-.mobile-menu.open{display:block}
-.mobile-menu a{display:block;padding:9px 0;color:#b5b5b5;font-size:14px}
-section{padding:110px 0;border-bottom:1px solid #181818}
-.section-header{margin-bottom:45px}
-.section-header h2{font-size:clamp(28px,4vw,40px);line-height:1.1;letter-spacing:-1px;margin-bottom:13px}
-.section-header p{color:#969696;max-width:720px;font-size:15px}
-.hero{padding:100px 0 90px;border-bottom:1px solid #181818}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
-.hero h1{max-width:720px;font-size:clamp(42px,6vw,72px);line-height:1.02;letter-spacing:-2.8px;margin-bottom:26px}
-.hero-description{max-width:680px;color:#a9a9a9;font-size:17px;line-height:1.8}
-.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:7px;border:1px solid #303030;background:#151515;color:#fff;font-size:14px}
-.button:hover{background:#202020}
-.button.primary{background:#fff;color:#080808;border-color:#fff}
-.button.primary:hover{background:#ddd}
-.hero-tags,.project-meta,.skill-items{display:flex;flex-wrap:wrap;gap:8px}
-.hero-tags{margin-top:25px}
-.tag{display:inline-block;padding:6px 10px;border:1px solid #292929;border-radius:5px;color:#a8a8a8;background:#0d0d0d;font-size:12px}
-.hero-project{background:#101010;border:1px solid #292929;border-radius:10px;overflow:hidden}
-.hero-project-image{aspect-ratio:1/1;overflow:hidden;background:#0d0d0d}
-.hero-project-image img{width:100%;height:100%;object-fit:cover}
-.hero-project-content{padding:20px}
-.hero-project-content h3{font-size:20px;margin-bottom:7px}
-.hero-project-content p{color:#919191;font-size:14px}
-.projects{display:grid;gap:35px}
-.project-card{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);border:1px solid #292929;border-radius:9px;overflow:hidden;background:#101010}
-.project-video{min-height:360px;background:#080808}
-.project-video iframe{height:100%;min-height:360px}
-.video-placeholder{min-height:360px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;gap:14px;color:#9b9b9b;background:#0b0b0b}
-.video-placeholder strong{color:#eee;font-size:16px}
-.project-content{padding:32px;display:flex;flex-direction:column;justify-content:center}
-.project-number{color:#777;font-size:12px;margin-bottom:14px}
-.project-content h3{font-size:27px;line-height:1.2;margin-bottom:14px}
-.project-content p{color:#a0a0a0;font-size:15px;line-height:1.75}
-.project-meta{margin-top:22px}
-.project-link{margin-top:24px}
-.subsection-title{font-size:23px;margin:70px 0 25px}
-.more-work{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px}
-.small-project{border:1px solid #292929;background:#101010;border-radius:9px;overflow:hidden}
-.small-project iframe{height:280px}
-.small-project-content{padding:22px}
-.small-project-content h3{margin-bottom:8px;font-size:20px}
-.small-project-content p{color:#9b9b9b;font-size:14px}
-.stats-link{display:block;border:1px solid #292929;border-radius:9px;overflow:hidden;background:#101010}
-.stats-link:hover{border-color:#444}
-.stats-image{width:100%;max-height:650px;object-fit:contain;background:#080808}
-.stats-caption{padding:20px 22px;color:#a3a3a3;font-size:14px}
-.skills-list{border-top:1px solid #292929}
-.skill-row{display:grid;grid-template-columns:190px 1fr;gap:30px;padding:24px 0;border-bottom:1px solid #292929}
-.skill-category{color:#777;font-size:12px;text-transform:uppercase;letter-spacing:1px}
-.about-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px}
-.about-title{font-size:14px;color:#777}
-.about-text{color:#ababab;font-size:16px;line-height:1.9}
-.about-text p+p{margin-top:20px}
-.review-box{border:1px solid #292929;background:#101010;border-radius:9px;padding:35px}
-.review-box p{color:#a7a7a7;font-size:16px}
-.contact-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px}
-.contact-intro h2{font-size:clamp(30px,4vw,44px);line-height:1.1;margin-bottom:18px}
-.contact-intro>p{color:#9e9e9e;line-height:1.8;font-size:15px}
-.contact-details{margin-top:35px;display:grid;gap:15px}
-.contact-detail{color:#a8a8a8;font-size:14px}
-.contact-detail strong{display:inline-block;width:90px;color:#eee}
-.contact-detail a{color:#d7d7d7}
-.contact-detail a:hover{text-decoration:underline}
-.contact-form{display:grid;gap:18px}
-.form-group{display:grid;gap:8px}
-.form-group.hidden{display:none}
-.form-group label{color:#d6d6d6;font-size:13px}
-.form-control{width:100%;border:1px solid #2c2c2c;background:#101010;color:#fff;border-radius:7px;padding:12px 13px;font-size:14px}
-.form-control::placeholder{color:#686868}
-textarea.form-control{min-height:145px;resize:vertical}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.form-help{color:#777;font-size:12px;line-height:1.5}
-.checkbox-row{display:flex;align-items:flex-start;gap:10px;color:#9f9f9f;font-size:13px;line-height:1.5}
-.checkbox-row input{margin-top:4px;accent-color:#fff}
-.checkbox-row a{text-decoration:underline}
-.contact-submit{border:1px solid #fff;background:#fff;color:#080808;min-height:46px;border-radius:7px;padding:0 20px;font-weight:600}
-.contact-submit:hover{background:#ddd}
-.contact-submit:disabled{cursor:wait;opacity:.6}
-.legal-section{padding:80px 0}
-.legal-grid{display:grid;gap:18px}
-.legal-card{border:1px solid #292929;background:#101010;border-radius:9px;padding:25px}
-.legal-card h3{font-size:19px;margin-bottom:10px}
-.legal-card p,.legal-card li{color:#a5a5a5;font-size:14px;line-height:1.75}
-.legal-card ul{padding-left:20px;margin-top:10px}
-.legal-card p+p{margin-top:12px}
-.delete-box{margin-top:18px;padding:18px;border:1px solid #292929;border-radius:7px;background:#0c0c0c}
-.form-popup{position:fixed;right:24px;bottom:24px;z-index:2000;width:min(390px,calc(100% - 32px));display:flex;align-items:flex-start;gap:14px;padding:17px;background:#111;border:1px solid #303030;border-radius:9px;transform:translateY(30px);opacity:0;pointer-events:none;visibility:hidden;transition:.2s ease}
-.form-popup.show{transform:translateY(0);opacity:1;pointer-events:auto;visibility:visible}
-.form-popup-icon{width:29px;height:29px;min-width:29px;display:flex;align-items:center;justify-content:center;border:1px solid #444;border-radius:50%;font-size:14px}
-.form-popup-title{color:#fff;font-weight:600;font-size:14px;margin-bottom:3px}
-.form-popup-message{color:#9b9b9b;font-size:13px;line-height:1.5}
-.form-popup-close{margin-left:auto;background:transparent;border:0;color:#777;font-size:21px;line-height:1}
-.form-popup-close:hover{color:#fff}
-.cookie-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:3000;background:#111;border:1px solid #303030;border-radius:10px;padding:18px;display:none;box-shadow:0 12px 40px rgba(0,0,0,.35)}
-.cookie-banner.show{display:block}
-.cookie-content{display:flex;align-items:center;gap:20px;justify-content:space-between}
-.cookie-text{max-width:760px;color:#aaa;font-size:13px;line-height:1.6}
-.cookie-text strong{color:#eee}
-.cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
-.cookie-actions .button{min-height:40px}
-.cookie-actions .button.primary{background:#fff;color:#080808}
-.cookie-settings{margin-top:8px;background:transparent;border:0;color:#aaa;text-decoration:underline;padding:0;font-size:12px}
-footer{padding:30px 0}
-.footer-content{display:flex;justify-content:space-between;align-items:center;gap:20px;color:#6f6f6f;font-size:12px}
-.footer-links{display:flex;gap:18px;flex-wrap:wrap}
-.footer-links a{color:#999;text-decoration:underline}
-body.rtl{direction:rtl}
-body.rtl .form-popup{right:auto;left:24px}
-body.rtl .form-popup-close{margin-left:0;margin-right:auto}
-@media(max-width:900px){
-.nav-links{display:none}.mobile-menu-button{display:block}
-.hero-grid,.project-card,.about-grid,.contact-grid{grid-template-columns:1fr}
-.hero{padding-top:75px}.hero h1{font-size:clamp(40px,10vw,60px)}
-.project-video,.project-video iframe{min-height:320px}.video-placeholder{min-height:320px}
-.about-grid{gap:35px}.contact-grid{gap:45px}
-.cookie-content{align-items:flex-start;flex-direction:column}
-}
-@media(max-width:650px){
-.container{width:min(100% - 28px,1180px)}section{padding:75px 0}
-.navbar{min-height:64px}.nav-right{gap:10px}.language-select{max-width:115px}
-.hero{padding:65px 0}.hero h1{letter-spacing:-1.8px}.hero-description{font-size:15px}
-.project-content{padding:24px}.more-work{grid-template-columns:1fr}.small-project iframe{height:240px}
-.skill-row{grid-template-columns:1fr;gap:13px}.form-row{grid-template-columns:1fr}
-.footer-content{flex-direction:column;align-items:flex-start}
-.form-popup{right:16px;bottom:16px;width:calc(100% - 32px)}body.rtl .form-popup{left:16px}
-.cookie-banner{left:10px;right:10px;bottom:10px}.cookie-actions{width:100%}.cookie-actions .button{flex:1}
-}
-</style>
+    <title>Nonop31 - Roblox Developer</title>
+
+    <meta
+        name="description"
+        content="Nonop31 - Roblox developer working on gameplay systems, mechanics, scripting and UI."
+    >
+
+    <meta property="og:title" content="Nonop31 - Roblox Developer">
+    <meta
+        property="og:description"
+        content="Roblox developer working on gameplay systems, mechanics, scripting and UI."
+    >
+    <meta property="og:image" content="game.png">
+    <meta property="og:url" content="https://nonop31.github.io/">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #f2f2f2;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        button,
+        select {
+            cursor: pointer;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        iframe {
+            display: block;
+            width: 100%;
+            border: 0;
+        }
+
+        :focus-visible {
+            outline: 2px solid #ffffff;
+            outline-offset: 3px;
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #080808;
+            border-bottom: 1px solid #202020;
+        }
+
+        .navbar {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #a9a9a9;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .language-select {
+            appearance: none;
+            background: #101010;
+            color: #eeeeee;
+            border: 1px solid #292929;
+            border-radius: 7px;
+            padding: 9px 32px 9px 12px;
+            font-size: 13px;
+        }
+
+        .mobile-menu-button {
+            display: none;
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #292929;
+            border-radius: 7px;
+            padding: 8px 11px;
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        .mobile-menu {
+            display: none;
+            border-top: 1px solid #202020;
+            padding: 14px 0 18px;
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 9px 0;
+            color: #b5b5b5;
+            font-size: 14px;
+        }
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        section {
+            padding: 110px 0;
+            border-bottom: 1px solid #181818;
+        }
+
+        .section-header {
+            margin-bottom: 45px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 13px;
+        }
+
+        .section-header p {
+            color: #969696;
+            max-width: 650px;
+            font-size: 15px;
+        }
+
+        .muted {
+            color: #9b9b9b;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            padding: 100px 0 90px;
+            border-bottom: 1px solid #181818;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            max-width: 720px;
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.02;
+            letter-spacing: -2.8px;
+            margin-bottom: 26px;
+        }
+
+        .hero-description {
+            max-width: 680px;
+            color: #a9a9a9;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 18px;
+            border-radius: 7px;
+            border: 1px solid #303030;
+            background: #151515;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .button:hover {
+            background: #202020;
+        }
+
+        .button.primary {
+            background: #ffffff;
+            color: #080808;
+            border-color: #ffffff;
+        }
+
+        .button.primary:hover {
+            background: #dddddd;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 25px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 10px;
+            border: 1px solid #292929;
+            border-radius: 5px;
+            color: #a8a8a8;
+            background: #0d0d0d;
+            font-size: 12px;
+        }
+
+        .hero-project {
+            background: #101010;
+            border: 1px solid #292929;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .hero-project-image {
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: #0d0d0d;
+        }
+
+        .hero-project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-project-content {
+            padding: 20px;
+        }
+
+        .hero-project-content h3 {
+            font-size: 20px;
+            margin-bottom: 7px;
+        }
+
+        .hero-project-content p {
+            color: #919191;
+            font-size: 14px;
+        }
+
+        /* =========================
+           WORK
+        ========================= */
+
+        .projects {
+            display: grid;
+            gap: 35px;
+        }
+
+        .project-card {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+            border: 1px solid #292929;
+            border-radius: 9px;
+            overflow: hidden;
+            background: #101010;
+        }
+
+        .project-video {
+            min-height: 360px;
+            background: #080808;
+        }
+
+        .project-video iframe {
+            height: 100%;
+            min-height: 360px;
+        }
+
+        .project-content {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-number {
+            color: #777777;
+            font-size: 12px;
+            margin-bottom: 14px;
+        }
+
+        .project-content h3 {
+            font-size: 27px;
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+
+        .project-content p {
+            color: #a0a0a0;
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 22px;
+        }
+
+        .project-link {
+            margin-top: 24px;
+        }
+
+        .subsection-title {
+            font-size: 23px;
+            margin: 70px 0 25px;
+        }
+
+        .more-work {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .small-project {
+            border: 1px solid #292929;
+            background: #101010;
+            border-radius: 9px;
+            overflow: hidden;
+        }
+
+        .small-project iframe {
+            height: 280px;
+        }
+
+        .small-project-content {
+            padding: 22px;
+        }
+
+        .small-project-content h3 {
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        .small-project-content p {
+            color: #9b9b9b;
+            font-size: 14px;
+        }
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats-link {
+            display: block;
+            border: 1px solid #292929;
+            border-radius: 9px;
+            overflow: hidden;
+            background: #101010;
+        }
+
+        .stats-link:hover {
+            border-color: #444444;
+        }
+
+        .stats-image {
+            width: 100%;
+            max-height: 650px;
+            object-fit: contain;
+            background: #080808;
+        }
+
+        .stats-caption {
+            padding: 20px 22px;
+            color: #a3a3a3;
+            font-size: 14px;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-list {
+            border-top: 1px solid #292929;
+        }
+
+        .skill-row {
+            display: grid;
+            grid-template-columns: 190px 1fr;
+            gap: 30px;
+            padding: 24px 0;
+            border-bottom: 1px solid #292929;
+        }
+
+        .skill-category {
+            color: #777777;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            gap: 80px;
+        }
+
+        .about-title {
+            font-size: 14px;
+            color: #777777;
+        }
+
+        .about-text {
+            color: #ababab;
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .about-text p + p {
+            margin-top: 20px;
+        }
+
+        /* =========================
+           REVIEWS
+        ========================= */
+
+        .review-box {
+            border: 1px solid #292929;
+            background: #101010;
+            border-radius: 9px;
+            padding: 35px;
+        }
+
+        .review-box p {
+            color: #a7a7a7;
+            font-size: 16px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.75fr 1.25fr;
+            gap: 70px;
+        }
+
+        .contact-intro h2 {
+            font-size: clamp(30px, 4vw, 44px);
+            line-height: 1.1;
+            margin-bottom: 18px;
+        }
+
+        .contact-intro > p {
+            color: #9e9e9e;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .contact-details {
+            margin-top: 35px;
+            display: grid;
+            gap: 15px;
+        }
+
+        .contact-detail {
+            color: #a8a8a8;
+            font-size: 14px;
+        }
+
+        .contact-detail strong {
+            display: inline-block;
+            width: 90px;
+            color: #eeeeee;
+        }
+
+        .contact-detail a {
+            color: #d7d7d7;
+        }
+
+        .contact-detail a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 18px;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 8px;
+        }
+
+        .form-group.hidden {
+            display: none;
+        }
+
+        .form-group label {
+            color: #d6d6d6;
+            font-size: 13px;
+        }
+
+        .form-control {
+            width: 100%;
+            border: 1px solid #2c2c2c;
+            background: #101010;
+            color: #ffffff;
+            border-radius: 7px;
+            padding: 12px 13px;
+            font-size: 14px;
+        }
+
+        .form-control::placeholder {
+            color: #686868;
+        }
+
+        textarea.form-control {
+            min-height: 145px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .contact-submit {
+            border: 1px solid #ffffff;
+            background: #ffffff;
+            color: #080808;
+            min-height: 46px;
+            border-radius: 7px;
+            padding: 0 20px;
+            font-weight: 600;
+        }
+
+        .contact-submit:hover {
+            background: #dddddd;
+        }
+
+        .contact-submit:disabled {
+            cursor: wait;
+            opacity: 0.6;
+        }
+
+        .form-consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #9b9b9b;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .form-consent input {
+            margin-top: 3px;
+            accent-color: #ffffff;
+        }
+
+        .form-consent a,
+        .footer-links a {
+            color: #d7d7d7;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .legal-text {
+            max-width: 850px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        /* =========================
+           POPUP
+        ========================= */
+
+        .form-popup {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 2000;
+            width: min(390px, calc(100% - 32px));
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 17px;
+            background: #111111;
+            border: 1px solid #303030;
+            border-radius: 9px;
+            transform: translateY(30px);
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+        .form-popup.show {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+            visibility: visible;
+        }
+
+        .form-popup-icon {
+            width: 29px;
+            height: 29px;
+            min-width: 29px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #444444;
+            border-radius: 50%;
+            font-size: 14px;
+        }
+
+        .form-popup-title {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .form-popup-message {
+            color: #9b9b9b;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .form-popup-close {
+            margin-left: auto;
+            background: transparent;
+            border: 0;
+            color: #777777;
+            font-size: 21px;
+            line-height: 1;
+        }
+
+        .form-popup-close:hover {
+            color: #ffffff;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            color: #6f6f6f;
+            font-size: 12px;
+        }
+
+        /* =========================
+           RTL
+        ========================= */
+
+        body.rtl {
+            direction: rtl;
+        }
+
+        body.rtl .form-popup {
+            right: auto;
+            left: 24px;
+        }
+
+        body.rtl .form-popup-close {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-button {
+                display: block;
+            }
+
+            .hero-grid,
+            .project-card,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 75px;
+            }
+
+            .hero h1 {
+                font-size: clamp(40px, 10vw, 60px);
+            }
+
+            .project-video,
+            .project-video iframe {
+                min-height: 320px;
+            }
+
+            .about-grid {
+                gap: 35px;
+            }
+
+            .contact-grid {
+                gap: 45px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .container {
+                width: min(100% - 28px, 1180px);
+            }
+
+            section {
+                padding: 75px 0;
+            }
+
+            .navbar {
+                min-height: 64px;
+            }
+
+            .nav-right {
+                gap: 10px;
+            }
+
+            .language-select {
+                max-width: 115px;
+            }
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                letter-spacing: -1.8px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .project-content {
+                padding: 24px;
+            }
+
+            .more-work {
+                grid-template-columns: 1fr;
+            }
+
+            .small-project iframe {
+                height: 240px;
+            }
+
+            .skill-row {
+                grid-template-columns: 1fr;
+                gap: 13px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-popup {
+                right: 16px;
+                bottom: 16px;
+                width: calc(100% - 32px);
+            }
+
+            body.rtl .form-popup {
+                left: 16px;
+            }
+        }
+    </style>
 </head>
 
 <body>
+
 <header>
-<div class="container navbar">
-<a href="#top" class="logo" aria-label="Nonop31 - Accueil">nonop31</a>
-<div class="nav-right">
-<nav class="nav-links" aria-label="Navigation principale">
-<a href="#work" data-i18n="navWork">Mon travail</a>
-<a href="#skills" data-i18n="navSkills">Compétences</a>
-<a href="#about" data-i18n="navAbout">À propos</a>
-<a href="#reviews" data-i18n="navReviews">Avis</a>
-<a href="#contact" data-i18n="navContact">Contact</a>
-</nav>
-<label class="sr-only" for="languageSelect">Langue</label>
-<select id="languageSelect" class="language-select" aria-label="Langue">
-<option value="fr">Français</option><option value="en">English</option><option value="zh">中文</option><option value="hi">हिन्दी</option><option value="es">Español</option><option value="ar">العربية</option>
-</select>
-<button type="button" class="mobile-menu-button" id="mobileMenuButton" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
-</div>
-</div>
-<div class="container mobile-menu" id="mobileMenu">
-<a href="#work" data-i18n="navWork">Mon travail</a><a href="#skills" data-i18n="navSkills">Compétences</a><a href="#about" data-i18n="navAbout">À propos</a><a href="#reviews" data-i18n="navReviews">Avis</a><a href="#contact" data-i18n="navContact">Contact</a>
-</div>
+    <div class="container navbar">
+        <a href="#top" class="logo">nonop31</a>
+
+        <div class="nav-right">
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="#work" data-i18n="navWork">My Work</a>
+                <a href="#skills" data-i18n="navSkills">Skills</a>
+                <a href="#about" data-i18n="navAbout">About</a>
+                <a href="#reviews" data-i18n="navReviews">Reviews</a>
+                <a href="#contact" data-i18n="navContact">Contact</a>
+            </nav>
+
+            <select
+                id="languageSelect"
+                class="language-select"
+                aria-label="Language"
+            >
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="zh">中文</option>
+                <option value="hi">हिन्दी</option>
+                <option value="es">Español</option>
+                <option value="ar">العربية</option>
+            </select>
+
+            <button
+                type="button"
+                class="mobile-menu-button"
+                id="mobileMenuButton"
+                aria-label="Open menu"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+        </div>
+    </div>
+
+    <div class="container mobile-menu" id="mobileMenu">
+        <a href="#work" data-i18n="navWork">My Work</a>
+        <a href="#skills" data-i18n="navSkills">Skills</a>
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#reviews" data-i18n="navReviews">Reviews</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+    </div>
 </header>
 
 <main id="top">
-<section class="hero">
-<div class="container hero-grid">
-<div>
-<h1 data-i18n="heroTitle">Je développe des systèmes et des mécaniques Roblox.</h1>
-<p class="hero-description" data-i18n="heroDescription">Je suis développeur Roblox avec plus de 2 ans d'expérience dans la création de jeux Roblox. Je peux créer un jeu Roblox de A à Z, que ce soit les systèmes, les mécaniques et les UI.</p>
-<div class="hero-buttons">
-<a href="#work" class="button primary" data-i18n="heroProjects">Voir mes projets</a>
-<a href="#contact" class="button" data-i18n="heroContact">Me contacter</a>
-</div>
-<div class="hero-tags"><span class="tag">Luau / Lua</span><span class="tag">Gameplay</span><span class="tag">Systems</span><span class="tag">UI</span></div>
-</div>
-<a href="https://www.roblox.com/fr/games/139111148572091/Crush-a-Luckyblock-for-Brainrot" target="_blank" rel="noopener noreferrer" class="hero-project">
-<div class="hero-project-image"><img src="game.png" alt="Icône du jeu Roblox Crush A LuckyBlock" width="600" height="600"></div>
-<div class="hero-project-content"><h3>Crush A LuckyBlock</h3><p data-i18n="heroProjectDescription">Mon jeu Roblox, développé de manière indépendante.</p></div>
-</a>
-</div>
-</section>
 
-<section id="work">
-<div class="container">
-<div class="section-header"><h2 data-i18n="workTitle">Mon travail</h2><p data-i18n="workDescription">Quelques projets et systèmes Roblox sur lesquels j'ai travaillé.</p></div>
-<div class="projects">
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container hero-grid">
 
-<article class="project-card">
-<div class="project-video" data-video-id="yEmWAWZhFE4" data-video-title="Crush A LuckyBlock demonstration"><div class="video-placeholder"><strong>Crush A LuckyBlock</strong><span data-i18n="videoConsentText">La vidéo YouTube est chargée uniquement après ton choix dans la bannière de consentement.</span><button type="button" class="button" data-enable-videos>Activer les vidéos externes</button></div></div>
-<div class="project-content"><div class="project-number">01</div><h3>Crush A LuckyBlock</h3><p data-i18n="projectCrush">Premier projet développé entièrement de manière indépendante.</p><div class="project-meta"><span class="tag">Luau</span><span class="tag">Gameplay</span><span class="tag">Systems</span></div><div class="project-link"><a href="https://www.roblox.com/fr/games/139111148572091/Crush-a-Luckyblock-for-Brainrot" target="_blank" rel="noopener noreferrer" class="button" data-i18n="playOnRoblox">Jouer sur Roblox</a></div></div>
-</article>
+            <div>
+                <h1 data-i18n="heroTitle">
+                    I develop Roblox systems and mechanics.
+                </h1>
 
-<article class="project-card">
-<div class="project-video" data-video-id="W14xJzIldMo" data-video-title="Cannon System demonstration"><div class="video-placeholder"><strong>Cannon System</strong><span data-i18n="videoConsentText">La vidéo YouTube est chargée uniquement après ton choix dans la bannière de consentement.</span><button type="button" class="button" data-enable-videos>Activer les vidéos externes</button></div></div>
-<div class="project-content"><div class="project-number">02</div><h3>Cannon System</h3><p data-i18n="projectCannon">Un canon complètement fonctionnel que j'ai réalisé pour un client. L'UI n'a pas été réalisée par moi, j'ai simplement codé le système.</p><div class="project-meta"><span class="tag">Luau</span><span class="tag">Gameplay</span><span class="tag">System</span></div></div>
-</article>
+                <p class="hero-description" data-i18n="heroDescription">
+                    I'm a Roblox developer with more than 2 years of experience creating Roblox games.
+                    I can create a Roblox game from A to Z, including systems, mechanics and UI.
+                </p>
 
-<article class="project-card">
-<div class="project-video" data-video-id="tn0EyA1seg4" data-video-title="Settings UI demonstration"><div class="video-placeholder"><strong>Settings</strong><span data-i18n="videoConsentText">La vidéo YouTube est chargée uniquement après ton choix dans la bannière de consentement.</span><button type="button" class="button" data-enable-videos>Activer les vidéos externes</button></div></div>
-<div class="project-content"><div class="project-number">03</div><h3>Settings</h3><p data-i18n="projectSettings">Une UI de settings que j'ai réalisée pour mon jeu.</p><div class="project-meta"><span class="tag">UI</span><span class="tag">Luau</span></div></div>
-</article>
-</div>
+                <div class="hero-buttons">
+                    <a href="#work" class="button primary" data-i18n="heroProjects">
+                        View my work
+                    </a>
 
-<h3 class="subsection-title" data-i18n="moreWorkTitle">Plus de projets</h3>
-<div class="more-work">
-<article class="small-project"><div class="project-video" data-video-id="O5VXBfJoxc8" data-video-title="AFK Fountain System demonstration"><div class="video-placeholder"><strong>AFK Fountain System</strong><span data-i18n="videoConsentText">La vidéo YouTube est chargée uniquement après ton choix dans la bannière de consentement.</span><button type="button" class="button" data-enable-videos>Activer les vidéos externes</button></div></div><div class="small-project-content"><h3>AFK Fountain System</h3><p data-i18n="projectAfkFountain">Un simple système d'AFK.</p></div></article>
-<article class="small-project"><div class="project-video" data-video-id="DyKeB5FjU_Y" data-video-title="AFK Box System demonstration"><div class="video-placeholder"><strong>AFK Box System</strong><span data-i18n="videoConsentText">La vidéo YouTube est chargée uniquement après ton choix dans la bannière de consentement.</span><button type="button" class="button" data-enable-videos>Activer les vidéos externes</button></div></div><div class="small-project-content"><h3>AFK Box System</h3><p data-i18n="projectAfkBox">Un autre simple système d'AFK.</p></div></article>
-</div>
-</div>
-</section>
+                    <a href="#contact" class="button" data-i18n="heroContact">
+                        Contact me
+                    </a>
+                </div>
 
-<section id="stats">
-<div class="container">
-<div class="section-header"><h2 data-i18n="statsTitle">Statistiques</h2><p data-i18n="statsDescription">Statistiques de mon jeu Roblox, qui affiche une maturité 16+ selon les informations visibles sur Roblox. Je n'ai pas payé pour des annonces Roblox.</p></div>
-<a href="https://www.roblox.com/fr/games/139111148572091/Crush-a-Luckyblock-for-Brainrot" target="_blank" rel="noopener noreferrer" class="stats-link">
-<img src="stats.png" alt="Capture des statistiques Roblox de Crush A LuckyBlock" class="stats-image" width="1200" height="700">
-<div class="stats-caption" data-i18n="statsCaption">Cliquez pour ouvrir le jeu sur Roblox.</div>
-</a>
-</div>
-</section>
+                <div class="hero-tags">
+                    <span class="tag">Luau / Lua</span>
+                    <span class="tag">Gameplay</span>
+                    <span class="tag">Systems</span>
+                    <span class="tag">UI</span>
+                </div>
+            </div>
 
-<section id="skills">
-<div class="container">
-<div class="section-header"><h2 data-i18n="skillsTitle">Compétences</h2><p data-i18n="skillsDescription">Les principaux outils et domaines sur lesquels je travaille.</p></div>
-<div class="skills-list">
-<div class="skill-row"><div class="skill-category" data-i18n="skillLanguage">Langage</div><div class="skill-items"><span class="tag">Luau / Lua</span></div></div>
-<div class="skill-row"><div class="skill-category" data-i18n="skillRoblox">Roblox</div><div class="skill-items"><span class="tag">Roblox Studio</span><span class="tag">RemoteEvents</span><span class="tag">RemoteFunctions</span><span class="tag">Client / Server</span></div></div>
-<div class="skill-row"><div class="skill-category" data-i18n="skillGameplay">Gameplay</div><div class="skill-items"><span class="tag">Gameplay Systems</span><span class="tag">Player Systems</span><span class="tag">Interactive Mechanics</span><span class="tag">AFK Systems</span></div></div>
-<div class="skill-row"><div class="skill-category" data-i18n="skillUi">UI</div><div class="skill-items"><span class="tag">Roblox UI</span><span class="tag">UI Systems</span><span class="tag">Settings Interfaces</span></div></div>
-</div>
-</div>
-</section>
+            <a
+                href="https://www.roblox.com/fr/games/139111148572091/Crush-a-Luckyblock-for-Brainrot"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hero-project"
+            >
+                <div class="hero-project-image">
+                    <img
+                        src="game.png"
+                        alt="Crush A LuckyBlock game icon"
+                    >
+                </div>
 
-<section id="about">
-<div class="container about-grid">
-<div><div class="about-title" data-i18n="aboutLabel">À propos de moi</div></div>
-<div class="about-text"><p data-i18n="aboutText1">J'ai commencé à créer des jeux Roblox il y a un peu plus de 2 ans. J'ai acquis de l'expérience en créant différents projets et systèmes.</p><p data-i18n="aboutText2">Voici quelques exemples de projets et de systèmes sur lesquels j'ai travaillé.</p></div>
-</div>
-</section>
+                <div class="hero-project-content">
+                    <h3>Crush A LuckyBlock</h3>
+                    <p data-i18n="heroProjectDescription">
+                        My Roblox game, developed independently.
+                    </p>
+                </div>
+            </a>
 
-<section id="reviews">
-<div class="container">
-<div class="section-header"><h2 data-i18n="reviewsTitle">Avis</h2></div>
-<div class="review-box"><p data-i18n="reviewsText">Les avis des premiers clients seront ajoutés très prochainement.</p></div>
-</div>
-</section>
+        </div>
+    </section>
 
-<section id="contact">
-<div class="container">
-<div class="contact-grid">
-<div class="contact-intro">
-<h2 data-i18n="contactTitle">Travaillons ensemble</h2>
-<p data-i18n="contactDescription">Vous avez un projet en tête ? Contactez-moi. Le prix dépendra de la durée et de la complexité du projet. Aucun frais caché : le prix final est défini avant le début du travail.</p>
-<div class="contact-details">
-<div class="contact-detail"><strong data-i18n="emailLabel">Email</strong><a href="mailto:nonop31.the.real@gmail.com">nonop31.the.real@gmail.com</a></div>
-<div class="contact-detail"><strong>Discord</strong><a href="https://discord.com/users/1396495532037247088" target="_blank" rel="noopener noreferrer">Just_me</a></div>
-<div class="contact-detail"><strong>Roblox</strong><a href="https://www.roblox.com/fr/users/973247650/profile" target="_blank" rel="noopener noreferrer">nonop31</a></div>
-<div class="contact-detail"><strong data-i18n="timezoneLabel">Fuseau</strong><span>Europe/Paris - UTC+1 / UTC+2</span></div>
-</div>
-</div>
+    <!-- WORK -->
+    <section id="work">
+        <div class="container">
 
-<form id="contactForm" class="contact-form" action="https://formsubmit.co/nonop31.the.real@gmail.com" method="POST">
-<input type="hidden" name="_subject" value="Nouveau contact depuis le portfolio Nonop31">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_url" value="https://nonop31.github.io/">
-<input type="hidden" name="_next" value="https://nonop31.github.io/?sent=1#contact">
-<input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
+            <div class="section-header">
+                <h2 data-i18n="workTitle">My Work</h2>
+                <p data-i18n="workDescription">
+                    Some Roblox projects and systems I have worked on.
+                </p>
+            </div>
 
-<div class="form-group">
-<label for="name" data-i18n="nameLabel">Nom / pseudo <span class="muted">(facultatif)</span></label>
-<input class="form-control" type="text" id="name" name="name" autocomplete="name" maxlength="80" data-placeholder="namePlaceholder" placeholder="Votre nom ou pseudo">
-</div>
+            <div class="projects">
 
-<div class="form-group">
-<label for="contactMethod" data-i18n="contactMethodLabel">Moyen de contact préféré</label>
-<select class="form-control" id="contactMethod" name="preferred_contact_method" required>
-<option value="" data-i18n="contactMethodPlaceholder">Sélectionnez un moyen de contact</option>
-<option value="Discord">Discord</option>
-<option value="Email">Email</option>
-</select>
-</div>
+                <!-- CRUSH -->
+                <article class="project-card">
+                    <div class="project-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/yEmWAWZhFE4"
+                            title="Crush A LuckyBlock demonstration"
+                            loading="lazy"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
 
-<div class="form-group hidden" id="discordGroup">
-<label for="discord" data-i18n="discordContactLabel">Identifiant Discord</label>
-<input class="form-control" type="text" id="discord" name="discord" maxlength="100" autocomplete="off" data-placeholder="discordPlaceholder" placeholder="ex. Just_me">
-<p class="form-help" data-i18n="discordHelp">Indiquez seulement l'identifiant nécessaire pour que je puisse vous retrouver sur Discord.</p>
-</div>
+                    <div class="project-content">
+                        <div class="project-number">01</div>
 
-<div class="form-group hidden" id="emailGroup">
-<label for="email" data-i18n="formEmailLabel">Email</label>
-<input class="form-control" type="email" id="email" name="email" autocomplete="email" maxlength="254" data-placeholder="emailPlaceholder" placeholder="votre@email.com">
-<p class="form-help" data-i18n="emailHelp">Votre email n'est nécessaire que si vous choisissez Email comme moyen de contact.</p>
-</div>
+                        <h3>Crush A LuckyBlock</h3>
 
-<div class="form-group">
-<label for="theme" data-i18n="themeLabel">Thème du projet</label>
-<select class="form-control" id="theme" name="project_theme" required>
-<option value="" data-i18n="themePlaceholder">Sélectionnez un thème</option>
-<option value="Gameplay system" data-i18n="themeGameplay">Système de gameplay</option>
-<option value="UI" data-i18n="themeUi">UI</option>
-<option value="Full game" data-i18n="themeFullGame">Jeu complet</option>
-<option value="Bug fixing" data-i18n="themeBugFixing">Correction de bugs</option>
-<option value="Other" data-i18n="themeOther">Autre</option>
-</select>
-</div>
+                        <p data-i18n="projectCrush">
+                            First project developed entirely independently.
+                        </p>
 
-<div class="form-group hidden" id="otherThemeGroup">
-<label for="otherTheme" data-i18n="otherThemeLabel">Thème de votre projet</label>
-<input class="form-control" type="text" id="otherTheme" name="other_project_theme" maxlength="120" data-placeholder="otherThemePlaceholder" placeholder="Décrivez votre projet">
-</div>
+                        <div class="project-meta">
+                            <span class="tag">Luau</span>
+                            <span class="tag">Gameplay</span>
+                            <span class="tag">Systems</span>
+                        </div>
 
-<div class="form-row">
-<div class="form-group">
-<label for="currency" data-i18n="currencyLabel">Devise</label>
-<select class="form-control" id="currency" name="currency" required>
-<option value="" data-i18n="currencyPlaceholder">Sélectionnez une devise</option>
-<option value="EUR">EUR</option>
-<option value="Robux">Robux</option>
-</select>
-</div>
-<div class="form-group">
-<label for="amount" data-i18n="amountLabel">Budget</label>
-<input class="form-control" type="number" id="amount" name="amount" min="0" step="1" inputmode="numeric" data-placeholder="amountPlaceholder" placeholder="Montant" required>
-</div>
-</div>
-<p class="form-help" data-i18n="budgetHelp">Le budget et la devise sont obligatoires.</p>
+                        <div class="project-link">
+                            <a
+                                href="https://www.roblox.com/fr/games/139111148572091/Crush-a-Luckyblock-for-Brainrot"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="button"
+                                data-i18n="playOnRoblox"
+                            >
+                                Play on Roblox
+                            </a>
+                        </div>
+                    </div>
+                </article>
 
-<div class="form-group">
-<label for="message" data-i18n="messageLabel">Message</label>
-<textarea class="form-control" id="message" name="message" required maxlength="5000" data-placeholder="messagePlaceholder" placeholder="Parlez-moi de votre projet..."></textarea>
-</div>
+                <!-- CANNON -->
+                <article class="project-card">
+                    <div class="project-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/W14xJzIldMo"
+                            title="Cannon System demonstration"
+                            loading="lazy"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
 
-<div class="checkbox-row">
-<input type="checkbox" id="consent" name="privacy_consent" value="accepted" required>
-<label for="consent" data-i18n="consentText">J'ai lu la <a href="#privacy">politique de confidentialité</a> et les <a href="#terms">conditions d'utilisation</a>, et j'accepte que les informations nécessaires à ma demande soient utilisées pour me répondre.</label>
-</div>
+                    <div class="project-content">
+                        <div class="project-number">02</div>
 
-<button type="submit" class="contact-submit" data-i18n="sendButton">Envoyer le message</button>
-</form>
-</div>
-</div>
-</section>
+                        <h3>Cannon System</h3>
 
-<section id="privacy" class="legal-section">
-<div class="container">
-<div class="section-header"><h2 data-i18n="privacyTitle">Politique de confidentialité</h2><p data-i18n="privacyIntro">Cette page explique simplement quelles données sont demandées via le formulaire et pourquoi.</p></div>
-<div class="legal-grid">
-<div class="legal-card">
-<h3 data-i18n="privacyDataTitle">Données collectées</h3>
-<p data-i18n="privacyDataText">Le formulaire peut collecter un nom ou pseudo facultatif, un moyen de contact choisi, l'identifiant Discord ou l'adresse email correspondante, le thème du projet, un budget et le contenu du message.</p>
-</div>
-<div class="legal-card">
-<h3 data-i18n="privacyPurposeTitle">Finalité</h3>
-<p data-i18n="privacyPurposeText">Ces informations servent uniquement à comprendre votre demande et à vous répondre au sujet d'un projet. Aucune newsletter ou prospection automatisée n'est envoyée à partir de ce formulaire.</p>
-</div>
-<div class="legal-card">
-<h3 data-i18n="privacyRecipientTitle">Destinataires et prestataires</h3>
-<p data-i18n="privacyRecipientText">Les données du formulaire sont transmises au service FormSubmit utilisé pour acheminer le message vers l'adresse de contact du site. YouTube peut également être chargé si vous acceptez les contenus externes et activez les vidéos.</p>
-</div>
-<div class="legal-card">
-<h3 data-i18n="privacyRetentionTitle">Conservation et droits</h3>
-<p data-i18n="privacyRetentionText">Je conserve les messages uniquement pendant la durée nécessaire à leur gestion et au suivi de la demande, puis je les supprime lorsque leur conservation n'est plus nécessaire. Vous pouvez demander l'accès, la rectification ou la suppression de vos données, ainsi que des informations sur leur traitement.</p>
-<div class="delete-box"><strong data-i18n="deleteTitle">Demande de suppression</strong><p><a href="mailto:nonop31.the.real@gmail.com?subject=Demande%20de%20suppression%20de%20mes%20donn%C3%A9es">nonop31.the.real@gmail.com</a> — <span data-i18n="deleteText">indiquez simplement les informations permettant de retrouver votre demande.</span></p></div>
-</div>
-<div class="legal-card">
-<h3 data-i18n="privacyMinorsTitle">Mineurs</h3>
-<p data-i18n="privacyMinorsText">Le formulaire ne demande pas de données spécifiques aux mineurs. Si le traitement repose sur le consentement dans le cadre d'un service de la société de l'information, les règles françaises relatives au consentement des moins de 15 ans s'appliquent.</p>
-</div>
-</div>
-</div>
-</section>
+                        <p data-i18n="projectCannon">
+                            A fully functional cannon that I made for a client.
+                            The UI was not made by me, I only coded the system.
+                        </p>
 
-<section id="terms" class="legal-section">
-<div class="container">
-<div class="section-header"><h2 data-i18n="termsTitle">Conditions d'utilisation</h2></div>
-<div class="legal-grid">
-<div class="legal-card"><h3 data-i18n="termsContactTitle">Contact et demandes</h3><p data-i18n="termsContactText">Le formulaire sert à présenter une demande de projet. Une demande envoyée ne vaut pas automatiquement acceptation d'une mission.</p></div>
-<div class="legal-card"><h3 data-i18n="termsPriceTitle">Prix et frais</h3><p data-i18n="termsPriceText">Le budget indiqué dans le formulaire est obligatoire et indicatif. Aucun frais caché n'est ajouté : le prix et les éventuels frais applicables doivent être convenus avant le début d'une prestation.</p></div>
-<div class="legal-card"><h3 data-i18n="termsContentTitle">Contenus</h3><p data-i18n="termsContentText">Les vidéos, images et liens présentés servent à montrer des projets. Les droits sur les contenus appartenant à des tiers restent à leurs propriétaires respectifs.</p></div>
-</div>
-</div>
-</section>
+                        <div class="project-meta">
+                            <span class="tag">Luau</span>
+                            <span class="tag">Gameplay</span>
+                            <span class="tag">System</span>
+                        </div>
+                    </div>
+                </article>
 
-<section id="refund" class="legal-section">
-<div class="container">
-<div class="section-header"><h2 data-i18n="refundTitle">Politique de remboursement</h2></div>
-<div class="legal-grid">
-<div class="legal-card"><p data-i18n="refundText">Aucun paiement ni acompte n'est collecté directement sur ce site. Si une prestation payante est conclue séparément, les modalités de paiement, d'annulation et de remboursement doivent être définies avant le paiement et tenir compte des règles applicables.</p></div>
-</div>
-</div>
-</section>
+                <!-- SETTINGS -->
+                <article class="project-card">
+                    <div class="project-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/tn0EyA1seg4"
+                            title="Settings UI demonstration"
+                            loading="lazy"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
 
-<section id="cookies" class="legal-section">
-<div class="container">
-<div class="section-header"><h2 data-i18n="cookiesTitle">Politique cookies et contenus externes</h2></div>
-<div class="legal-grid">
-<div class="legal-card"><h3 data-i18n="cookiesWhatTitle">Ce site</h3><p data-i18n="cookiesWhatText">Le site n'utilise pas de cookies publicitaires ou d'analyse pour son fonctionnement. Un cookie technique peut être utilisé uniquement pour mémoriser le choix concernant les contenus externes.</p></div>
-<div class="legal-card"><h3 data-i18n="cookiesYoutubeTitle">YouTube</h3><p data-i18n="cookiesYoutubeText">Les vidéos YouTube sont bloquées avant votre choix. Elles sont chargées uniquement si vous acceptez les contenus externes. Un refus laisse les vidéos désactivées.</p></div>
-<div class="legal-card"><h3 data-i18n="cookiesChangeTitle">Modifier votre choix</h3><p><button type="button" class="button" id="cookieSettingsButton" data-i18n="cookieSettingsButton">Modifier mon choix</button></p></div>
-</div>
-</div>
-</section>
+                    <div class="project-content">
+                        <div class="project-number">03</div>
 
-<section id="legal-info" class="legal-section">
-<div class="container">
-<div class="section-header"><h2 data-i18n="legalInfoTitle">Informations légales</h2><p data-i18n="legalInfoIntro">Les éléments ci-dessous sont à compléter ou à adapter selon ton statut juridique réel et les règles qui te sont applicables.</p></div>
-<div class="legal-grid">
-<div class="legal-card">
-<p><strong data-i18n="legalEditor">Éditeur du site :</strong> nonop31</p>
-<p><strong data-i18n="legalEmail">Contact :</strong> <a href="mailto:nonop31.the.real@gmail.com">nonop31.the.real@gmail.com</a></p>
-<p><strong data-i18n="legalHost">Hébergement :</strong> GitHub Pages — GitHub, Inc.</p>
-</div>
-</div>
-</div>
-</section>
+                        <h3>Settings</h3>
+
+                        <p data-i18n="projectSettings">
+                            A settings UI that I made for my game.
+                        </p>
+
+                        <div class="project-meta">
+                            <span class="tag">UI</span>
+                            <span class="tag">Luau</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <h3 class="subsection-title" data-i18n="moreWorkTitle">
+                More Work
+            </h3>
+
+            <div class="more-work">
+
+                <!-- AFK FOUNTAIN -->
+                <article class="small-project">
+                    <iframe
+                        src="https://www.youtube.com/embed/O5VXBfJoxc8"
+                        title="AFK Fountain System demonstration"
+                        loading="lazy"
+                        allowfullscreen
+                    ></iframe>
+
+                    <div class="small-project-content">
+                        <h3>AFK Fountain System</h3>
+                        <p data-i18n="projectAfkFountain">
+                            A simple AFK system.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- AFK BOX -->
+                <article class="small-project">
+                    <iframe
+                        src="https://www.youtube.com/embed/DyKeB5FjU_Y"
+                        title="AFK Box System demonstration"
+                        loading="lazy"
+                        allowfullscreen
+                    ></iframe>
+
+                    <div class="small-project-content">
+                        <h3>AFK Box System</h3>
+                        <p data-i18n="projectAfkBox">
+                            Another simple AFK system.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section id="stats">
+        <div class="container">
+
+            <div class="section-header">
+                <h2 data-i18n="statsTitle">Game Statistics</h2>
+                <p data-i18n="statsDescription">
+                    Statistics from my Roblox game, which has a 16+ maturity rating without paying for Roblox advertisements.
+                </p>
+            </div>
+
+            <a
+                href="https://www.roblox.com/fr/games/139111148572091/Crush-a-Luckyblock-for-Brainrot"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="stats-link"
+            >
+                <img
+                    src="stats.png"
+                    alt="Roblox game statistics for Crush A LuckyBlock"
+                    class="stats-image"
+                >
+
+                <div class="stats-caption" data-i18n="statsCaption">
+                    Click to open the game on Roblox.
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="container">
+
+            <div class="section-header">
+                <h2 data-i18n="skillsTitle">Skills</h2>
+                <p data-i18n="skillsDescription">
+                    The main tools and areas I work with.
+                </p>
+            </div>
+
+            <div class="skills-list">
+
+                <div class="skill-row">
+                    <div class="skill-category" data-i18n="skillLanguage">
+                        Language
+                    </div>
+
+                    <div class="skill-items">
+                        <span class="tag">Luau / Lua</span>
+                    </div>
+                </div>
+
+                <div class="skill-row">
+                    <div class="skill-category" data-i18n="skillRoblox">
+                        Roblox
+                    </div>
+
+                    <div class="skill-items">
+                        <span class="tag">Roblox Studio</span>
+                        <span class="tag">RemoteEvents</span>
+                        <span class="tag">RemoteFunctions</span>
+                        <span class="tag">Client / Server</span>
+                    </div>
+                </div>
+
+                <div class="skill-row">
+                    <div class="skill-category" data-i18n="skillGameplay">
+                        Gameplay
+                    </div>
+
+                    <div class="skill-items">
+                        <span class="tag">Gameplay Systems</span>
+                        <span class="tag">Player Systems</span>
+                        <span class="tag">Interactive Mechanics</span>
+                        <span class="tag">AFK Systems</span>
+                    </div>
+                </div>
+
+                <div class="skill-row">
+                    <div class="skill-category" data-i18n="skillUi">
+                        UI
+                    </div>
+
+                    <div class="skill-items">
+                        <span class="tag">Roblox UI</span>
+                        <span class="tag">UI Systems</span>
+                        <span class="tag">Settings Interfaces</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+
+            <div class="about-grid">
+
+                <div>
+                    <div class="about-title" data-i18n="aboutLabel">
+                        About me
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <p data-i18n="aboutText1">
+                        Some information about me. I started creating Roblox games a little over 2 years ago.
+                        I gained experience by creating different projects and systems.
+                    </p>
+
+                    <p data-i18n="aboutText2">
+                        Here are some examples of projects and systems I have worked on.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews">
+        <div class="container">
+
+            <div class="section-header">
+                <h2 data-i18n="reviewsTitle">Reviews</h2>
+            </div>
+
+            <div class="review-box">
+                <p data-i18n="reviewsText">
+                    Reviews from the first clients will be added very soon.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+
+            <div class="contact-grid">
+
+                <div class="contact-intro">
+                    <h2 data-i18n="contactTitle">
+                        Let's work together
+                    </h2>
+
+                    <p data-i18n="contactDescription">
+                        Do you have a project in mind? Contact me.
+                        The price will depend on the duration and complexity of the project.
+                    </p>
+
+                    <div class="contact-details">
+
+                        <div class="contact-detail">
+                            <strong data-i18n="emailLabel">Email</strong>
+                            <a href="mailto:nonop31.the.real@gmail.com">
+                                nonop31.the.real@gmail.com
+                            </a>
+                        </div>
+
+                        <div class="contact-detail">
+                            <strong>Discord</strong>
+                            <a
+                                href="https://discord.com/users/1396495532037247088"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Just_me
+                            </a>
+                        </div>
+
+                        <div class="contact-detail">
+                            <strong>Roblox</strong>
+                            <a
+                                href="https://www.roblox.com/fr/users/973247650/profile"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                nonop31
+                            </a>
+                        </div>
+
+                        <div class="contact-detail">
+                            <strong data-i18n="timezoneLabel">Timezone</strong>
+                            <span>Europe/Paris - UTC+1 / UTC+2</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- CONTACT FORM -->
+                <form
+                    id="contactForm"
+                    class="contact-form"
+                    action="https://formsubmit.co/nonop31.the.real@gmail.com"
+                    method="POST"
+                >
+
+                    <input
+                        type="hidden"
+                        name="_subject"
+                        value="New portfolio contact"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="_template"
+                        value="table"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="_captcha"
+                        value="false"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="_next"
+                        value="https://nonop31.github.io/?sent=1"
+                    >
+
+                    <div class="form-group">
+                        <label for="name" data-i18n="nameLabel">
+                            Name
+                        </label>
+
+                        <input
+                            class="form-control"
+                            type="text"
+                            id="name"
+                            name="name"
+                            data-placeholder="namePlaceholder"
+                            placeholder="Your name"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactMethod" data-i18n="contactMethodLabel">
+                            Preferred contact method
+                        </label>
+
+                        <select
+                            class="form-control"
+                            id="contactMethod"
+                            name="contact_method"
+                            required
+                        >
+                            <option value="" data-i18n="contactMethodPlaceholder">
+                                Select a contact method
+                            </option>
+                            <option value="Email" data-i18n="contactMethodEmail">
+                                Email
+                            </option>
+                            <option value="Discord" data-i18n="contactMethodDiscord">
+                                Discord
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group hidden" id="emailGroup">
+                        <label for="email" data-i18n="formEmailLabel">
+                            Email
+                        </label>
+
+                        <input
+                            class="form-control"
+                            type="email"
+                            id="email"
+                            name="email"
+                            data-placeholder="emailPlaceholder"
+                            placeholder="your@email.com"
+                        >
+                    </div>
+
+                    <div class="form-group hidden" id="discordGroup">
+                        <label for="discord" data-i18n="discordLabel">
+                            Discord username
+                        </label>
+
+                        <input
+                            class="form-control"
+                            type="text"
+                            id="discord"
+                            name="discord_username"
+                            data-placeholder="discordPlaceholder"
+                            placeholder="Your Discord username"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="theme" data-i18n="themeLabel">
+                            Project theme
+                        </label>
+
+                        <select
+                            class="form-control"
+                            id="theme"
+                            name="project_theme"
+                            required
+                        >
+                            <option value="" data-i18n="themePlaceholder">
+                                Select a theme
+                            </option>
+
+                            <option
+                                value="Gameplay system"
+                                data-i18n="themeGameplay"
+                            >
+                                Gameplay system
+                            </option>
+
+                            <option
+                                value="UI"
+                                data-i18n="themeUi"
+                            >
+                                UI
+                            </option>
+
+                            <option
+                                value="Full game"
+                                data-i18n="themeFullGame"
+                            >
+                                Full game
+                            </option>
+
+                            <option
+                                value="Bug fixing"
+                                data-i18n="themeBugFixing"
+                            >
+                                Bug fixing
+                            </option>
+
+                            <option
+                                value="Other"
+                                data-i18n="themeOther"
+                            >
+                                Other
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group hidden" id="otherThemeGroup">
+                        <label for="otherTheme" data-i18n="otherThemeLabel">
+                            Your project theme
+                        </label>
+
+                        <input
+                            class="form-control"
+                            type="text"
+                            id="otherTheme"
+                            name="other_project_theme"
+                            data-placeholder="otherThemePlaceholder"
+                            placeholder="Describe your project theme"
+                        >
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="currency" data-i18n="currencyLabel">
+                                Currency
+                            </label>
+
+                            <select
+                                class="form-control"
+                                id="currency"
+                                name="currency"
+                                required
+                            >
+                                <option value="" data-i18n="currencyPlaceholder">
+                                    Select currency
+                                </option>
+
+                                <option value="EUR">
+                                    EUR
+                                </option>
+
+                                <option value="Robux">
+                                    Robux
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="amount" data-i18n="amountLabel">
+                                Amount
+                            </label>
+
+                            <input
+                                class="form-control"
+                                type="number"
+                                id="amount"
+                                name="amount"
+                                min="0"
+                                step="1"
+                                required
+                                data-placeholder="amountPlaceholder"
+                                placeholder="Enter your amount"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" data-i18n="messageLabel">
+                            Message
+                        </label>
+
+                        <textarea
+                            class="form-control"
+                            id="message"
+                            name="message"
+                            required
+                            data-placeholder="messagePlaceholder"
+                            placeholder="Tell me about your project..."
+                        ></textarea>
+                    </div>
+
+                    <div class="form-consent">
+                        <input
+                            type="checkbox"
+                            id="consent"
+                            name="consent"
+                            value="accepted"
+                            required
+                        >
+                        <label for="consent">
+                            <span data-i18n="consentText">
+                                I agree that the information submitted through this form may be used to respond to my request, as described in the privacy policy.
+                            </span>
+                            <a href="#privacy" data-i18n="privacyLink">Privacy policy</a>
+                            <span aria-hidden="true">.</span>
+                        </label>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="contact-submit"
+                        data-i18n="sendButton"
+                    >
+                        Send message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LEGAL / PRIVACY -->
+    <section id="privacy">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="privacyTitle">Privacy policy</h2>
+                <p data-i18n="privacyIntro">How information submitted through this portfolio is handled.</p>
+            </div>
+            <div class="about-text legal-text">
+                <p data-i18n="privacyData">The contact form may collect your name if you choose to provide it, your preferred contact method, the corresponding contact information, your project theme, your budget currency and amount, your message, and your consent.</p>
+                <p data-i18n="privacyPurpose">This information is used to review and respond to your project request. The form is processed through FormSubmit, a third-party form service, so the submitted information is transmitted to that service and then to the portfolio email address configured for the form.</p>
+                <p data-i18n="privacyRetention">Information is kept only for as long as reasonably necessary to handle the request and any resulting communication, subject to the third-party service's own retention practices.</p>
+                <p data-i18n="privacyRights">You may contact me at nonop31.the.real@gmail.com to ask about your submitted information, request correction, or request deletion where applicable.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="terms">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="termsTitle">Terms</h2>
+                <p data-i18n="termsIntro">General information about requests and projects.</p>
+            </div>
+            <div class="about-text legal-text">
+                <p data-i18n="termsText1">A project is discussed and agreed with the client before development starts. Scope, deliverables, price, deadlines, revisions, and payment terms should be confirmed before work begins.</p>
+                <p data-i18n="termsText2">Sending the contact form is a project inquiry and does not by itself create a contract or guarantee that the project will be accepted.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="refund">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="refundTitle">Refund policy</h2>
+                <p data-i18n="refundIntro">Refund conditions should be agreed before paid work begins.</p>
+            </div>
+            <div class="about-text legal-text">
+                <p data-i18n="refundText">Because each project is custom, any refund, cancellation, or partial-refund terms will depend on the agreement made for that specific project and on applicable law. No refund condition on this page overrides mandatory consumer rights where they apply.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="cookies">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="cookiesTitle">Cookie policy</h2>
+                <p data-i18n="cookiesIntro">This portfolio is designed to avoid non-essential cookies.</p>
+            </div>
+            <div class="about-text legal-text">
+                <p data-i18n="cookiesText">The language preference is stored locally in your browser using localStorage. This is not a cookie. If non-essential cookies or similar trackers are added later, they should be disclosed and handled according to the applicable consent requirements.</p>
+            </div>
+        </div>
+    </section>
+
 </main>
 
 <footer>
-<div class="container footer-content">
-<span>© 2026 nonop31</span>
-<div class="footer-links">
-<a href="#privacy" data-i18n="footerPrivacy">Confidentialité</a>
-<a href="#terms" data-i18n="footerTerms">Conditions</a>
-<a href="#refund" data-i18n="footerRefund">Remboursement</a>
-<a href="#cookies" data-i18n="footerCookies">Cookies</a>
-<a href="#legal-info" data-i18n="footerLegal">Informations légales</a>
-<a href="mailto:nonop31.the.real@gmail.com?subject=Demande%20de%20suppression%20de%20mes%20donn%C3%A9es" data-i18n="footerDelete">Supprimer mes données</a>
-</div>
-</div>
+    <div class="container footer-content">
+        <span>© 2026 nonop31</span>
+
+        <span data-i18n="footerText">
+            Roblox Developer
+        </span>
+
+        <span class="footer-links">
+            <a href="#privacy" data-i18n="privacyLink">Privacy policy</a>
+            <a href="#terms" data-i18n="termsLink">Terms</a>
+            <a href="#refund" data-i18n="refundLink">Refunds</a>
+            <a href="#cookies" data-i18n="cookiesLink">Cookies</a>
+        </span>
+    </div>
 </footer>
 
-<div class="form-popup" id="formPopup" role="status" aria-live="polite">
-<div class="form-popup-icon" id="formPopupIcon">✓</div>
-<div class="form-popup-content"><div class="form-popup-title" id="formPopupTitle">Message envoyé</div><div class="form-popup-message" id="formPopupMessage">Votre message a bien été envoyé.</div></div>
-<button type="button" class="form-popup-close" id="formPopupClose" aria-label="Fermer">×</button>
-</div>
+<!-- FORM POPUP -->
+<div
+    class="form-popup"
+    id="formPopup"
+    role="status"
+    aria-live="polite"
+>
+    <div class="form-popup-icon" id="formPopupIcon">
+        ✓
+    </div>
 
-<div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDescription">
-<div class="cookie-content">
-<div class="cookie-text"><strong id="cookieTitle" data-i18n="cookieTitle">Contenus externes</strong><br><span id="cookieDescription" data-i18n="cookieDescription">Les vidéos YouTube sont désactivées par défaut. Tu peux accepter ou refuser leur chargement. Ton choix peut être modifié à tout moment depuis la section Cookies.</span></div>
-<div class="cookie-actions">
-<button type="button" class="button" id="cookieReject" data-i18n="cookieReject">Tout refuser</button>
-<button type="button" class="button primary" id="cookieAccept" data-i18n="cookieAccept">Tout accepter</button>
-</div>
-</div>
+    <div class="form-popup-content">
+        <div
+            class="form-popup-title"
+            id="formPopupTitle"
+        >
+            Message sent
+        </div>
+
+        <div
+            class="form-popup-message"
+            id="formPopupMessage"
+        >
+            Your message has been sent successfully.
+        </div>
+    </div>
+
+    <button
+        type="button"
+        class="form-popup-close"
+        id="formPopupClose"
+        aria-label="Close"
+    >
+        ×
+    </button>
 </div>
 
 <script>
-const translations={
-fr:{
-navWork:"Mon travail",navSkills:"Compétences",navAbout:"À propos",navReviews:"Avis",navContact:"Contact",
-heroTitle:"Je développe des systèmes et des mécaniques Roblox.",
-heroDescription:"Je suis développeur Roblox avec plus de 2 ans d'expérience dans la création de jeux Roblox. Je peux créer un jeu Roblox de A à Z, que ce soit les systèmes, les mécaniques et les UI.",
-heroProjects:"Voir mes projets",heroContact:"Me contacter",heroProjectDescription:"Mon jeu Roblox, développé de manière indépendante.",
-workTitle:"Mon travail",workDescription:"Quelques projets et systèmes Roblox sur lesquels j'ai travaillé.",
-projectCrush:"Premier projet développé entièrement de manière indépendante.",
-projectCannon:"Un canon complètement fonctionnel que j'ai réalisé pour un client. L'UI n'a pas été réalisée par moi, j'ai simplement codé le système.",
-projectSettings:"Une UI de settings que j'ai réalisée pour mon jeu.",projectAfkFountain:"Un simple système d'AFK.",projectAfkBox:"Un autre simple système d'AFK.",
-moreWorkTitle:"Plus de projets",playOnRoblox:"Jouer sur Roblox",
-statsTitle:"Statistiques",statsDescription:"Statistiques de mon jeu Roblox, qui affiche une maturité 16+ selon les informations visibles sur Roblox. Je n'ai pas payé pour des annonces Roblox.",statsCaption:"Cliquez pour ouvrir le jeu sur Roblox.",
-skillsTitle:"Compétences",skillsDescription:"Les principaux outils et domaines sur lesquels je travaille.",skillLanguage:"Langage",skillRoblox:"Roblox",skillGameplay:"Gameplay",skillUi:"UI",
-aboutLabel:"À propos de moi",aboutText1:"J'ai commencé à créer des jeux Roblox il y a un peu plus de 2 ans. J'ai acquis de l'expérience en créant différents projets et systèmes.",aboutText2:"Voici quelques exemples de projets et de systèmes sur lesquels j'ai travaillé.",
-reviewsTitle:"Avis",reviewsText:"Les avis des premiers clients seront ajoutés très prochainement.",
-contactTitle:"Travaillons ensemble",contactDescription:"Vous avez un projet en tête ? Contactez-moi. Le prix dépendra de la durée et de la complexité du projet. Aucun frais caché : le prix final est défini avant le début du travail.",emailLabel:"Email",timezoneLabel:"Fuseau",
-nameLabel:"Nom / pseudo (facultatif)",namePlaceholder:"Votre nom ou pseudo",contactMethodLabel:"Moyen de contact préféré",contactMethodPlaceholder:"Sélectionnez un moyen de contact",discordContactLabel:"Identifiant Discord",discordPlaceholder:"ex. Just_me",discordHelp:"Indiquez seulement l'identifiant nécessaire pour que je puisse vous retrouver sur Discord.",formEmailLabel:"Email",emailPlaceholder:"votre@email.com",emailHelp:"Votre email n'est nécessaire que si vous choisissez Email comme moyen de contact.",
-themeLabel:"Thème du projet",themePlaceholder:"Sélectionnez un thème",themeGameplay:"Système de gameplay",themeUi:"UI",themeFullGame:"Jeu complet",themeBugFixing:"Correction de bugs",themeOther:"Autre",otherThemeLabel:"Thème de votre projet",otherThemePlaceholder:"Décrivez votre projet",
-currencyLabel:"Devise",currencyPlaceholder:"Sélectionnez une devise",amountLabel:"Budget",amountPlaceholder:"Montant",budgetHelp:"Le budget et la devise sont obligatoires.",
-messageLabel:"Message",messagePlaceholder:"Parlez-moi de votre projet...",consentText:"J'ai lu la politique de confidentialité et les conditions d'utilisation, et j'accepte que les informations nécessaires à ma demande soient utilisées pour me répondre.",
-sendButton:"Envoyer le message",sendingButton:"Envoi...",formSuccessTitle:"Message envoyé",formSuccessMessage:"Votre message a bien été envoyé.",formErrorTitle:"Une erreur est survenue",formErrorMessage:"Votre message n'a pas pu être envoyé. Veuillez réessayer.",
-privacyTitle:"Politique de confidentialité",privacyIntro:"Cette page explique simplement quelles données sont demandées via le formulaire et pourquoi.",privacyDataTitle:"Données collectées",privacyDataText:"Le formulaire peut collecter un nom ou pseudo facultatif, un moyen de contact choisi, l'identifiant Discord ou l'adresse email correspondante, le thème du projet, un budget et le contenu du message.",privacyPurposeTitle:"Finalité",privacyPurposeText:"Ces informations servent uniquement à comprendre votre demande et à vous répondre au sujet d'un projet. Aucune newsletter ou prospection automatisée n'est envoyée à partir de ce formulaire.",privacyRecipientTitle:"Destinataires et prestataires",privacyRecipientText:"Les données du formulaire sont transmises au service FormSubmit utilisé pour acheminer le message vers l'adresse de contact du site. YouTube peut également être chargé si vous acceptez les contenus externes et activez les vidéos.",privacyRetentionTitle:"Conservation et droits",privacyRetentionText:"Je conserve les messages uniquement pendant la durée nécessaire à leur gestion et au suivi de la demande, puis je les supprime lorsque leur conservation n'est plus nécessaire. Vous pouvez demander l'accès, la rectification ou la suppression de vos données, ainsi que des informations sur leur traitement.",deleteTitle:"Demande de suppression",deleteText:"indiquez simplement les informations permettant de retrouver votre demande.",privacyMinorsTitle:"Mineurs",privacyMinorsText:"Le formulaire ne demande pas de données spécifiques aux mineurs. Si le traitement repose sur le consentement dans le cadre d'un service de la société de l'information, les règles françaises relatives au consentement des moins de 15 ans s'appliquent.",
-termsTitle:"Conditions d'utilisation",termsContactTitle:"Contact et demandes",termsContactText:"Le formulaire sert à présenter une demande de projet. Une demande envoyée ne vaut pas automatiquement acceptation d'une mission.",termsPriceTitle:"Prix et frais",termsPriceText:"Le budget indiqué dans le formulaire est obligatoire et indicatif. Aucun frais caché n'est ajouté : le prix et les éventuels frais applicables doivent être convenus avant le début d'une prestation.",termsContentTitle:"Contenus",termsContentText:"Les vidéos, images et liens présentés servent à montrer des projets. Les droits sur les contenus appartenant à des tiers restent à leurs propriétaires respectifs.",
-refundTitle:"Politique de remboursement",refundText:"Aucun paiement ni acompte n'est collecté directement sur ce site. Si une prestation payante est conclue séparément, les modalités de paiement, d'annulation et de remboursement doivent être définies avant le paiement et tenir compte des règles applicables.",
-cookiesTitle:"Politique cookies et contenus externes",cookiesWhatTitle:"Ce site",cookiesWhatText:"Le site n'utilise pas de cookies publicitaires ou d'analyse pour son fonctionnement. Un cookie technique peut être utilisé uniquement pour mémoriser le choix concernant les contenus externes.",cookiesYoutubeTitle:"YouTube",cookiesYoutubeText:"Les vidéos YouTube sont bloquées avant votre choix. Elles sont chargées uniquement si vous acceptez les contenus externes. Un refus laisse les vidéos désactivées.",cookiesChangeTitle:"Modifier votre choix",cookieSettingsButton:"Modifier mon choix",videoConsentText:"La vidéo YouTube est chargée uniquement après ton choix dans la bannière de consentement.",
-legalInfoTitle:"Informations légales",legalInfoIntro:"Les éléments ci-dessous sont à compléter ou à adapter selon ton statut juridique réel et les règles qui te sont applicables.",legalEditor:"Éditeur du site :",legalEmail:"Contact :",legalHost:"Hébergement :",
-footerPrivacy:"Confidentialité",footerTerms:"Conditions",footerRefund:"Remboursement",footerCookies:"Cookies",footerLegal:"Informations légales",footerDelete:"Supprimer mes données",
-cookieTitle:"Contenus externes",cookieDescription:"Les vidéos YouTube sont désactivées par défaut. Tu peux accepter ou refuser leur chargement. Ton choix peut être modifié à tout moment depuis la section Cookies.",cookieReject:"Tout refuser",cookieAccept:"Tout accepter"
-},
-en:{
-navWork:"My Work",navSkills:"Skills",navAbout:"About",navReviews:"Reviews",navContact:"Contact",heroTitle:"I develop Roblox systems and mechanics.",heroDescription:"I'm a Roblox developer with more than 2 years of experience creating Roblox games. I can create a Roblox game from A to Z, including systems, mechanics and UI.",heroProjects:"View my work",heroContact:"Contact me",heroProjectDescription:"My Roblox game, developed independently.",workTitle:"My Work",workDescription:"Some Roblox projects and systems I have worked on.",projectCrush:"First project developed entirely independently.",projectCannon:"A fully functional cannon that I made for a client. The UI was not made by me, I only coded the system.",projectSettings:"A settings UI that I made for my game.",projectAfkFountain:"A simple AFK system.",projectAfkBox:"Another simple AFK system.",moreWorkTitle:"More Work",playOnRoblox:"Play on Roblox",statsTitle:"Game Statistics",statsDescription:"Statistics from my Roblox game, which displays a 16+ maturity rating according to the information visible on Roblox. I did not pay for Roblox advertisements.",statsCaption:"Click to open the game on Roblox.",skillsTitle:"Skills",skillsDescription:"The main tools and areas I work with.",skillLanguage:"Language",skillRoblox:"Roblox",skillGameplay:"Gameplay",skillUi:"UI",aboutLabel:"About me",aboutText1:"I started creating Roblox games a little over 2 years ago. I gained experience by creating different projects and systems.",aboutText2:"Here are some examples of projects and systems I have worked on.",reviewsTitle:"Reviews",reviewsText:"Reviews from the first clients will be added very soon.",contactTitle:"Let's work together",contactDescription:"Do you have a project in mind? Contact me. The price will depend on the duration and complexity of the project. No hidden fees: the final price is agreed before work starts.",emailLabel:"Email",timezoneLabel:"Timezone",nameLabel:"Name / username (optional)",namePlaceholder:"Your name or username",contactMethodLabel:"Preferred contact method",contactMethodPlaceholder:"Select a contact method",discordContactLabel:"Discord username",discordPlaceholder:"e.g. Just_me",discordHelp:"Only provide the identifier needed for me to find you on Discord.",formEmailLabel:"Email",emailPlaceholder:"your@email.com",emailHelp:"Your email is only required if you choose Email as your contact method.",themeLabel:"Project theme",themePlaceholder:"Select a theme",themeGameplay:"Gameplay system",themeUi:"UI",themeFullGame:"Full game",themeBugFixing:"Bug fixing",themeOther:"Other",otherThemeLabel:"Your project theme",otherThemePlaceholder:"Describe your project",currencyLabel:"Currency",currencyPlaceholder:"Select a currency",amountLabel:"Budget",amountPlaceholder:"Amount",budgetHelp:"Budget and currency are required.",messageLabel:"Message",messagePlaceholder:"Tell me about your project...",consentText:"I have read the privacy policy and terms of use, and I agree that the information necessary for my request may be used to reply to me.",sendButton:"Send message",sendingButton:"Sending...",formSuccessTitle:"Message sent",formSuccessMessage:"Your message has been sent successfully.",formErrorTitle:"Something went wrong",formErrorMessage:"Your message could not be sent. Please try again.",privacyTitle:"Privacy Policy",privacyIntro:"This page explains what information is requested through the form and why.",privacyDataTitle:"Data collected",privacyDataText:"The form may collect an optional name or username, a chosen contact method, the corresponding Discord username or email address, the project theme, a budget and the message content.",privacyPurposeTitle:"Purpose",privacyPurposeText:"This information is used only to understand your request and reply about a project. No newsletter or automated marketing is sent from this form.",privacyRecipientTitle:"Recipients and providers",privacyRecipientText:"Form data is transmitted to FormSubmit to deliver the message to the site's contact address. YouTube may also be loaded if you accept external content and enable the videos.",privacyRetentionTitle:"Retention and rights",privacyRetentionText:"Messages are kept only for as long as necessary to handle and follow up on the request, then deleted when no longer needed. You may request access, correction or deletion of your data and information about its processing.",deleteTitle:"Deletion request",deleteText:"simply include enough information to locate your request.",privacyMinorsTitle:"Minors",privacyMinorsText:"The form does not specifically request information about minors. Where processing relies on consent for an information society service, French rules concerning consent for children under 15 apply.",termsTitle:"Terms of Use",termsContactTitle:"Contact and requests",termsContactText:"The form is used to submit a project request. Sending a request does not automatically mean that a project has been accepted.",termsPriceTitle:"Price and fees",termsPriceText:"The budget is required and indicative. No hidden fees are added: the price and any applicable fees must be agreed before work starts.",termsContentTitle:"Content",termsContentText:"Videos, images and links are shown to demonstrate projects. Rights in third-party content remain with their respective owners.",refundTitle:"Refund Policy",refundText:"No payment or deposit is collected directly through this website. If a paid service is agreed separately, payment, cancellation and refund terms should be defined before payment and comply with applicable rules.",cookiesTitle:"Cookies and External Content Policy",cookiesWhatTitle:"This site",cookiesWhatText:"The site does not use advertising or analytics cookies for its operation. A technical cookie may be used only to remember the choice concerning external content.",cookiesYoutubeTitle:"YouTube",cookiesYoutubeText:"YouTube videos are blocked before your choice. They are loaded only if you accept external content. Refusing leaves the videos disabled.",cookiesChangeTitle:"Change your choice",cookieSettingsButton:"Change my choice",videoConsentText:"The YouTube video is loaded only after your consent choice.",legalInfoTitle:"Legal Information",legalInfoIntro:"The information below should be completed or adapted according to your actual legal status and applicable rules.",legalEditor:"Site publisher:",legalEmail:"Contact:",legalHost:"Hosting:",footerPrivacy:"Privacy",footerTerms:"Terms",footerRefund:"Refunds",footerCookies:"Cookies",footerLegal:"Legal information",footerDelete:"Delete my data",cookieTitle:"External content",cookieDescription:"YouTube videos are disabled by default. You can accept or refuse their loading. Your choice can be changed at any time from the Cookies section.",cookieReject:"Reject all",cookieAccept:"Accept all"
-},
-zh:{navWork:"我的作品",navSkills:"技能",navAbout:"关于我",navReviews:"评价",navContact:"联系",heroTitle:"我开发 Roblox 系统和游戏机制。",heroDescription:"我是一名 Roblox 开发者，有超过 2 年的 Roblox 游戏开发经验。我可以从零开始制作 Roblox 游戏，包括系统、游戏机制和 UI。",heroProjects:"查看我的作品",heroContact:"联系我",heroProjectDescription:"我的 Roblox 游戏，独立开发。",workTitle:"我的作品",workDescription:"一些我参与开发过的 Roblox 项目和系统。",projectCrush:"第一个完全独立开发的项目。",projectCannon:"我为客户制作的一个完全可用的加农炮。UI 不是我制作的，我只负责系统代码。",projectSettings:"我为自己的游戏制作的设置 UI。",projectAfkFountain:"一个简单的 AFK 系统。",projectAfkBox:"另一个简单的 AFK 系统。",moreWorkTitle:"更多作品",playOnRoblox:"在 Roblox 上游玩",statsTitle:"游戏数据",statsDescription:"我的 Roblox 游戏数据，该游戏在 Roblox 显示为 16+ 成熟度。我没有支付 Roblox 广告费用。",statsCaption:"点击打开 Roblox 游戏。",skillsTitle:"技能",skillsDescription:"我主要使用的工具和开发领域。",skillLanguage:"语言",skillRoblox:"Roblox",skillGameplay:"游戏机制",skillUi:"UI",aboutLabel:"关于我",aboutText1:"我在两年多以前开始制作 Roblox 游戏，并通过制作不同的项目和系统积累了经验。",aboutText2:"这里是一些我参与开发过的项目和系统。",reviewsTitle:"评价",reviewsText:"第一批客户的评价将很快添加。",contactTitle:"一起合作",contactDescription:"你有一个项目想法吗？欢迎联系我。价格会根据项目的时间和复杂程度而定。没有隐藏费用：最终价格会在工作开始前确定。",emailLabel:"邮箱",timezoneLabel:"时区",nameLabel:"姓名 / 用户名（可选）",namePlaceholder:"你的姓名或用户名",contactMethodLabel:"首选联系方式",contactMethodPlaceholder:"选择联系方式",discordContactLabel:"Discord 用户名",discordPlaceholder:"例如 Just_me",discordHelp:"只提供让我在 Discord 上找到你所需的信息。",formEmailLabel:"邮箱",emailPlaceholder:"your@email.com",emailHelp:"只有选择邮箱作为联系方式时才需要填写邮箱。",themeLabel:"项目类型",themePlaceholder:"选择项目类型",themeGameplay:"游戏机制系统",themeUi:"UI",themeFullGame:"完整游戏",themeBugFixing:"修复 Bug",themeOther:"其他",otherThemeLabel:"项目类型",otherThemePlaceholder:"描述你的项目",currencyLabel:"货币",currencyPlaceholder:"请选择货币",amountLabel:"预算",amountPlaceholder:"金额",budgetHelp:"预算和货币均为必填项。",messageLabel:"消息",messagePlaceholder:"告诉我你的项目...",consentText:"我已阅读隐私政策和使用条款，并同意使用处理我的请求所需的信息来回复我。",sendButton:"发送消息",sendingButton:"发送中...",formSuccessTitle:"消息已发送",formSuccessMessage:"您的消息已成功发送。",formErrorTitle:"出现问题",formErrorMessage:"您的消息无法发送，请重试。",privacyTitle:"隐私政策",privacyIntro:"本页面说明表单会请求哪些信息以及原因。",privacyDataTitle:"收集的数据",privacyDataText:"表单可能收集可选姓名或用户名、选择的联系方式、相应的 Discord 用户名或电子邮件地址、项目类型、预算和消息内容。",privacyPurposeTitle:"目的",privacyPurposeText:"这些信息仅用于了解您的请求并就项目进行回复。本表单不会发送新闻通讯或自动营销信息。",privacyRecipientTitle:"接收方和服务商",privacyRecipientText:"表单数据会传输给 FormSubmit，以便将消息发送到网站联系邮箱。如果您接受外部内容并启用视频，YouTube 也可能被加载。",privacyRetentionTitle:"保存和权利",privacyRetentionText:"消息仅在处理和跟进请求所需的时间内保存，不再需要时删除。您可以请求访问、更正或删除您的数据，并了解相关处理。",deleteTitle:"删除请求",deleteText:"请提供足以找到您请求的信息。",privacyMinorsTitle:"未成年人",privacyMinorsText:"表单不会专门要求未成年人信息。如果信息社会服务的处理以同意为依据，则适用法国关于 15 岁以下儿童同意的规则。",termsTitle:"使用条款",termsContactTitle:"联系和请求",termsContactText:"表单用于提交项目请求。发送请求并不自动意味着项目已被接受。",termsPriceTitle:"价格和费用",termsPriceText:"预算为可选且仅供参考。不会添加隐藏费用：价格和任何适用费用必须在工作开始前约定。",termsContentTitle:"内容",termsContentText:"视频、图片和链接用于展示项目。第三方内容的权利仍归其各自所有者。",refundTitle:"退款政策",refundText:"本网站不直接收取付款或定金。如果另行达成付费服务协议，应在付款前确定付款、取消和退款条款，并遵守适用规则。",cookiesTitle:"Cookie 和外部内容政策",cookiesWhatTitle:"本网站",cookiesWhatText:"网站运行不使用广告或分析 Cookie。技术 Cookie 可能仅用于记住外部内容的选择。",cookiesYoutubeTitle:"YouTube",cookiesYoutubeText:"YouTube 视频在选择之前会被阻止。只有接受外部内容后才会加载。拒绝后视频保持禁用。",cookiesChangeTitle:"修改选择",cookieSettingsButton:"修改我的选择",videoConsentText:"YouTube 视频仅在你作出同意选择后加载。",legalInfoTitle:"法律信息",legalInfoIntro:"以下信息应根据你的实际法律身份和适用规则进行补充或调整。",legalEditor:"网站发布者：",legalEmail:"联系：",legalHost:"托管：",footerPrivacy:"隐私",footerTerms:"条款",footerRefund:"退款",footerCookies:"Cookies",footerLegal:"法律信息",footerDelete:"删除我的数据",cookieTitle:"外部内容",cookieDescription:"YouTube 视频默认禁用。你可以接受或拒绝加载。可以随时在 Cookies 部分修改选择。",cookieReject:"全部拒绝",cookieAccept:"全部接受"},
-hi:{navWork:"मेरा काम",navSkills:"कौशल",navAbout:"मेरे बारे में",navReviews:"समीक्षाएँ",navContact:"संपर्क",heroTitle:"मैं Roblox सिस्टम और गेम मैकेनिक्स बनाता हूँ।",heroDescription:"मैं एक Roblox डेवलपर हूँ और मुझे Roblox गेम बनाने का 2 साल से अधिक का अनुभव है। मैं सिस्टम, गेम मैकेनिक्स और UI सहित पूरा Roblox गेम बना सकता हूँ।",heroProjects:"मेरा काम देखें",heroContact:"मुझसे संपर्क करें",heroProjectDescription:"मेरा Roblox गेम, स्वतंत्र रूप से विकसित किया गया।",workTitle:"मेरा काम",workDescription:"कुछ Roblox प्रोजेक्ट और सिस्टम जिन पर मैंने काम किया है।",projectCrush:"पूरी तरह से स्वतंत्र रूप से विकसित किया गया पहला प्रोजेक्ट।",projectCannon:"एक क्लाइंट के लिए बनाया गया पूरी तरह कार्यात्मक कैनन। UI मैंने नहीं बनाया था, मैंने केवल सिस्टम को कोड किया।",projectSettings:"मेरे गेम के लिए बनाया गया settings UI।",projectAfkFountain:"एक सरल AFK सिस्टम।",projectAfkBox:"एक और सरल AFK सिस्टम।",moreWorkTitle:"अन्य काम",playOnRoblox:"Roblox पर खेलें",statsTitle:"गेम आँकड़े",statsDescription:"मेरे Roblox गेम के आँकड़े, जो Roblox पर 16+ maturity दिखाता है। मैंने Roblox विज्ञापनों के लिए भुगतान नहीं किया।",statsCaption:"Roblox गेम खोलने के लिए क्लिक करें।",skillsTitle:"कौशल",skillsDescription:"मुख्य टूल और क्षेत्र जिन पर मैं काम करता हूँ।",skillLanguage:"भाषा",skillRoblox:"Roblox",skillGameplay:"गेमप्ले",skillUi:"UI",aboutLabel:"मेरे बारे में",aboutText1:"मैंने 2 साल से थोड़ा अधिक समय पहले Roblox गेम बनाना शुरू किया था। अलग-अलग प्रोजेक्ट और सिस्टम बनाकर मैंने अनुभव प्राप्त किया।",aboutText2:"यहाँ कुछ प्रोजेक्ट और सिस्टम हैं जिन पर मैंने काम किया है।",reviewsTitle:"समीक्षाएँ",reviewsText:"पहले क्लाइंट्स की समीक्षाएँ जल्द ही जोड़ी जाएँगी।",contactTitle:"आइए साथ काम करें",contactDescription:"क्या आपके पास कोई प्रोजेक्ट है? मुझसे संपर्क करें। कीमत प्रोजेक्ट की अवधि और जटिलता के अनुसार होगी। कोई छिपा शुल्क नहीं: अंतिम कीमत काम शुरू होने से पहले तय होगी।",emailLabel:"ईमेल",timezoneLabel:"समय क्षेत्र",nameLabel:"नाम / यूज़रनेम (वैकल्पिक)",namePlaceholder:"आपका नाम या यूज़रनेम",contactMethodLabel:"पसंदीदा संपर्क तरीका",contactMethodPlaceholder:"संपर्क तरीका चुनें",discordContactLabel:"Discord यूज़रनेम",discordPlaceholder:"उदा. Just_me",discordHelp:"Discord पर आपको खोजने के लिए आवश्यक पहचान ही दें।",formEmailLabel:"ईमेल",emailPlaceholder:"your@email.com",emailHelp:"ईमेल तभी आवश्यक है जब आप Email को संपर्क तरीके के रूप में चुनते हैं।",themeLabel:"प्रोजेक्ट का प्रकार",themePlaceholder:"प्रकार चुनें",themeGameplay:"गेमप्ले सिस्टम",themeUi:"UI",themeFullGame:"पूरा गेम",themeBugFixing:"बग फिक्सिंग",themeOther:"अन्य",otherThemeLabel:"आपके प्रोजेक्ट का प्रकार",otherThemePlaceholder:"अपने प्रोजेक्ट का वर्णन करें",currencyLabel:"मुद्रा",currencyPlaceholder:"मुद्रा चुनें",amountLabel:"बजट",amountPlaceholder:"राशि",budgetHelp:"बजट और मुद्रा आवश्यक हैं।",messageLabel:"संदेश",messagePlaceholder:"अपने प्रोजेक्ट के बारे में बताएं...",consentText:"मैंने गोपनीयता नीति और उपयोग की शर्तें पढ़ ली हैं और सहमत हूँ कि मेरे अनुरोध के लिए आवश्यक जानकारी का उपयोग मुझे उत्तर देने के लिए किया जा सकता है।",sendButton:"संदेश भेजें",sendingButton:"भेजा जा रहा है...",formSuccessTitle:"संदेश भेज दिया गया",formSuccessMessage:"आपका संदेश सफलतापूर्वक भेज दिया गया है।",formErrorTitle:"कुछ गलत हुआ",formErrorMessage:"आपका संदेश नहीं भेजा जा सका। कृपया फिर से प्रयास करें।",privacyTitle:"गोपनीयता नीति",privacyIntro:"यह पेज बताता है कि फॉर्म के माध्यम से कौन-सी जानकारी मांगी जाती है और क्यों।",privacyDataTitle:"एकत्र की गई जानकारी",privacyDataText:"फॉर्म वैकल्पिक नाम या यूज़रनेम, चुना गया संपर्क तरीका, संबंधित Discord यूज़रनेम या ईमेल, प्रोजेक्ट प्रकार, बजट और संदेश की सामग्री एकत्र कर सकता है।",privacyPurposeTitle:"उद्देश्य",privacyPurposeText:"इस जानकारी का उपयोग केवल आपके अनुरोध को समझने और प्रोजेक्ट के बारे में जवाब देने के लिए किया जाता है। इस फॉर्म से कोई न्यूज़लेटर या स्वचालित मार्केटिंग नहीं भेजी जाती।",privacyRecipientTitle:"प्राप्तकर्ता और सेवाएँ",privacyRecipientText:"फॉर्म का डेटा FormSubmit को भेजा जाता है ताकि संदेश साइट के संपर्क ईमेल तक पहुँचाया जा सके। यदि आप बाहरी सामग्री स्वीकार करते हैं और वीडियो सक्षम करते हैं, तो YouTube भी लोड हो सकता है।",privacyRetentionTitle:"संग्रहण और अधिकार",privacyRetentionText:"संदेश केवल अनुरोध को संभालने और उसका पालन करने के लिए आवश्यक अवधि तक रखे जाते हैं और आवश्यकता समाप्त होने पर हटाए जाते हैं। आप अपने डेटा तक पहुंच, सुधार या हटाने का अनुरोध कर सकते हैं।",deleteTitle:"डेटा हटाने का अनुरोध",deleteText:"अपने अनुरोध को खोजने के लिए पर्याप्त जानकारी दें।",privacyMinorsTitle:"नाबालिग",privacyMinorsText:"फॉर्म विशेष रूप से नाबालिगों की जानकारी नहीं मांगता। यदि सूचना समाज सेवा में प्रसंस्करण सहमति पर आधारित है, तो 15 वर्ष से कम आयु के बच्चों की सहमति के संबंध में फ्रांसीसी नियम लागू होते हैं।",termsTitle:"उपयोग की शर्तें",termsContactTitle:"संपर्क और अनुरोध",termsContactText:"फॉर्म प्रोजेक्ट अनुरोध भेजने के लिए है। अनुरोध भेजने का अर्थ यह नहीं है कि प्रोजेक्ट स्वतः स्वीकार हो गया।",termsPriceTitle:"कीमत और शुल्क",termsPriceText:"बजट आवश्यक और केवल संकेतात्मक है। कोई छिपा शुल्क नहीं जोड़ा जाता: कीमत और लागू शुल्क काम शुरू होने से पहले तय किए जाने चाहिए।",termsContentTitle:"सामग्री",termsContentText:"वीडियो, चित्र और लिंक प्रोजेक्ट दिखाने के लिए हैं। तीसरे पक्ष की सामग्री के अधिकार उनके संबंधित मालिकों के पास रहते हैं।",refundTitle:"रिफंड नीति",refundText:"इस वेबसाइट से सीधे कोई भुगतान या जमा राशि नहीं ली जाती। यदि अलग से भुगतान वाली सेवा तय होती है, तो भुगतान, रद्दीकरण और रिफंड की शर्तें भुगतान से पहले तय की जानी चाहिए।",cookiesTitle:"कुकी और बाहरी सामग्री नीति",cookiesWhatTitle:"यह साइट",cookiesWhatText:"साइट के संचालन के लिए विज्ञापन या एनालिटिक्स कुकी का उपयोग नहीं करती। तकनीकी कुकी का उपयोग केवल बाहरी सामग्री की पसंद याद रखने के लिए किया जा सकता है।",cookiesYoutubeTitle:"YouTube",cookiesYoutubeText:"YouTube वीडियो आपकी पसंद से पहले ब्लॉक रहते हैं। वे केवल बाहरी सामग्री स्वीकार करने के बाद लोड होते हैं। अस्वीकार करने पर वीडियो बंद रहते हैं।",cookiesChangeTitle:"अपनी पसंद बदलें",cookieSettingsButton:"मेरी पसंद बदलें",videoConsentText:"YouTube वीडियो आपकी सहमति की पसंद के बाद ही लोड होता है।",legalInfoTitle:"कानूनी जानकारी",legalInfoIntro:"नीचे की जानकारी को आपकी वास्तविक कानूनी स्थिति और लागू नियमों के अनुसार पूरा या अनुकूलित किया जाना चाहिए।",legalEditor:"साइट प्रकाशक:",legalEmail:"संपर्क:",legalHost:"होस्टिंग:",footerPrivacy:"गोपनीयता",footerTerms:"शर्तें",footerRefund:"रिफंड",footerCookies:"कुकी",footerLegal:"कानूनी जानकारी",footerDelete:"मेरा डेटा हटाएँ",cookieTitle:"बाहरी सामग्री",cookieDescription:"YouTube वीडियो डिफ़ॉल्ट रूप से बंद हैं। आप उनके लोड होने को स्वीकार या अस्वीकार कर सकते हैं। Cookies अनुभाग से पसंद कभी भी बदली जा सकती है।",cookieReject:"सब अस्वीकार",cookieAccept:"सब स्वीकार"},
-es:{navWork:"Mi trabajo",navSkills:"Habilidades",navAbout:"Sobre mí",navReviews:"Reseñas",navContact:"Contacto",heroTitle:"Desarrollo sistemas y mecánicas para Roblox.",heroDescription:"Soy desarrollador de Roblox con más de 2 años de experiencia creando juegos de Roblox. Puedo crear un juego de Roblox desde cero, incluyendo sistemas, mecánicas y UI.",heroProjects:"Ver mi trabajo",heroContact:"Contactarme",heroProjectDescription:"Mi juego de Roblox, desarrollado de forma independiente.",workTitle:"Mi trabajo",workDescription:"Algunos proyectos y sistemas de Roblox en los que he trabajado.",projectCrush:"Primer proyecto desarrollado completamente de forma independiente.",projectCannon:"Un cañón completamente funcional que hice para un cliente. La UI no fue hecha por mí, solo programé el sistema.",projectSettings:"Una UI de ajustes que hice para mi juego.",projectAfkFountain:"Un sistema AFK sencillo.",projectAfkBox:"Otro sistema AFK sencillo.",moreWorkTitle:"Más trabajos",playOnRoblox:"Jugar en Roblox",statsTitle:"Estadísticas del juego",statsDescription:"Estadísticas de mi juego de Roblox, que muestra una clasificación de madurez 16+ según la información visible en Roblox. No pagué por anuncios de Roblox.",statsCaption:"Haz clic para abrir el juego en Roblox.",skillsTitle:"Habilidades",skillsDescription:"Las principales herramientas y áreas en las que trabajo.",skillLanguage:"Lenguaje",skillRoblox:"Roblox",skillGameplay:"Gameplay",skillUi:"UI",aboutLabel:"Sobre mí",aboutText1:"Empecé a crear juegos de Roblox hace algo más de 2 años. He adquirido experiencia creando diferentes proyectos y sistemas.",aboutText2:"Estos son algunos ejemplos de proyectos y sistemas en los que he trabajado.",reviewsTitle:"Reseñas",reviewsText:"Las reseñas de los primeros clientes se añadirán muy pronto.",contactTitle:"Trabajemos juntos",contactDescription:"¿Tienes un proyecto en mente? Contáctame. El precio dependerá de la duración y la complejidad del proyecto. No hay costes ocultos: el precio final se acuerda antes de empezar.",emailLabel:"Email",timezoneLabel:"Zona horaria",nameLabel:"Nombre / usuario (opcional)",namePlaceholder:"Tu nombre o usuario",contactMethodLabel:"Método de contacto preferido",contactMethodPlaceholder:"Selecciona un método",discordContactLabel:"Usuario de Discord",discordPlaceholder:"ej. Just_me",discordHelp:"Indica solo el identificador necesario para encontrarte en Discord.",formEmailLabel:"Email",emailPlaceholder:"tu@email.com",emailHelp:"El email solo es obligatorio si eliges Email como método de contacto.",themeLabel:"Tema del proyecto",themePlaceholder:"Selecciona un tema",themeGameplay:"Sistema de gameplay",themeUi:"UI",themeFullGame:"Juego completo",themeBugFixing:"Corrección de bugs",themeOther:"Otro",otherThemeLabel:"Tema de tu proyecto",otherThemePlaceholder:"Describe tu proyecto",currencyLabel:"Moneda",currencyPlaceholder:"Sin presupuesto",amountLabel:"Presupuesto",amountPlaceholder:"Cantidad",budgetHelp:"El presupuesto y la moneda son obligatorios.",messageLabel:"Mensaje",messagePlaceholder:"Cuéntame sobre tu proyecto...",consentText:"He leído la política de privacidad y las condiciones de uso, y acepto que la información necesaria para mi solicitud se utilice para responderme.",sendButton:"Enviar mensaje",sendingButton:"Enviando...",formSuccessTitle:"Mensaje enviado",formSuccessMessage:"Tu mensaje se ha enviado correctamente.",formErrorTitle:"Algo salió mal",formErrorMessage:"No se pudo enviar tu mensaje. Inténtalo de nuevo.",privacyTitle:"Política de privacidad",privacyIntro:"Esta página explica qué información se solicita mediante el formulario y por qué.",privacyDataTitle:"Datos recopilados",privacyDataText:"El formulario puede recopilar un nombre o usuario opcional, un método de contacto, el usuario de Discord o email correspondiente, el tema del proyecto, un presupuesto y el contenido del mensaje.",privacyPurposeTitle:"Finalidad",privacyPurposeText:"La información se utiliza únicamente para entender tu solicitud y responder sobre un proyecto. Este formulario no envía newsletters ni marketing automatizado.",privacyRecipientTitle:"Destinatarios y proveedores",privacyRecipientText:"Los datos del formulario se transmiten a FormSubmit para entregar el mensaje a la dirección de contacto del sitio. YouTube también puede cargarse si aceptas contenido externo y activas los vídeos.",privacyRetentionTitle:"Conservación y derechos",privacyRetentionText:"Los mensajes se conservan solo durante el tiempo necesario para gestionar y seguir la solicitud, y se eliminan cuando ya no son necesarios. Puedes solicitar acceso, rectificación o eliminación de tus datos.",deleteTitle:"Solicitud de eliminación",deleteText:"incluye información suficiente para localizar tu solicitud.",privacyMinorsTitle:"Menores",privacyMinorsText:"El formulario no solicita específicamente información de menores. Cuando el tratamiento se basa en consentimiento en un servicio de la sociedad de la información, se aplican las reglas francesas relativas al consentimiento de menores de 15 años.",termsTitle:"Condiciones de uso",termsContactTitle:"Contacto y solicitudes",termsContactText:"El formulario sirve para enviar una solicitud de proyecto. Enviar una solicitud no significa que el proyecto haya sido aceptado automáticamente.",termsPriceTitle:"Precio y costes",termsPriceText:"El presupuesto es obligatorio e indicativo. No se añaden costes ocultos: el precio y los posibles costes aplicables deben acordarse antes de empezar.",termsContentTitle:"Contenido",termsContentText:"Los vídeos, imágenes y enlaces se muestran para presentar proyectos. Los derechos sobre contenido de terceros pertenecen a sus respectivos propietarios.",refundTitle:"Política de reembolsos",refundText:"Este sitio no cobra directamente pagos ni anticipos. Si se acuerda un servicio de pago por separado, las condiciones de pago, cancelación y reembolso deben definirse antes del pago y cumplir las normas aplicables.",cookiesTitle:"Política de cookies y contenido externo",cookiesWhatTitle:"Este sitio",cookiesWhatText:"El sitio no utiliza cookies publicitarias ni de analítica para funcionar. Puede utilizarse una cookie técnica únicamente para recordar la elección sobre contenido externo.",cookiesYoutubeTitle:"YouTube",cookiesYoutubeText:"Los vídeos de YouTube están bloqueados antes de tu elección. Solo se cargan si aceptas el contenido externo. Si rechazas, permanecen desactivados.",cookiesChangeTitle:"Cambiar tu elección",cookieSettingsButton:"Cambiar mi elección",videoConsentText:"El vídeo de YouTube solo se carga después de tu elección de consentimiento.",legalInfoTitle:"Información legal",legalInfoIntro:"La información siguiente debe completarse o adaptarse según tu situación legal real y las normas aplicables.",legalEditor:"Editor del sitio:",legalEmail:"Contacto:",legalHost:"Alojamiento:",footerPrivacy:"Privacidad",footerTerms:"Condiciones",footerRefund:"Reembolsos",footerCookies:"Cookies",footerLegal:"Información legal",footerDelete:"Eliminar mis datos",cookieTitle:"Contenido externo",cookieDescription:"Los vídeos de YouTube están desactivados por defecto. Puedes aceptar o rechazar su carga. Puedes cambiar tu elección en cualquier momento desde la sección Cookies.",cookieReject:"Rechazar todo",cookieAccept:"Aceptar todo"},
-ar:{navWork:"أعمالي",navSkills:"المهارات",navAbout:"عني",navReviews:"التقييمات",navContact:"تواصل",heroTitle:"أطور أنظمة وميكانيكيات لألعاب Roblox.",heroDescription:"أنا مطور Roblox لدي أكثر من سنتين من الخبرة في إنشاء ألعاب Roblox. يمكنني إنشاء لعبة Roblox من البداية إلى النهاية، بما في ذلك الأنظمة والميكانيكيات وواجهات المستخدم.",heroProjects:"مشاهدة أعمالي",heroContact:"تواصل معي",heroProjectDescription:"لعبتي على Roblox، تم تطويرها بشكل مستقل.",workTitle:"أعمالي",workDescription:"بعض مشاريع وأنظمة Roblox التي عملت عليها.",projectCrush:"أول مشروع تم تطويره بالكامل بشكل مستقل.",projectCannon:"مدفع يعمل بالكامل قمت بإنشائه لعميل. واجهة المستخدم لم أصنعها، بل قمت فقط ببرمجة النظام.",projectSettings:"واجهة إعدادات قمت بإنشائها للعبتي.",projectAfkFountain:"نظام AFK بسيط.",projectAfkBox:"نظام AFK بسيط آخر.",moreWorkTitle:"أعمال أخرى",playOnRoblox:"اللعب على Roblox",statsTitle:"إحصائيات اللعبة",statsDescription:"إحصائيات لعبتي على Roblox، والتي تعرض تصنيف نضج 16+ وفقًا للمعلومات الظاهرة على Roblox. لم أدفع مقابل إعلانات Roblox.",statsCaption:"اضغط لفتح اللعبة على Roblox.",skillsTitle:"المهارات",skillsDescription:"الأدوات والمجالات الرئيسية التي أعمل بها.",skillLanguage:"اللغة",skillRoblox:"Roblox",skillGameplay:"أسلوب اللعب",skillUi:"واجهة المستخدم",aboutLabel:"عني",aboutText1:"بدأت في إنشاء ألعاب Roblox منذ أكثر بقليل من سنتين واكتسبت الخبرة من خلال إنشاء مشاريع وأنظمة مختلفة.",aboutText2:"إليك بعض الأمثلة على المشاريع والأنظمة التي عملت عليها.",reviewsTitle:"التقييمات",reviewsText:"ستتم إضافة تقييمات العملاء الأوائل قريبًا جدًا.",contactTitle:"لنعمل معًا",contactDescription:"هل لديك مشروع في ذهنك؟ تواصل معي. سيعتمد السعر على مدة المشروع ومدى تعقيده. لا توجد رسوم مخفية: يتم تحديد السعر النهائي قبل بدء العمل.",emailLabel:"البريد",timezoneLabel:"المنطقة الزمنية",nameLabel:"الاسم / اسم المستخدم (اختياري)",namePlaceholder:"اسمك أو اسم المستخدم",contactMethodLabel:"طريقة التواصل المفضلة",contactMethodPlaceholder:"اختر طريقة التواصل",discordContactLabel:"اسم مستخدم Discord",discordPlaceholder:"مثال Just_me",discordHelp:"أدخل فقط المعرّف اللازم للعثور عليك على Discord.",formEmailLabel:"البريد الإلكتروني",emailPlaceholder:"your@email.com",emailHelp:"البريد الإلكتروني مطلوب فقط إذا اخترت البريد الإلكتروني كطريقة للتواصل.",themeLabel:"موضوع المشروع",themePlaceholder:"اختر موضوعًا",themeGameplay:"نظام أسلوب اللعب",themeUi:"واجهة المستخدم",themeFullGame:"لعبة كاملة",themeBugFixing:"إصلاح الأخطاء",themeOther:"أخرى",otherThemeLabel:"موضوع مشروعك",otherThemePlaceholder:"صف مشروعك",currencyLabel:"العملة",currencyPlaceholder:"اختر العملة",amountLabel:"الميزانية",amountPlaceholder:"المبلغ",budgetHelp:"الميزانية والعملة مطلوبتان.",messageLabel:"الرسالة",messagePlaceholder:"أخبرني عن مشروعك...",consentText:"لقد قرأت سياسة الخصوصية وشروط الاستخدام وأوافق على استخدام المعلومات اللازمة لطلبي للرد عليّ.",sendButton:"إرسال الرسالة",sendingButton:"جارٍ الإرسال...",formSuccessTitle:"تم إرسال الرسالة",formSuccessMessage:"تم إرسال رسالتك بنجاح.",formErrorTitle:"حدث خطأ",formErrorMessage:"تعذر إرسال رسالتك. يرجى المحاولة مرة أخرى.",privacyTitle:"سياسة الخصوصية",privacyIntro:"توضح هذه الصفحة المعلومات المطلوبة عبر النموذج وسبب طلبها.",privacyDataTitle:"البيانات التي يتم جمعها",privacyDataText:"قد يجمع النموذج اسمًا أو اسم مستخدم اختياريًا، وطريقة التواصل المختارة، واسم مستخدم Discord أو البريد الإلكتروني المقابل، وموضوع المشروع، وميزانية ومحتوى الرسالة.",privacyPurposeTitle:"الغرض",privacyPurposeText:"تُستخدم هذه المعلومات فقط لفهم طلبك والرد بشأن مشروع. لا يتم إرسال نشرة إخبارية أو تسويق آلي من هذا النموذج.",privacyRecipientTitle:"المستلمون ومقدمو الخدمات",privacyRecipientText:"يتم إرسال بيانات النموذج إلى FormSubmit لتوصيل الرسالة إلى عنوان التواصل الخاص بالموقع. قد يتم أيضًا تحميل YouTube إذا وافقت على المحتوى الخارجي وفعّلت مقاطع الفيديو.",privacyRetentionTitle:"الاحتفاظ والحقوق",privacyRetentionText:"يتم الاحتفاظ بالرسائل فقط للمدة اللازمة لمعالجة الطلب ومتابعته، ثم حذفها عند عدم الحاجة إليها. يمكنك طلب الوصول إلى بياناتك أو تصحيحها أو حذفها.",deleteTitle:"طلب حذف البيانات",deleteText:"اذكر معلومات كافية للعثور على طلبك.",privacyMinorsTitle:"القاصرون",privacyMinorsText:"لا يطلب النموذج معلومات خاصة بالقاصرين. عندما يعتمد المعالجة على الموافقة في خدمة مجتمع المعلومات، تنطبق القواعد الفرنسية المتعلقة بموافقة من هم دون 15 عامًا.",termsTitle:"شروط الاستخدام",termsContactTitle:"التواصل والطلبات",termsContactText:"يُستخدم النموذج لإرسال طلب مشروع. إرسال الطلب لا يعني تلقائيًا قبول المشروع.",termsPriceTitle:"الأسعار والرسوم",termsPriceText:"الميزانية مطلوبة وإرشادية. لا تتم إضافة رسوم مخفية: يجب الاتفاق على السعر وأي رسوم مطبقة قبل بدء العمل.",termsContentTitle:"المحتوى",termsContentText:"تُعرض مقاطع الفيديو والصور والروابط لعرض المشاريع. تبقى حقوق محتوى الأطراف الثالثة لأصحابها.",refundTitle:"سياسة الاسترداد",refundText:"لا يتم تحصيل أي دفعة أو عربون مباشرة عبر هذا الموقع. إذا تم الاتفاق على خدمة مدفوعة بشكل منفصل، فيجب تحديد شروط الدفع والإلغاء والاسترداد قبل الدفع والالتزام بالقواعد المعمول بها.",cookiesTitle:"سياسة ملفات تعريف الارتباط والمحتوى الخارجي",cookiesWhatTitle:"هذا الموقع",cookiesWhatText:"لا يستخدم الموقع ملفات تعريف ارتباط إعلانية أو تحليلات للتشغيل. قد يتم استخدام ملف تقني فقط لتذكر الاختيار المتعلق بالمحتوى الخارجي.",cookiesYoutubeTitle:"YouTube",cookiesYoutubeText:"يتم حظر مقاطع YouTube قبل اختيارك. يتم تحميلها فقط إذا وافقت على المحتوى الخارجي. عند الرفض تبقى المقاطع معطلة.",cookiesChangeTitle:"تغيير الاختيار",cookieSettingsButton:"تغيير اختياري",videoConsentText:"يتم تحميل فيديو YouTube فقط بعد اختيار الموافقة.",legalInfoTitle:"المعلومات القانونية",legalInfoIntro:"يجب استكمال المعلومات أدناه أو تكييفها وفقًا لوضعك القانوني الفعلي والقواعد المطبقة عليك.",legalEditor:"ناشر الموقع:",legalEmail:"التواصل:",legalHost:"الاستضافة:",footerPrivacy:"الخصوصية",footerTerms:"الشروط",footerRefund:"الاسترداد",footerCookies:"ملفات الارتباط",footerLegal:"المعلومات القانونية",footerDelete:"حذف بياناتي",cookieTitle:"محتوى خارجي",cookieDescription:"مقاطع YouTube معطلة افتراضيًا. يمكنك قبول أو رفض تحميلها. يمكن تغيير اختيارك في أي وقت من قسم ملفات تعريف الارتباط.",cookieReject:"رفض الكل",cookieAccept:"قبول الكل"}
-};
+    /* =========================
+       TRANSLATIONS
+    ========================= */
 
-const contactForm=document.getElementById("contactForm");
-const contactMethod=document.getElementById("contactMethod");
-const discordGroup=document.getElementById("discordGroup");
-const emailGroup=document.getElementById("emailGroup");
-const discord=document.getElementById("discord");
-const email=document.getElementById("email");
-const theme=document.getElementById("theme");
-const otherThemeGroup=document.getElementById("otherThemeGroup");
-const otherTheme=document.getElementById("otherTheme");
-const currency=document.getElementById("currency");
-const amount=document.getElementById("amount");
-const languageSelect=document.getElementById("languageSelect");
-const mobileMenuButton=document.getElementById("mobileMenuButton");
-const mobileMenu=document.getElementById("mobileMenu");
-const formPopup=document.getElementById("formPopup");
-const formPopupIcon=document.getElementById("formPopupIcon");
-const formPopupTitle=document.getElementById("formPopupTitle");
-const formPopupMessage=document.getElementById("formPopupMessage");
-const formPopupClose=document.getElementById("formPopupClose");
-const cookieBanner=document.getElementById("cookieBanner");
-const cookieAccept=document.getElementById("cookieAccept");
-const cookieReject=document.getElementById("cookieReject");
-const cookieSettingsButton=document.getElementById("cookieSettingsButton");
-let currentLanguage="fr";
-let popupTimeout;
+    const translations = {
 
-function t(key){return (translations[currentLanguage]&&translations[currentLanguage][key])||translations.fr[key]||key}
+        en: {
+            navWork: "My Work",
+            navSkills: "Skills",
+            navAbout: "About",
+            navReviews: "Reviews",
+            navContact: "Contact",
 
-function changeLanguage(language){
-if(!translations[language])language="fr";
-currentLanguage=language;
-document.documentElement.lang=language;
-document.body.dir=language==="ar"?"rtl":"ltr";
-document.body.classList.toggle("rtl",language==="ar");
-document.querySelectorAll("[data-i18n]").forEach(el=>{
-const key=el.getAttribute("data-i18n");
-if(translations[language][key]!==undefined)el.textContent=translations[language][key];
-});
-document.querySelectorAll("[data-placeholder]").forEach(el=>{
-const key=el.getAttribute("data-placeholder");
-if(translations[language][key]!==undefined)el.placeholder=translations[language][key];
-});
-document.title={fr:"Nonop31 - Développeur Roblox",en:"Nonop31 - Roblox Developer",zh:"Nonop31 - Roblox 开发者",hi:"Nonop31 - Roblox डेवलपर",es:"Nonop31 - Desarrollador Roblox",ar:"Nonop31 - مطور Roblox"}[language];
-languageSelect.value=language;
-updatePopupLanguage();
-}
+            heroTitle: "I develop Roblox systems and mechanics.",
+            heroDescription:
+                "I'm a Roblox developer with more than 2 years of experience creating Roblox games. I can create a Roblox game from A to Z, including systems, mechanics and UI.",
+            heroProjects: "View my work",
+            heroContact: "Contact me",
+            heroProjectDescription:
+                "My Roblox game, developed independently.",
 
-languageSelect.addEventListener("change",()=>changeLanguage(languageSelect.value));
+            workTitle: "My Work",
+            workDescription:
+                "Some Roblox projects and systems I have worked on.",
 
-mobileMenuButton.addEventListener("click",()=>{
-const open=mobileMenu.classList.toggle("open");
-mobileMenuButton.setAttribute("aria-expanded",String(open));
-mobileMenuButton.setAttribute("aria-label",open?(t("navContact")==="Contact"?"Close menu":"Fermer le menu"):(t("navContact")==="Contact"?"Open menu":"Ouvrir le menu"));
-});
-mobileMenu.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>{
-mobileMenu.classList.remove("open");mobileMenuButton.setAttribute("aria-expanded","false");
-}));
+            projectCrush:
+                "First project developed entirely independently.",
+            projectCannon:
+                "A fully functional cannon that I made for a client. The UI was not made by me, I only coded the system.",
+            projectSettings:
+                "A settings UI that I made for my game.",
+            projectAfkFountain:
+                "A simple AFK system.",
+            projectAfkBox:
+                "Another simple AFK system.",
 
-function updateContactMethod(){
-const method=contactMethod.value;
-discordGroup.classList.toggle("hidden",method!=="Discord");
-emailGroup.classList.toggle("hidden",method!=="Email");
-discord.required=method==="Discord";
-email.required=method==="Email";
-if(method!=="Discord")discord.value="";
-if(method!=="Email")email.value="";
-}
-contactMethod.addEventListener("change",updateContactMethod);
+            moreWorkTitle: "More Work",
+            playOnRoblox: "Play on Roblox",
 
-function updateOtherThemeField(){
-const isOther=theme.value==="Other";
-otherThemeGroup.classList.toggle("hidden",!isOther);
-otherTheme.required=isOther;
-if(!isOther)otherTheme.value="";
-}
-theme.addEventListener("change",updateOtherThemeField);
+            statsTitle: "Game Statistics",
+            statsDescription:
+                "Statistics from my Roblox game, which has a 16+ maturity rating without paying for Roblox advertisements.",
+            statsCaption:
+                "Click to open the game on Roblox.",
 
-function updateBudgetRequirement(){
-currency.required=true;
-amount.required=true;
-}
-amount.addEventListener("input",updateBudgetRequirement);
+            skillsTitle: "Skills",
+            skillsDescription:
+                "The main tools and areas I work with.",
+            skillLanguage: "Language",
+            skillRoblox: "Roblox",
+            skillGameplay: "Gameplay",
+            skillUi: "UI",
 
-function updatePopupLanguage(){
-if(!formPopup.classList.contains("show"))return;
-const success=formPopup.dataset.status==="success";
-formPopupTitle.textContent=success?t("formSuccessTitle"):t("formErrorTitle");
-formPopupMessage.textContent=success?t("formSuccessMessage"):t("formErrorMessage");
-}
-function showFormPopup(success){
-formPopup.dataset.status=success?"success":"error";
-formPopupIcon.textContent=success?"✓":"!";
-formPopupTitle.textContent=success?t("formSuccessTitle"):t("formErrorTitle");
-formPopupMessage.textContent=success?t("formSuccessMessage"):t("formErrorMessage");
-formPopup.classList.add("show");
-clearTimeout(popupTimeout);
-popupTimeout=setTimeout(()=>formPopup.classList.remove("show"),6000);
-}
-formPopupClose.addEventListener("click",()=>formPopup.classList.remove("show"));
+            aboutLabel: "About me",
+            aboutText1:
+                "Some information about me. I started creating Roblox games a little over 2 years ago. I gained experience by creating different projects and systems.",
+            aboutText2:
+                "Here are some examples of projects and systems I have worked on.",
 
-function getCookie(name){
-return document.cookie.split("; ").find(row=>row.startsWith(name+"="))?.split("=")[1]||null;
-}
-function setCookie(name,value,days){
-const maxAge=days*24*60*60;
-document.cookie=name+"="+encodeURIComponent(value)+"; Max-Age="+maxAge+"; Path=/; SameSite=Lax";
-}
-function getExternalConsent(){return getCookie("externalContentConsent")}
-function showCookieBanner(){cookieBanner.classList.add("show")}
-function hideCookieBanner(){cookieBanner.classList.remove("show")}
+            reviewsTitle: "Reviews",
+            reviewsText:
+                "Reviews from the first clients will be added very soon.",
 
-function loadExternalVideos(){
-document.querySelectorAll("[data-video-id]").forEach(container=>{
-const id=container.getAttribute("data-video-id");
-const title=container.getAttribute("data-video-title")||"YouTube video";
-if(container.querySelector("iframe"))return;
-container.innerHTML="";
-const iframe=document.createElement("iframe");
-iframe.src="https://www.youtube-nocookie.com/embed/"+encodeURIComponent(id);
-iframe.title=title;
-iframe.loading="lazy";
-iframe.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-iframe.allowFullscreen=true;
-container.appendChild(iframe);
-});
-}
-function disableExternalVideos(){
-document.querySelectorAll("[data-video-id]").forEach(container=>{
-if(container.querySelector("iframe")){
-const id=container.getAttribute("data-video-id");
-const title=container.getAttribute("data-video-title")||"YouTube video";
-container.innerHTML='<div class="video-placeholder"><strong>'+title.replace(/ demonstration$/,"")+'</strong><span data-i18n="videoConsentText"></span><button type="button" class="button" data-enable-videos>Activer les vidéos externes</button></div>';
-}
-});
-document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.getAttribute("data-i18n");if(t(key)!==key)el.textContent=t(key)});
-document.querySelectorAll("[data-enable-videos]").forEach(btn=>btn.addEventListener("click",()=>showCookieBanner()));
-}
-function applyExternalConsent(){
-if(getExternalConsent()==="accepted")loadExternalVideos();
-else disableExternalVideos();
-}
-cookieAccept.addEventListener("click",()=>{
-setCookie("externalContentConsent","accepted",180);
-hideCookieBanner();
-loadExternalVideos();
-});
-cookieReject.addEventListener("click",()=>{
-setCookie("externalContentConsent","rejected",180);
-hideCookieBanner();
-disableExternalVideos();
-});
-cookieSettingsButton.addEventListener("click",()=>{
-showCookieBanner();
-document.getElementById("cookies").scrollIntoView({behavior:"smooth"});
-});
-document.addEventListener("click",event=>{
-if(event.target.matches("[data-enable-videos]"))showCookieBanner();
-});
+            contactTitle: "Let's work together",
+            contactDescription:
+                "Do you have a project in mind? Contact me. The price will depend on the duration and complexity of the project.",
+            emailLabel: "Email",
+            timezoneLabel: "Timezone",
 
-// FormSubmit utilise ici un POST HTML classique.
-// Cela évite les problèmes CORS liés à l'endpoint AJAX.
-const params = new URLSearchParams(window.location.search);
-if (params.get("sent") === "1") {
-  showFormPopup(true);
-  window.history.replaceState({}, document.title, window.location.pathname + "#contact");
-}
+            contactMethodLabel: "Preferred contact method",
+            contactMethodPlaceholder: "Select a contact method",
+            contactMethodEmail: "Email",
+            contactMethodDiscord: "Discord",
+            discordLabel: "Discord username",
+            discordPlaceholder: "Your Discord username",
+            consentText: "I agree that the information submitted through this form may be used to respond to my request, as described in the privacy policy.",
+            privacyLink: "Privacy policy",
+            termsLink: "Terms",
+            refundLink: "Refunds",
+            cookiesLink: "Cookies",
 
-changeLanguage("fr");
-updateContactMethod();
-updateOtherThemeField();
-updateBudgetRequirement();
+            privacyTitle: "Privacy policy",
+            privacyIntro: "How information submitted through this portfolio is handled.",
+            privacyData: "The contact form may collect your name if you choose to provide it, your preferred contact method, the corresponding contact information, your project theme, your budget currency and amount, your message, and your consent.",
+            privacyPurpose: "This information is used to review and respond to your project request. The form is processed through FormSubmit, a third-party form service, so the submitted information is transmitted to that service and then to the portfolio email address configured for the form.",
+            privacyRetention: "Information is kept only for as long as reasonably necessary to handle the request and any resulting communication, subject to the third-party service's own retention practices.",
+            privacyRights: "You may contact me at nonop31.the.real@gmail.com to ask about your submitted information, request correction, or request deletion where applicable.",
+            termsTitle: "Terms",
+            termsIntro: "General information about requests and projects.",
+            termsText1: "A project is discussed and agreed with the client before development starts. Scope, deliverables, price, deadlines, revisions, and payment terms should be confirmed before work begins.",
+            termsText2: "Sending the contact form is a project inquiry and does not by itself create a contract or guarantee that the project will be accepted.",
+            refundTitle: "Refund policy",
+            refundIntro: "Refund conditions should be agreed before paid work begins.",
+            refundText: "Because each project is custom, any refund, cancellation, or partial-refund terms will depend on the agreement made for that specific project and on applicable law. No refund condition on this page overrides mandatory consumer rights where they apply.",
+            cookiesTitle: "Cookie policy",
+            cookiesIntro: "This portfolio is designed to avoid non-essential cookies.",
+            cookiesText: "The language preference is stored locally in your browser using localStorage. This is not a cookie. If non-essential cookies or similar trackers are added later, they should be disclosed and handled according to the applicable consent requirements.",
+            nameLabel: "Name",
+            namePlaceholder: "Your name",
+            formEmailLabel: "Email",
+            emailPlaceholder: "your@email.com",
 
-if(getExternalConsent()==="accepted"||getExternalConsent()==="rejected"){
-applyExternalConsent();
-}else{
-showCookieBanner();
-disableExternalVideos();
-}
+            themeLabel: "Project theme",
+            themePlaceholder: "Select a theme",
+            themeGameplay: "Gameplay system",
+            themeUi: "UI",
+            themeFullGame: "Full game",
+            themeBugFixing: "Bug fixing",
+            themeOther: "Other",
+
+            otherThemeLabel: "Your project theme",
+            otherThemePlaceholder: "Describe your project theme",
+
+            currencyLabel: "Currency",
+            currencyPlaceholder: "Select currency",
+            amountLabel: "Amount",
+            amountPlaceholder: "Enter your amount",
+
+            messageLabel: "Message",
+            messagePlaceholder: "Tell me about your project...",
+
+            sendButton: "Send message",
+            sendingButton: "Sending...",
+
+            formSuccessTitle: "Message sent",
+            formSuccessMessage:
+                "Your message has been sent successfully.",
+            formErrorTitle: "Something went wrong",
+            formErrorMessage:
+                "Your message could not be sent. Please try again.",
+
+            footerText: "Roblox Developer"
+        },
+
+        fr: {
+            navWork: "Mon travail",
+            navSkills: "Compétences",
+            navAbout: "À propos",
+            navReviews: "Avis",
+            navContact: "Contact",
+
+            heroTitle:
+                "Je développe des systèmes et des mécaniques Roblox.",
+            heroDescription:
+                "Je suis développeur Roblox avec plus de 2 ans d'expérience dans la création de jeux Roblox. Je peux créer un jeu Roblox de A à Z, que ce soit les systèmes, les mécaniques et les UI.",
+            heroProjects: "Voir mes projets",
+            heroContact: "Me contacter",
+            heroProjectDescription:
+                "Mon jeu Roblox, développé de manière indépendante.",
+
+            workTitle: "Mon travail",
+            workDescription:
+                "Quelques projets et systèmes Roblox sur lesquels j'ai travaillé.",
+
+            projectCrush:
+                "Premier projet développé entièrement de manière indépendante.",
+            projectCannon:
+                "Un canon complètement fonctionnel que j'ai réalisé pour un client. L'UI n'a pas été réalisée par moi, j'ai simplement codé le système.",
+            projectSettings:
+                "Une UI de settings que j'ai réalisée pour mon jeu.",
+            projectAfkFountain:
+                "Un simple système d'AFK.",
+            projectAfkBox:
+                "Un autre simple système d'AFK.",
+
+            moreWorkTitle: "Plus de projets",
+            playOnRoblox: "Jouer sur Roblox",
+
+            statsTitle: "Statistiques",
+            statsDescription:
+                "Statistiques de mon jeu Roblox qui a une maturité 16 ans et + sans avoir payé pour des annonces sur Roblox.",
+            statsCaption:
+                "Cliquez pour ouvrir le jeu sur Roblox.",
+
+            skillsTitle: "Compétences",
+            skillsDescription:
+                "Les principaux outils et domaines sur lesquels je travaille.",
+            skillLanguage: "Langage",
+            skillRoblox: "Roblox",
+            skillGameplay: "Gameplay",
+            skillUi: "UI",
+
+            aboutLabel: "À propos de moi",
+            aboutText1:
+                "Quelques informations sur moi. J'ai commencé à créer des jeux Roblox il y a un peu plus de 2 ans. J'ai engrangé de l'expérience en créant différents projets et systèmes.",
+            aboutText2:
+                "Voici quelques exemples de projets et de systèmes sur lesquels j'ai travaillé.",
+
+            reviewsTitle: "Avis",
+            reviewsText:
+                "Les avis des premiers clients seront ajoutés très prochainement.",
+
+            contactTitle: "Travaillons ensemble",
+            contactDescription:
+                "Vous avez un projet en tête ? Contactez-moi, le prix se fera en fonction de la durée et de la complexité du projet.",
+            emailLabel: "Email",
+            timezoneLabel: "Fuseau",
+
+            contactMethodLabel: "Moyen de contact préféré",
+            contactMethodPlaceholder: "Sélectionnez un moyen de contact",
+            contactMethodEmail: "Email",
+            contactMethodDiscord: "Discord",
+            discordLabel: "Nom d'utilisateur Discord",
+            discordPlaceholder: "Votre nom d'utilisateur Discord",
+            consentText: "J'accepte que les informations envoyées via ce formulaire soient utilisées pour répondre à ma demande, comme indiqué dans la politique de confidentialité.",
+            privacyLink: "Politique de confidentialité",
+            termsLink: "Conditions",
+            refundLink: "Remboursements",
+            cookiesLink: "Cookies",
+
+            privacyTitle: "Politique de confidentialité",
+            privacyIntro: "Comment les informations envoyées via ce portfolio sont traitées.",
+            privacyData: "Le formulaire peut collecter votre nom si vous choisissez de le fournir, votre moyen de contact préféré, les coordonnées correspondantes, le thème de votre projet, la devise et le montant de votre budget, votre message et votre consentement.",
+            privacyPurpose: "Ces informations servent à examiner et à répondre à votre demande de projet. Le formulaire est traité via FormSubmit, un service tiers de formulaires : les informations envoyées sont donc transmises à ce service puis à l'adresse email configurée pour le portfolio.",
+            privacyRetention: "Les informations sont conservées uniquement pendant la durée raisonnablement nécessaire au traitement de la demande et des échanges qui peuvent en découler, sous réserve des pratiques de conservation du service tiers.",
+            privacyRights: "Vous pouvez contacter nonop31.the.real@gmail.com pour demander des informations sur vos données transmises, une correction ou une suppression lorsque cela est applicable.",
+            termsTitle: "Conditions",
+            termsIntro: "Informations générales sur les demandes et les projets.",
+            termsText1: "Un projet est discuté et accepté avec le client avant le début du développement. Le périmètre, les livrables, le prix, les délais, les révisions et les modalités de paiement doivent être confirmés avant le début du travail.",
+            termsText2: "L'envoi du formulaire constitue une demande de projet et ne crée pas à lui seul un contrat ni une garantie d'acceptation du projet.",
+            refundTitle: "Politique de remboursement",
+            refundIntro: "Les conditions de remboursement doivent être convenues avant le début d'un travail payant.",
+            refundText: "Chaque projet étant personnalisé, les conditions de remboursement, d'annulation ou de remboursement partiel dépendent de l'accord conclu pour le projet concerné et du droit applicable. Aucune condition présentée ici ne remplace les droits impératifs du consommateur lorsqu'ils s'appliquent.",
+            cookiesTitle: "Politique relative aux cookies",
+            cookiesIntro: "Ce portfolio est conçu pour éviter les cookies non essentiels.",
+            cookiesText: "La préférence de langue est enregistrée localement dans votre navigateur avec localStorage. Ce n'est pas un cookie. Si des cookies non essentiels ou des traceurs similaires sont ajoutés plus tard, ils devront être indiqués et gérés conformément aux exigences de consentement applicables.",
+            nameLabel: "Nom",
+            namePlaceholder: "Votre nom",
+            formEmailLabel: "Email",
+            emailPlaceholder: "votre@email.com",
+
+            themeLabel: "Thème du projet",
+            themePlaceholder: "Sélectionnez un thème",
+            themeGameplay: "Système de gameplay",
+            themeUi: "UI",
+            themeFullGame: "Jeu complet",
+            themeBugFixing: "Correction de bugs",
+            themeOther: "Autre",
+
+            otherThemeLabel: "Thème de votre projet",
+            otherThemePlaceholder: "Décrivez le thème de votre projet",
+
+            currencyLabel: "Devise",
+            currencyPlaceholder: "Sélectionnez une devise",
+            amountLabel: "Montant",
+            amountPlaceholder: "Entrez votre montant",
+
+            messageLabel: "Message",
+            messagePlaceholder: "Parlez-moi de votre projet...",
+
+            sendButton: "Envoyer le message",
+            sendingButton: "Envoi...",
+
+            formSuccessTitle: "Message envoyé",
+            formSuccessMessage:
+                "Votre message a bien été envoyé.",
+            formErrorTitle: "Une erreur est survenue",
+            formErrorMessage:
+                "Votre message n'a pas pu être envoyé. Veuillez réessayer.",
+
+            footerText: "Développeur Roblox"
+        },
+
+        zh: {
+            navWork: "我的作品",
+            navSkills: "技能",
+            navAbout: "关于我",
+            navReviews: "评价",
+            navContact: "联系",
+
+            heroTitle: "我开发 Roblox 系统和游戏机制。",
+            heroDescription:
+                "我是一名 Roblox 开发者，有超过 2 年的 Roblox 游戏开发经验。我可以从零开始制作 Roblox 游戏，包括系统、游戏机制和 UI。",
+            heroProjects: "查看我的作品",
+            heroContact: "联系我",
+            heroProjectDescription:
+                "我的 Roblox 游戏，独立开发。",
+
+            workTitle: "我的作品",
+            workDescription:
+                "一些我参与开发过的 Roblox 项目和系统。",
+
+            projectCrush:
+                "第一个完全独立开发的项目。",
+            projectCannon:
+                "我为客户制作的一个完全可用的加农炮。UI 不是我制作的，我只负责系统代码。",
+            projectSettings:
+                "我为自己的游戏制作的设置 UI。",
+            projectAfkFountain:
+                "一个简单的 AFK 系统。",
+            projectAfkBox:
+                "另一个简单的 AFK 系统。",
+
+            moreWorkTitle: "更多作品",
+            playOnRoblox: "在 Roblox 上游玩",
+
+            statsTitle: "游戏数据",
+            statsDescription:
+                "我的 Roblox 游戏数据，该游戏为 16 岁以上成熟度，且没有付费进行 Roblox 广告推广。",
+            statsCaption:
+                "点击打开 Roblox 游戏。",
+
+            skillsTitle: "技能",
+            skillsDescription:
+                "我主要使用的工具和开发领域。",
+            skillLanguage: "语言",
+            skillRoblox: "Roblox",
+            skillGameplay: "游戏机制",
+            skillUi: "UI",
+
+            aboutLabel: "关于我",
+            aboutText1:
+                "一些关于我的信息。我在两年多以前开始制作 Roblox 游戏，并通过制作不同的项目和系统积累了经验。",
+            aboutText2:
+                "这里是一些我参与开发过的项目和系统。",
+
+            reviewsTitle: "评价",
+            reviewsText:
+                "第一批客户的评价将很快添加。",
+
+            contactTitle: "一起合作",
+            contactDescription:
+                "你有一个项目想法吗？欢迎联系我。价格会根据项目的时间和复杂程度而定。",
+            emailLabel: "邮箱",
+            timezoneLabel: "时区",
+
+            contactMethodLabel: "首选联系方式",
+            contactMethodPlaceholder: "选择联系方式",
+            contactMethodEmail: "邮箱",
+            contactMethodDiscord: "Discord",
+            discordLabel: "Discord 用户名",
+            discordPlaceholder: "你的 Discord 用户名",
+            consentText: "我同意根据隐私政策的说明，使用此表单提交的信息来回复我的请求。",
+            privacyLink: "隐私政策",
+            termsLink: "条款",
+            refundLink: "退款",
+            cookiesLink: "Cookie 政策",
+            privacyTitle: "隐私政策",
+            privacyIntro: "本作品集如何处理通过表单提交的信息。",
+            privacyData: "表单可能收集你选择提供的姓名、首选联系方式及对应信息、项目类型、预算货币和金额、消息以及同意记录。",
+            privacyPurpose: "这些信息用于查看并回复你的项目请求。表单通过第三方服务 FormSubmit 处理，因此提交的信息会传输给该服务，然后发送到作品集配置的邮箱地址。",
+            privacyRetention: "信息仅在处理请求及后续沟通所合理需要的时间内保留，并受第三方服务自身保留规则影响。",
+            privacyRights: "你可以通过 nonop31.the.real@gmail.com 联系我，询问已提交的信息，并在适用情况下请求更正或删除。",
+            termsTitle: "条款",
+            termsIntro: "关于项目请求和项目的一般信息。",
+            termsText1: "项目会在开发开始前与客户讨论并确认。范围、交付内容、价格、期限、修改次数和付款条件应在工作开始前确认。",
+            termsText2: "提交表单只是项目咨询，本身不会创建合同，也不保证项目一定会被接受。",
+            refundTitle: "退款政策",
+            refundIntro: "付费工作开始前应约定退款条件。",
+            refundText: "每个项目都是定制的，因此退款、取消或部分退款条件取决于具体项目协议和适用法律。本页面的任何条件都不会取代适用的强制性消费者权利。",
+            cookiesTitle: "Cookie 政策",
+            cookiesIntro: "本作品集设计为避免使用非必要 Cookie。",
+            cookiesText: "语言偏好使用 localStorage 保存在浏览器本地，这不是 Cookie。如果以后加入非必要 Cookie 或类似跟踪器，应根据适用的同意要求进行说明和处理。",
+            nameLabel: "姓名",
+            namePlaceholder: "你的姓名",
+            formEmailLabel: "邮箱",
+            emailPlaceholder: "your@email.com",
+
+            themeLabel: "项目类型",
+            themePlaceholder: "选择项目类型",
+            themeGameplay: "游戏机制系统",
+            themeUi: "UI",
+            themeFullGame: "完整游戏",
+            themeBugFixing: "修复 Bug",
+            themeOther: "其他",
+
+            otherThemeLabel: "项目类型",
+            otherThemePlaceholder: "描述你的项目类型",
+
+            currencyLabel: "货币",
+            currencyPlaceholder: "选择货币",
+            amountLabel: "金额",
+            amountPlaceholder: "输入金额",
+
+            messageLabel: "消息",
+            messagePlaceholder: "告诉我你的项目...",
+
+            sendButton: "发送消息",
+            sendingButton: "发送中...",
+
+            formSuccessTitle: "消息已发送",
+            formSuccessMessage:
+                "您的消息已成功发送。",
+            formErrorTitle: "出现问题",
+            formErrorMessage:
+                "您的消息无法发送，请重试。",
+
+            footerText: "Roblox 开发者"
+        },
+
+        hi: {
+            navWork: "मेरा काम",
+            navSkills: "कौशल",
+            navAbout: "मेरे बारे में",
+            navReviews: "समीक्षाएँ",
+            navContact: "संपर्क",
+
+            heroTitle: "मैं Roblox सिस्टम और गेम मैकेनिक्स बनाता हूँ।",
+            heroDescription:
+                "मैं एक Roblox डेवलपर हूँ और मुझे Roblox गेम बनाने का 2 साल से अधिक का अनुभव है। मैं सिस्टम, गेम मैकेनिक्स और UI सहित पूरा Roblox गेम बना सकता हूँ।",
+            heroProjects: "मेरा काम देखें",
+            heroContact: "मुझसे संपर्क करें",
+            heroProjectDescription:
+                "मेरा Roblox गेम, स्वतंत्र रूप से विकसित किया गया।",
+
+            workTitle: "मेरा काम",
+            workDescription:
+                "कुछ Roblox प्रोजेक्ट और सिस्टम जिन पर मैंने काम किया है।",
+
+            projectCrush:
+                "पूरी तरह से स्वतंत्र रूप से विकसित किया गया पहला प्रोजेक्ट।",
+            projectCannon:
+                "एक क्लाइंट के लिए बनाया गया पूरी तरह कार्यात्मक कैनन। UI मैंने नहीं बनाया था, मैंने केवल सिस्टम को कोड किया।",
+            projectSettings:
+                "मेरे गेम के लिए बनाया गया settings UI।",
+            projectAfkFountain:
+                "एक सरल AFK सिस्टम।",
+            projectAfkBox:
+                "एक और सरल AFK सिस्टम।",
+
+            moreWorkTitle: "अन्य काम",
+            playOnRoblox: "Roblox पर खेलें",
+
+            statsTitle: "गेम आँकड़े",
+            statsDescription:
+                "मेरे Roblox गेम के आँकड़े, जिसकी maturity 16+ है और Roblox विज्ञापनों के लिए भुगतान नहीं किया गया है।",
+            statsCaption:
+                "Roblox गेम खोलने के लिए क्लिक करें।",
+
+            skillsTitle: "कौशल",
+            skillsDescription:
+                "मुख्य टूल और क्षेत्र जिन पर मैं काम करता हूँ।",
+            skillLanguage: "भाषा",
+            skillRoblox: "Roblox",
+            skillGameplay: "गेमप्ले",
+            skillUi: "UI",
+
+            aboutLabel: "मेरे बारे में",
+            aboutText1:
+                "मेरे बारे में कुछ जानकारी। मैंने 2 साल से थोड़ा अधिक समय पहले Roblox गेम बनाना शुरू किया था। अलग-अलग प्रोजेक्ट और सिस्टम बनाकर मैंने अनुभव प्राप्त किया।",
+            aboutText2:
+                "यहाँ कुछ प्रोजेक्ट और सिस्टम हैं जिन पर मैंने काम किया है।",
+
+            reviewsTitle: "समीक्षाएँ",
+            reviewsText:
+                "पहले क्लाइंट्स की समीक्षाएँ जल्द ही जोड़ी जाएँगी।",
+
+            contactTitle: "आइए साथ काम करें",
+            contactDescription:
+                "क्या आपके पास कोई प्रोजेक्ट है? मुझसे संपर्क करें। कीमत प्रोजेक्ट की अवधि और जटिलता के अनुसार होगी।",
+            emailLabel: "ईमेल",
+            timezoneLabel: "समय क्षेत्र",
+
+            contactMethodLabel: "Preferred contact method",
+            contactMethodPlaceholder: "Select a contact method",
+            contactMethodEmail: "Email",
+            contactMethodDiscord: "Discord",
+            discordLabel: "Discord username",
+            discordPlaceholder: "Your Discord username",
+            consentText: "I agree that the information submitted through this form may be used to respond to my request, as described in the privacy policy.",
+            privacyLink: "Privacy policy",
+            termsLink: "Terms",
+            refundLink: "Refunds",
+            cookiesLink: "Cookies",
+            privacyTitle: "Privacy policy",
+            privacyIntro: "How information submitted through this portfolio is handled.",
+            privacyData: "The form may collect your name if you choose to provide it, your preferred contact method, the corresponding contact information, your project theme, budget currency and amount, your message, and your consent.",
+            privacyPurpose: "This information is used to respond to your project request. The form is processed through FormSubmit, a third-party service.",
+            privacyRetention: "Information is kept only as reasonably necessary to handle the request and related communication, subject to the third-party service practices.",
+            privacyRights: "You can contact nonop31.the.real@gmail.com to ask about submitted information, correction, or deletion where applicable.",
+            termsTitle: "Terms",
+            termsIntro: "General information about project requests.",
+            termsText1: "Project scope, deliverables, price, deadlines, revisions, and payment terms should be agreed before work begins.",
+            termsText2: "Submitting the form is an inquiry and does not by itself create a contract.",
+            refundTitle: "Refund policy",
+            refundIntro: "Refund conditions should be agreed before paid work begins.",
+            refundText: "Refund or cancellation terms depend on the project agreement and applicable law.",
+            cookiesTitle: "Cookie policy",
+            cookiesIntro: "This portfolio is designed to avoid non-essential cookies.",
+            cookiesText: "Language preference is stored with localStorage, not a cookie. Any future non-essential trackers should be disclosed and handled according to applicable consent requirements.",
+            nameLabel: "नाम",
+            namePlaceholder: "आपका नाम",
+            formEmailLabel: "ईमेल",
+            emailPlaceholder: "your@email.com",
+
+            themeLabel: "प्रोजेक्ट का प्रकार",
+            themePlaceholder: "प्रकार चुनें",
+            themeGameplay: "गेमप्ले सिस्टम",
+            themeUi: "UI",
+            themeFullGame: "पूरा गेम",
+            themeBugFixing: "बग फिक्सिंग",
+            themeOther: "अन्य",
+
+            otherThemeLabel: "आपके प्रोजेक्ट का प्रकार",
+            otherThemePlaceholder: "अपने प्रोजेक्ट के बारे में बताएं",
+
+            currencyLabel: "मुद्रा",
+            currencyPlaceholder: "मुद्रा चुनें",
+            amountLabel: "राशि",
+            amountPlaceholder: "राशि दर्ज करें",
+
+            messageLabel: "संदेश",
+            messagePlaceholder: "अपने प्रोजेक्ट के बारे में बताएं...",
+
+            sendButton: "संदेश भेजें",
+            sendingButton: "भेजा जा रहा है...",
+
+            formSuccessTitle: "संदेश भेज दिया गया",
+            formSuccessMessage:
+                "आपका संदेश सफलतापूर्वक भेज दिया गया है।",
+            formErrorTitle: "कुछ गलत हुआ",
+            formErrorMessage:
+                "आपका संदेश नहीं भेजा जा सका। कृपया फिर से प्रयास करें।",
+
+            footerText: "Roblox डेवलपर"
+        },
+
+        es: {
+            navWork: "Mi trabajo",
+            navSkills: "Habilidades",
+            navAbout: "Sobre mí",
+            navReviews: "Reseñas",
+            navContact: "Contacto",
+
+            heroTitle: "Desarrollo sistemas y mecánicas para Roblox.",
+            heroDescription:
+                "Soy desarrollador de Roblox con más de 2 años de experiencia creando juegos de Roblox. Puedo crear un juego de Roblox desde cero, incluyendo sistemas, mecánicas y UI.",
+            heroProjects: "Ver mi trabajo",
+            heroContact: "Contactarme",
+            heroProjectDescription:
+                "Mi juego de Roblox, desarrollado de forma independiente.",
+
+            workTitle: "Mi trabajo",
+            workDescription:
+                "Algunos proyectos y sistemas de Roblox en los que he trabajado.",
+
+            projectCrush:
+                "Primer proyecto desarrollado completamente de forma independiente.",
+            projectCannon:
+                "Un cañón completamente funcional que hice para un cliente. La UI no fue hecha por mí, solo programé el sistema.",
+            projectSettings:
+                "Una UI de ajustes que hice para mi juego.",
+            projectAfkFountain:
+                "Un sistema AFK sencillo.",
+            projectAfkBox:
+                "Otro sistema AFK sencillo.",
+
+            moreWorkTitle: "Más trabajos",
+            playOnRoblox: "Jugar en Roblox",
+
+            statsTitle: "Estadísticas del juego",
+            statsDescription:
+                "Estadísticas de mi juego de Roblox, que tiene una clasificación de madurez de 16+ sin haber pagado por anuncios de Roblox.",
+            statsCaption:
+                "Haz clic para abrir el juego en Roblox.",
+
+            skillsTitle: "Habilidades",
+            skillsDescription:
+                "Las principales herramientas y áreas en las que trabajo.",
+            skillLanguage: "Lenguaje",
+            skillRoblox: "Roblox",
+            skillGameplay: "Gameplay",
+            skillUi: "UI",
+
+            aboutLabel: "Sobre mí",
+            aboutText1:
+                "Algunos datos sobre mí. Empecé a crear juegos de Roblox hace algo más de 2 años. He adquirido experiencia creando diferentes proyectos y sistemas.",
+            aboutText2:
+                "Estos son algunos ejemplos de proyectos y sistemas en los que he trabajado.",
+
+            reviewsTitle: "Reseñas",
+            reviewsText:
+                "Las reseñas de los primeros clientes se añadirán muy pronto.",
+
+            contactTitle: "Trabajemos juntos",
+            contactDescription:
+                "¿Tienes un proyecto en mente? Contáctame. El precio dependerá de la duración y la complejidad del proyecto.",
+            emailLabel: "Email",
+            timezoneLabel: "Zona horaria",
+
+            contactMethodLabel: "Preferred contact method",
+            contactMethodPlaceholder: "Select a contact method",
+            contactMethodEmail: "Email",
+            contactMethodDiscord: "Discord",
+            discordLabel: "Discord username",
+            discordPlaceholder: "Your Discord username",
+            consentText: "I agree that the information submitted through this form may be used to respond to my request, as described in the privacy policy.",
+            privacyLink: "Privacy policy",
+            termsLink: "Terms",
+            refundLink: "Refunds",
+            cookiesLink: "Cookies",
+            privacyTitle: "Privacy policy",
+            privacyIntro: "How information submitted through this portfolio is handled.",
+            privacyData: "The form may collect your name if you choose to provide it, your preferred contact method, the corresponding contact information, your project theme, budget currency and amount, your message, and your consent.",
+            privacyPurpose: "This information is used to respond to your project request. The form is processed through FormSubmit, a third-party service.",
+            privacyRetention: "Information is kept only as reasonably necessary to handle the request and related communication, subject to the third-party service practices.",
+            privacyRights: "You can contact nonop31.the.real@gmail.com to ask about submitted information, correction, or deletion where applicable.",
+            termsTitle: "Terms",
+            termsIntro: "General information about project requests.",
+            termsText1: "Project scope, deliverables, price, deadlines, revisions, and payment terms should be agreed before work begins.",
+            termsText2: "Submitting the form is an inquiry and does not by itself create a contract.",
+            refundTitle: "Refund policy",
+            refundIntro: "Refund conditions should be agreed before paid work begins.",
+            refundText: "Refund or cancellation terms depend on the project agreement and applicable law.",
+            cookiesTitle: "Cookie policy",
+            cookiesIntro: "This portfolio is designed to avoid non-essential cookies.",
+            cookiesText: "Language preference is stored with localStorage, not a cookie. Any future non-essential trackers should be disclosed and handled according to applicable consent requirements.",
+            nameLabel: "Nombre",
+            namePlaceholder: "Tu nombre",
+            formEmailLabel: "Email",
+            emailPlaceholder: "tu@email.com",
+
+            themeLabel: "Tema del proyecto",
+            themePlaceholder: "Selecciona un tema",
+            themeGameplay: "Sistema de gameplay",
+            themeUi: "UI",
+            themeFullGame: "Juego completo",
+            themeBugFixing: "Corrección de bugs",
+            themeOther: "Otro",
+
+            otherThemeLabel: "Tema de tu proyecto",
+            otherThemePlaceholder: "Describe el tema de tu proyecto",
+
+            currencyLabel: "Moneda",
+            currencyPlaceholder: "Selecciona una moneda",
+            amountLabel: "Cantidad",
+            amountPlaceholder: "Introduce la cantidad",
+
+            messageLabel: "Mensaje",
+            messagePlaceholder: "Cuéntame sobre tu proyecto...",
+
+            sendButton: "Enviar mensaje",
+            sendingButton: "Enviando...",
+
+            formSuccessTitle: "Mensaje enviado",
+            formSuccessMessage:
+                "Tu mensaje se ha enviado correctamente.",
+            formErrorTitle: "Algo salió mal",
+            formErrorMessage:
+                "No se pudo enviar tu mensaje. Inténtalo de nuevo.",
+
+            footerText: "Desarrollador Roblox"
+        },
+
+        ar: {
+            navWork: "أعمالي",
+            navSkills: "المهارات",
+            navAbout: "عني",
+            navReviews: "التقييمات",
+            navContact: "تواصل",
+
+            heroTitle: "أطور أنظمة وميكانيكيات لألعاب Roblox.",
+            heroDescription:
+                "أنا مطور Roblox لدي أكثر من سنتين من الخبرة في إنشاء ألعاب Roblox. يمكنني إنشاء لعبة Roblox من البداية إلى النهاية، بما في ذلك الأنظمة والميكانيكيات وواجهات المستخدم.",
+            heroProjects: "مشاهدة أعمالي",
+            heroContact: "تواصل معي",
+            heroProjectDescription:
+                "لعبتي على Roblox، تم تطويرها بشكل مستقل.",
+
+            workTitle: "أعمالي",
+            workDescription:
+                "بعض مشاريع وأنظمة Roblox التي عملت عليها.",
+
+            projectCrush:
+                "أول مشروع تم تطويره بالكامل بشكل مستقل.",
+            projectCannon:
+                "مدفع يعمل بالكامل قمت بإنشائه لعميل. واجهة المستخدم لم أصنعها، بل قمت فقط ببرمجة النظام.",
+            projectSettings:
+                "واجهة إعدادات قمت بإنشائها للعبتي.",
+            projectAfkFountain:
+                "نظام AFK بسيط.",
+            projectAfkBox:
+                "نظام AFK بسيط آخر.",
+
+            moreWorkTitle: "أعمال أخرى",
+            playOnRoblox: "اللعب على Roblox",
+
+            statsTitle: "إحصائيات اللعبة",
+            statsDescription:
+                "إحصائيات لعبتي على Roblox، والتي تحمل تصنيف نضج 16+ دون دفع أموال للإعلانات على Roblox.",
+            statsCaption:
+                "اضغط لفتح اللعبة على Roblox.",
+
+            skillsTitle: "المهارات",
+            skillsDescription:
+                "الأدوات والمجالات الرئيسية التي أعمل بها.",
+            skillLanguage: "اللغة",
+            skillRoblox: "Roblox",
+            skillGameplay: "أسلوب اللعب",
+            skillUi: "واجهة المستخدم",
+
+            aboutLabel: "عني",
+            aboutText1:
+                "بعض المعلومات عني. بدأت في إنشاء ألعاب Roblox منذ أكثر بقليل من سنتين. اكتسبت الخبرة من خلال إنشاء مشاريع وأنظمة مختلفة.",
+            aboutText2:
+                "إليك بعض الأمثلة على المشاريع والأنظمة التي عملت عليها.",
+
+            reviewsTitle: "التقييمات",
+            reviewsText:
+                "ستتم إضافة تقييمات العملاء الأوائل قريبًا جدًا.",
+
+            contactTitle: "لنعمل معًا",
+            contactDescription:
+                "هل لديك مشروع في ذهنك؟ تواصل معي. سيعتمد السعر على مدة المشروع ومدى تعقيده.",
+            emailLabel: "البريد",
+            timezoneLabel: "المنطقة الزمنية",
+
+            contactMethodLabel: "Preferred contact method",
+            contactMethodPlaceholder: "Select a contact method",
+            contactMethodEmail: "Email",
+            contactMethodDiscord: "Discord",
+            discordLabel: "Discord username",
+            discordPlaceholder: "Your Discord username",
+            consentText: "I agree that the information submitted through this form may be used to respond to my request, as described in the privacy policy.",
+            privacyLink: "Privacy policy",
+            termsLink: "Terms",
+            refundLink: "Refunds",
+            cookiesLink: "Cookies",
+            privacyTitle: "Privacy policy",
+            privacyIntro: "How information submitted through this portfolio is handled.",
+            privacyData: "The form may collect your name if you choose to provide it, your preferred contact method, the corresponding contact information, your project theme, budget currency and amount, your message, and your consent.",
+            privacyPurpose: "This information is used to respond to your project request. The form is processed through FormSubmit, a third-party service.",
+            privacyRetention: "Information is kept only as reasonably necessary to handle the request and related communication, subject to the third-party service practices.",
+            privacyRights: "You can contact nonop31.the.real@gmail.com to ask about submitted information, correction, or deletion where applicable.",
+            termsTitle: "Terms",
+            termsIntro: "General information about project requests.",
+            termsText1: "Project scope, deliverables, price, deadlines, revisions, and payment terms should be agreed before work begins.",
+            termsText2: "Submitting the form is an inquiry and does not by itself create a contract.",
+            refundTitle: "Refund policy",
+            refundIntro: "Refund conditions should be agreed before paid work begins.",
+            refundText: "Refund or cancellation terms depend on the project agreement and applicable law.",
+            cookiesTitle: "Cookie policy",
+            cookiesIntro: "This portfolio is designed to avoid non-essential cookies.",
+            cookiesText: "Language preference is stored with localStorage, not a cookie. Any future non-essential trackers should be disclosed and handled according to applicable consent requirements.",
+            nameLabel: "الاسم",
+            namePlaceholder: "اسمك",
+            formEmailLabel: "البريد الإلكتروني",
+            emailPlaceholder: "your@email.com",
+
+            themeLabel: "موضوع المشروع",
+            themePlaceholder: "اختر موضوعًا",
+            themeGameplay: "نظام أسلوب اللعب",
+            themeUi: "واجهة المستخدم",
+            themeFullGame: "لعبة كاملة",
+            themeBugFixing: "إصلاح الأخطاء",
+            themeOther: "أخرى",
+
+            otherThemeLabel: "موضوع مشروعك",
+            otherThemePlaceholder: "صف موضوع مشروعك",
+
+            currencyLabel: "العملة",
+            currencyPlaceholder: "اختر العملة",
+            amountLabel: "المبلغ",
+            amountPlaceholder: "أدخل المبلغ",
+
+            messageLabel: "الرسالة",
+            messagePlaceholder: "أخبرني عن مشروعك...",
+
+            sendButton: "إرسال الرسالة",
+            sendingButton: "جارٍ الإرسال...",
+
+            formSuccessTitle: "تم إرسال الرسالة",
+            formSuccessMessage:
+                "تم إرسال رسالتك بنجاح.",
+            formErrorTitle: "حدث خطأ",
+            formErrorMessage:
+                "تعذر إرسال رسالتك. يرجى المحاولة مرة أخرى.",
+
+            footerText: "مطور Roblox"
+        }
+    };
+
+
+    /* =========================
+       LANGUAGE
+    ========================= */
+
+    let currentLanguage = "en";
+
+    function changeLanguage(language) {
+        if (!translations[language]) {
+            language = "en";
+        }
+
+        currentLanguage = language;
+
+        const dictionary = translations[language];
+
+        document.documentElement.lang = language;
+
+        if (language === "ar") {
+            document.body.classList.add("rtl");
+            document.body.dir = "rtl";
+        } else {
+            document.body.classList.remove("rtl");
+            document.body.dir = "ltr";
+        }
+
+        document.querySelectorAll("[data-i18n]").forEach(element => {
+            const key = element.getAttribute("data-i18n");
+
+            if (dictionary[key] !== undefined) {
+                element.textContent = dictionary[key];
+            }
+        });
+
+        document.querySelectorAll("[data-placeholder]").forEach(element => {
+            const key = element.getAttribute("data-placeholder");
+
+            if (dictionary[key] !== undefined) {
+                element.placeholder = dictionary[key];
+            }
+        });
+
+        document.title =
+            language === "fr"
+                ? "Nonop31 - Développeur Roblox"
+                : language === "zh"
+                    ? "Nonop31 - Roblox 开发者"
+                    : language === "hi"
+                        ? "Nonop31 - Roblox डेवलपर"
+                        : language === "es"
+                            ? "Nonop31 - Desarrollador Roblox"
+                            : language === "ar"
+                                ? "Nonop31 - مطور Roblox"
+                                : "Nonop31 - Roblox Developer";
+
+        const languageSelect =
+            document.getElementById("languageSelect");
+
+        languageSelect.value = language;
+
+        updatePopupLanguage();
+
+        localStorage.setItem("portfolioLanguage", language);
+    }
+
+
+    /* =========================
+       LANGUAGE SELECT
+    ========================= */
+
+    document
+        .getElementById("languageSelect")
+        .addEventListener("change", function () {
+            changeLanguage(this.value);
+        });
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const mobileMenuButton =
+        document.getElementById("mobileMenuButton");
+
+    const mobileMenu =
+        document.getElementById("mobileMenu");
+
+    mobileMenuButton.addEventListener("click", () => {
+        const isOpen =
+            mobileMenu.classList.toggle("open");
+
+        mobileMenuButton.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
+    });
+
+    mobileMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            mobileMenu.classList.remove("open");
+            mobileMenuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+        });
+    });
+
+
+    /* =========================
+       OTHER PROJECT THEME
+    ========================= */
+
+    const themeSelect =
+        document.getElementById("theme");
+
+    const otherThemeGroup =
+        document.getElementById("otherThemeGroup");
+
+    const otherTheme =
+        document.getElementById("otherTheme");
+
+    function updateOtherThemeField() {
+        if (themeSelect.value === "Other") {
+            otherThemeGroup.classList.remove("hidden");
+            otherTheme.required = true;
+        } else {
+            otherThemeGroup.classList.add("hidden");
+            otherTheme.required = false;
+            otherTheme.value = "";
+        }
+    }
+
+    themeSelect.addEventListener(
+        "change",
+        updateOtherThemeField
+    );
+
+
+    /* =========================
+       FORM POPUP
+    ========================= */
+
+    const contactForm =
+        document.getElementById("contactForm");
+
+    const formPopup =
+        document.getElementById("formPopup");
+
+    const formPopupIcon =
+        document.getElementById("formPopupIcon");
+
+    const formPopupTitle =
+        document.getElementById("formPopupTitle");
+
+    const formPopupMessage =
+        document.getElementById("formPopupMessage");
+
+    const formPopupClose =
+        document.getElementById("formPopupClose");
+
+    let popupTimeout;
+
+    function updatePopupLanguage() {
+        if (!formPopup.classList.contains("show")) {
+            return;
+        }
+
+        const dictionary =
+            translations[currentLanguage];
+
+        if (
+            formPopup.dataset.status === "success"
+        ) {
+            formPopupTitle.textContent =
+                dictionary.formSuccessTitle;
+
+            formPopupMessage.textContent =
+                dictionary.formSuccessMessage;
+        } else {
+            formPopupTitle.textContent =
+                dictionary.formErrorTitle;
+
+            formPopupMessage.textContent =
+                dictionary.formErrorMessage;
+        }
+    }
+
+    function showFormPopup(success) {
+        const dictionary =
+            translations[currentLanguage];
+
+        formPopup.dataset.status =
+            success ? "success" : "error";
+
+        if (success) {
+            formPopupIcon.textContent = "✓";
+
+            formPopupTitle.textContent =
+                dictionary.formSuccessTitle;
+
+            formPopupMessage.textContent =
+                dictionary.formSuccessMessage;
+        } else {
+            formPopupIcon.textContent = "!";
+
+            formPopupTitle.textContent =
+                dictionary.formErrorTitle;
+
+            formPopupMessage.textContent =
+                dictionary.formErrorMessage;
+        }
+
+        formPopup.classList.add("show");
+
+        clearTimeout(popupTimeout);
+
+        popupTimeout = setTimeout(() => {
+            formPopup.classList.remove("show");
+        }, 6000);
+    }
+
+    formPopupClose.addEventListener(
+        "click",
+        () => {
+            formPopup.classList.remove("show");
+        }
+    );
+
+
+    /* =========================
+       CONTACT METHOD
+    ========================= */
+
+    const contactMethod =
+        document.getElementById("contactMethod");
+
+    const emailGroup =
+        document.getElementById("emailGroup");
+
+    const discordGroup =
+        document.getElementById("discordGroup");
+
+    const emailInput =
+        document.getElementById("email");
+
+    const discordInput =
+        document.getElementById("discord");
+
+    function updateContactMethodFields() {
+        const method = contactMethod.value;
+
+        emailGroup.classList.toggle("hidden", method !== "Email");
+        discordGroup.classList.toggle("hidden", method !== "Discord");
+
+        emailInput.required = method === "Email";
+        discordInput.required = method === "Discord";
+
+        if (method !== "Email") {
+            emailInput.value = "";
+        }
+
+        if (method !== "Discord") {
+            discordInput.value = "";
+        }
+    }
+
+    contactMethod.addEventListener("change", updateContactMethodFields);
+
+
+    /* =========================
+       FORM SUBMISSION
+    ========================= */
+
+    contactForm.addEventListener("submit", function () {
+        const submitButton =
+            contactForm.querySelector(".contact-submit");
+
+        const dictionary =
+            translations[currentLanguage];
+
+        submitButton.disabled = true;
+        submitButton.textContent =
+            dictionary.sendingButton;
+
+        /*
+         * Native POST is intentionally used here.
+         * This avoids the CORS problem caused by FormSubmit's
+         * /ajax/ endpoint when called from GitHub Pages.
+         * The _next field returns the visitor to this portfolio.
+         */
+    });
+
+
+    /* =========================
+       SUCCESS REDIRECT
+    ========================= */
+
+    const urlParams =
+        new URLSearchParams(window.location.search);
+
+    if (urlParams.get("sent") === "1") {
+        showFormPopup(true);
+
+        urlParams.delete("sent");
+
+        const cleanQuery = urlParams.toString();
+        const cleanUrl =
+            window.location.pathname +
+            (cleanQuery ? "?" + cleanQuery : "") +
+            window.location.hash;
+
+        window.history.replaceState(
+            {},
+            document.title,
+            cleanUrl
+        );
+    }
+
+
+    /* =========================
+       INITIAL LANGUAGE
+    ========================= */
+
+    const savedLanguage =
+        localStorage.getItem("portfolioLanguage");
+
+    /*
+     * English is the default language.
+     * If the visitor already selected a language,
+     * that language is restored.
+     */
+
+    changeLanguage(
+        savedLanguage &&
+        translations[savedLanguage]
+            ? savedLanguage
+            : "en"
+    );
+
+    updateOtherThemeField();
+    updateContactMethodFields();
+
 </script>
+
 </body>
 </html>
