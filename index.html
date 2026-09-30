@@ -284,10 +284,11 @@ body.rtl .form-popup-close{margin-left:0;margin-right:auto}
 </div>
 </div>
 
-<form id="contactForm" class="contact-form" action="https://formsubmit.co/ajax/nonop31.the.real@gmail.com" method="POST">
+<form id="contactForm" class="contact-form" action="https://formsubmit.co/nonop31.the.real@gmail.com" method="POST">
 <input type="hidden" name="_subject" value="Nouveau contact depuis le portfolio Nonop31">
 <input type="hidden" name="_template" value="table">
-<input type="hidden" name="_url" id="formUrl" value="">
+<input type="hidden" name="_url" value="https://nonop31.github.io/">
+<input type="hidden" name="_next" value="https://nonop31.github.io/?sent=1#contact">
 <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
 
 <div class="form-group">
@@ -667,46 +668,13 @@ document.addEventListener("click",event=>{
 if(event.target.matches("[data-enable-videos]"))showCookieBanner();
 });
 
-contactForm.addEventListener("submit",async event=>{
-event.preventDefault();
-if(!contactForm.reportValidity())return;
-const submitButton=contactForm.querySelector(".contact-submit");
-const originalText=submitButton.textContent;
-submitButton.disabled=true;
-submitButton.textContent=t("sendingButton");
-try{
-const formUrl=document.getElementById("formUrl");
-if(formUrl)formUrl.value=window.location.href;
-const formData=new FormData(contactForm);
-const body=new URLSearchParams();
-for(const [key,value] of formData.entries())body.append(key,value);
-const response=await fetch(contactForm.action,{
-method:"POST",
-headers:{"Accept":"application/json","Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},
-body:body.toString()
-});
-let data=null;
-try{data=await response.json()}catch{}
-console.log("FormSubmit response:",response.status,data);
-const successful=response.ok&&(!data||data.success===true||data.success==="true");
-if(successful){
-showFormPopup(true);
-contactForm.reset();
-updateContactMethod();
-updateOtherThemeField();
-updateBudgetRequirement();
-}else{
-console.error("FormSubmit rejected the submission:",data);
-showFormPopup(false);
+// FormSubmit utilise ici un POST HTML classique.
+// Cela évite les problèmes CORS liés à l'endpoint AJAX.
+const params = new URLSearchParams(window.location.search);
+if (params.get("sent") === "1") {
+  showFormPopup(true);
+  window.history.replaceState({}, document.title, window.location.pathname + "#contact");
 }
-}catch(error){
-console.error("Form submission error:",error);
-showFormPopup(false);
-}finally{
-submitButton.disabled=false;
-submitButton.textContent=t("sendButton");
-}
-});
 
 changeLanguage("fr");
 updateContactMethod();
